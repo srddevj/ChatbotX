@@ -75,7 +75,7 @@ function legacyRequirementProbe(workflow, qualityProfile) {
   // viewBox as its intrinsic requirement. The authored viewBox remains a
   // migration capacity and is preserved separately on the migrated document.
   const probe = clone(workflow)
-  delete probe.meta.viewBox
+  probe.meta.viewBox = undefined
   return compileWorkflow({ workflow: probe, qualityProfile })
 }
 

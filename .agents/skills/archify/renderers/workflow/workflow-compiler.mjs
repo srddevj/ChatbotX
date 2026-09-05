@@ -1487,7 +1487,7 @@ function compileWorkflowInternal({
     )
   }
 
-  function verifiedLegacyAlternative(edge, from, to, requiredClearance) {
+  function verifiedLegacyAlternative(_edge, from, to, requiredClearance) {
     const occupied = [...nodes.values()].filter(
       (node) => node.lane === to.lane && node.id !== to.id,
     )
@@ -1750,13 +1750,13 @@ function compileWorkflowInternal({
         ? `remove explicit route geometry and endpoint sides from edge "${edgeName}" so readable-v2 can use its verified automatic candidate`
         : `remove explicit route geometry from edge "${edgeName}" so readable-v2 can use its verified automatic candidate`,
       (candidate) => {
-        delete candidate.via
-        delete candidate.channelX
-        delete candidate.channelY
-        delete candidate.route
+        candidate.via = undefined
+        candidate.channelX = undefined
+        candidate.channelY = undefined
+        candidate.route = undefined
         if (clearSides) {
-          delete candidate.fromSide
-          delete candidate.toSide
+          candidate.fromSide = undefined
+          candidate.toSide = undefined
         }
       },
     )
@@ -2132,7 +2132,7 @@ function compileWorkflowInternal({
       edge,
       `remove labelAt from edge "${workflowEdgeName(edge)}" so readable-v2 can use verified automatic label placement`,
       (candidate) => {
-        delete candidate.labelAt
+        candidate.labelAt = undefined
       },
     )
   }
@@ -3072,7 +3072,7 @@ function compileWorkflowInternal({
                 edge,
                 "remove labelAt so readable-v2 can use its verified automatic label placement",
                 (candidate) => {
-                  delete candidate.labelAt
+                  candidate.labelAt = undefined
                 },
               ),
             ],
@@ -3103,7 +3103,7 @@ function compileWorkflowInternal({
                 edge,
                 "remove labelAt so readable-v2 can use its verified automatic label placement",
                 (candidate) => {
-                  delete candidate.labelAt
+                  candidate.labelAt = undefined
                 },
               ),
             ],
@@ -3134,7 +3134,7 @@ function compileWorkflowInternal({
                 edge,
                 `remove labelAt from edge "${workflowEdgeName(edge)}" so readable-v2 can use its verified automatic label placement`,
                 (candidate) => {
-                  delete candidate.labelAt
+                  candidate.labelAt = undefined
                 },
               ),
             ],
@@ -3155,7 +3155,7 @@ function compileWorkflowInternal({
         `Unsupported diagram_type "${workflow.diagram_type}". Expected "workflow".`,
       )
     }
-    if (!(workflow.meta && workflow.meta.title)) {
+    if (!workflow.meta?.title) {
       problems.push("Workflow files must include meta.title.")
     }
     if (!(Array.isArray(workflow.lanes) && workflow.lanes.length)) {
@@ -4980,7 +4980,7 @@ function compileWorkflowInternal({
     }
     if (
       acceptsFix((document) => {
-        delete document.edges[edgeIndex].route
+        document.edges[edgeIndex].route = undefined
       })
     ) {
       supportedFixes.push(
@@ -5077,7 +5077,6 @@ function compileWorkflowInternal({
           [end[0], y],
         ]
       }
-      case "auto":
       default: {
         if (workflow.schema_version === 2) {
           if (edge.channelX !== undefined && edge.channelY !== undefined) {
@@ -5823,7 +5822,7 @@ function compileWorkflowInternal({
     }
     if (
       acceptsFix((document) => {
-        delete document.meta.viewBox
+        document.meta.viewBox = undefined
       })
     ) {
       supportedFixes.push(

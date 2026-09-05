@@ -70,7 +70,7 @@ for (const [mode, config] of Object.entries(CASES)) {
       },
     ]
     const withoutViews = structuredClone(withViews)
-    delete withoutViews.meta.views
+    withoutViews.meta.views = undefined
 
     const guided = run(mode, withViews, "guided")
     const plain = run(mode, withoutViews, "plain")

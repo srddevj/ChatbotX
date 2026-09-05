@@ -666,7 +666,7 @@ test("readable-v2 never routes through a single-rank group label", () => {
   assert.deepEqual(first.receipt.diagnostics, first.diagnostics)
 
   const repaired = clone(document)
-  delete repaired.edges[0].fromSide
+  repaired.edges[0].fromSide = undefined
   const rendered = compileWorkflow({
     workflow: repaired,
     qualityProfile: "showcase",

@@ -103,7 +103,7 @@ test("authored relationship identity and readable-v2 compiler keys survive sourc
 test("relationship ids stay optional and duplicate ids fail closed in the shared zero-install path", () => {
   for (const mode of Object.keys(CASES)) {
     const idless = fixture(mode)
-    delete idless[CASES[mode].collection][0].id
+    idless[CASES[mode].collection][0].id = undefined
     const plain = run(mode, idless, "idless")
     assert.equal(plain.result.status, 0, `${mode}: ${plain.result.stderr}`)
     const keyZeroTags = Array.from(

@@ -43,10 +43,10 @@ test("deployment ownership profile passes the checked production example and sta
   assert.doesNotThrow(() => validateEngineeringProfile("architecture", example))
 
   const ordinary = clone(example)
-  delete ordinary.meta.engineering_profile
+  ordinary.meta.engineering_profile = undefined
   ordinary.boundaries = []
   ordinary.components.forEach((component) => {
-    delete component.tag
+    component.tag = undefined
   })
   assert.doesNotThrow(() =>
     validateEngineeringProfile("architecture", ordinary),
@@ -55,7 +55,8 @@ test("deployment ownership profile passes the checked production example and sta
 
 test("deployment ownership profile reports exact owners, scopes, state, and crossing mechanisms", () => {
   const candidate = clone(example)
-  delete candidate.components.find((component) => component.id === "edge").tag
+  candidate.components.find((component) => component.id === "edge").tag =
+    undefined
   candidate.boundaries.find((boundary) =>
     boundary.label.includes("us-east-1"),
   ).wraps = candidate.boundaries

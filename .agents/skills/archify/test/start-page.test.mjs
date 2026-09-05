@@ -443,7 +443,7 @@ test("viewer gives wide screens a larger canvas without forcing a subtitle row",
         "utf8",
       ),
     )
-    delete input.meta.subtitle
+    input.meta.subtitle = undefined
     const source = path.join(tmp, "without-subtitle.architecture.json")
     const output = path.join(tmp, "without-subtitle.html")
     fs.writeFileSync(source, `${JSON.stringify(input, null, 2)}\n`)

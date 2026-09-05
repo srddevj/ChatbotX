@@ -261,10 +261,7 @@ function validateDataflow() {
     }
     if (nodes.has(flow.from) && nodes.has(flow.to)) {
       const routed = pathFor(flow)
-      const [start, end] = [
-        routed.points[0],
-        routed.points[routed.points.length - 1],
-      ]
+      const [start, end] = [routed.points[0], routed.points.at(-1)]
       const distance = Math.hypot(end[0] - start[0], end[1] - start[1])
       if (distance < 34) {
         problems.push(
@@ -463,7 +460,6 @@ function routeVia(flow, from, to, start, end) {
         [end[0], y],
       ]
     }
-    case "auto":
     default: {
       if (Math.abs(start[1] - end[1]) < 4) {
         return []

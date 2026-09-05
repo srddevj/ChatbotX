@@ -150,7 +150,7 @@ function stateWithFailureCheck(
     check: { nextCheckAt, consecutiveFailures },
   }
   if (withdrawCandidate) {
-    delete failedState.candidate
+    failedState.candidate = undefined
   }
   return failedState
 }
@@ -432,7 +432,7 @@ async function guardedCacheRead(token, read) {
 
 function cacheTokenFor(cacheDirectory) {
   const token = preparedCacheDirectories.get(path.resolve(cacheDirectory))
-  if (!(token && token.trusted)) {
+  if (!token?.trusted) {
     throw new CachePathChangedError(
       "cache directory has not been prepared safely",
     )
@@ -481,7 +481,7 @@ async function captureMutationParentSnapshots(token, targets) {
   return captured
 }
 
-async function verifyMutationParentSnapshots(token, snapshots) {
+async function verifyMutationParentSnapshots(_token, snapshots) {
   try {
     for (const snapshot of snapshots) {
       const metadata = await fs.lstat(snapshot.directory, { bigint: true })
@@ -1251,7 +1251,7 @@ async function discardPreparedClaim(cacheDirectory, operation) {
       throw error
     }
   }
-  delete operation.preparedClaimDirectory
+  operation.preparedClaimDirectory = undefined
 }
 
 async function promoteOperationClaim(cacheDirectory, operation) {
@@ -1282,7 +1282,7 @@ async function promoteOperationClaim(cacheDirectory, operation) {
         activeDirectory,
         assertSafeDirectory,
       )
-      delete operation.preparedClaimDirectory
+      operation.preparedClaimDirectory = undefined
       if (!(await operationIsActive(cacheDirectory, operation))) {
         return false
       }

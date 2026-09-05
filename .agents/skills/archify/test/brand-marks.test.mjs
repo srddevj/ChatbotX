@@ -294,7 +294,7 @@ test("a branded node fails before its semantic sigil, label, and brand badge can
     "openai",
     (_diagram, node) => {
       node.label = "A"
-      delete node.sublabel
+      node.sublabel = undefined
       node.width = 32
     },
   )
@@ -313,8 +313,8 @@ test("every renderer enforces the same collision-free brand top rail", () => {
       "openai",
       (_diagram, node) => {
         node.label = type === "sequence" ? "ABCDEFGHI" : "A"
-        delete node.sublabel
-        delete node.tag
+        node.sublabel = undefined
+        node.tag = undefined
         if (type === "architecture") {
           node.size = [32, 60]
         }

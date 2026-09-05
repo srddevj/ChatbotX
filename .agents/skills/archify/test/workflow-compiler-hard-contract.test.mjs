@@ -981,7 +981,7 @@ test("readable-v2 reports an infeasible authored target side with its verified s
   assert.deepEqual(result.receipt.diagnostics, result.diagnostics)
 
   const repaired = clone(document)
-  delete repaired.edges[0].toSide
+  repaired.edges[0].toSide = undefined
   const verified = compileWorkflow({
     workflow: repaired,
     qualityProfile: "showcase",
@@ -1276,7 +1276,7 @@ test("readable-v2 treats an infeasible route preset as a candidate-family confli
     if (preset) {
       repaired.edges[0].route = preset
     } else {
-      delete repaired.edges[0].route
+      repaired.edges[0].route = undefined
     }
     const verified = compileWorkflow({
       workflow: repaired,
@@ -2242,7 +2242,7 @@ test("readable-v2 classifies an automatic label colliding with a later authored 
       'remove via from edge "z-route" so readable-v2 can replan the remaining authored route assertions',
     )
     const repaired = clone(document)
-    delete repaired.edges[1].via
+    repaired.edges[1].via = undefined
     const verified = compileWorkflow({ workflow: repaired })
     assert.equal(
       verified.ok,
@@ -2743,7 +2743,7 @@ test("readable-v2 classifies a preset-only route sharing an automatic corridor",
   ])
 
   const repaired = clone(document)
-  delete repaired.edges[1].route
+  repaired.edges[1].route = undefined
   const verified = compileWorkflow({ workflow: repaired })
   assert.equal(verified.ok, true, JSON.stringify(verified.diagnostics, null, 2))
 })
@@ -2899,7 +2899,7 @@ test("showcase rejects nested authored outside-right corridors while standard pe
     'remove channelX from edge "inner" so readable-v2 can replan the remaining authored route assertions',
   ])
   const repaired = clone(document)
-  delete repaired.edges.find(({ id }) => id === "inner").channelX
+  repaired.edges.find(({ id }) => id === "inner").channelX = undefined
   const verified = compileWorkflow({
     workflow: repaired,
     qualityProfile: "showcase",
@@ -3030,7 +3030,7 @@ test("parallel anonymous edges remain byte-deterministic when their input order 
 
 test("compileWorkflow returns a diagnostic result instead of throwing when meta is absent", () => {
   const document = oneLaneWorkflow([])
-  delete document.meta
+  document.meta = undefined
 
   const result = compileWorkflow({
     workflow: document,
@@ -3085,7 +3085,7 @@ test("compileWorkflow enforces the canonical workflow schema at its public bound
     {
       expectedCode: "schema/required",
       mutate: (document) => {
-        delete document.nodes[0].label
+        document.nodes[0].label = undefined
       },
     },
     {
@@ -3175,7 +3175,7 @@ test("readable-v2 rejects a negative absolute label pin without an explicit view
       target.labelAt = replacement.slice(1).map(Number)
     } else {
       assert.match(fix, /^remove labelAt from edge "[^"]+" /)
-      delete target.labelAt
+      target.labelAt = undefined
     }
     const verified = compileWorkflow({
       workflow: repaired,

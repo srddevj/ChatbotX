@@ -374,7 +374,7 @@ const CASES = [
     "dataflow: flow missing label",
     "dataflow",
     (d) => {
-      delete d.flows[0].label
+      d.flows[0].label = undefined
     },
     ["label"],
   ],
@@ -436,7 +436,7 @@ const CASES = [
     (d) => {
       const approval = d.states.find((s) => s.id === "approval")
       const failed = d.states.find((s) => s.id === "failed")
-      delete failed.yOffset
+      failed.yOffset = undefined
       failed.col = approval.col
     },
     ["less than 10px apart"],
@@ -508,7 +508,7 @@ const CASES = [
           size: [128, 60],
         },
       ]
-      delete d.meta.views
+      d.meta.views = undefined
       d.connections = []
       d.cards = []
       d.boundaries = [
@@ -537,7 +537,7 @@ const CASES = [
           size: [128, 60],
         },
       ]
-      delete d.meta.views
+      d.meta.views = undefined
       d.connections = []
       d.cards = []
       d.boundaries = [
@@ -621,7 +621,7 @@ test("architecture: ordinary boundaries may express orthogonal overlapping membe
 
 test("architecture: profile-less v1 keeps rendering when a boundary title cannot meet strict composition", () => {
   const d = load("architecture")
-  delete d.meta.quality_profile
+  d.meta.quality_profile = undefined
   d.meta.viewBox = [500, 400]
   d.components = [
     {
@@ -632,7 +632,7 @@ test("architecture: profile-less v1 keeps rendering when a boundary title cannot
       size: [128, 60],
     },
   ]
-  delete d.meta.views
+  d.meta.views = undefined
   d.connections = []
   d.cards = []
   d.boundaries = [
@@ -650,7 +650,7 @@ test("architecture: profile-less v1 keeps rendering when a boundary title cannot
 
 test("architecture: profile-less v1 keeps legacy boundary geometry at the top edge", () => {
   const d = load("architecture")
-  delete d.meta.quality_profile
+  d.meta.quality_profile = undefined
   d.meta.viewBox = [500, 400]
   d.components = [
     {
@@ -661,7 +661,7 @@ test("architecture: profile-less v1 keeps legacy boundary geometry at the top ed
       size: [128, 60],
     },
   ]
-  delete d.meta.views
+  d.meta.views = undefined
   d.connections = []
   d.cards = []
   d.boundaries = [
@@ -724,9 +724,9 @@ test("architecture: boundary labels reserve readable space above wrapped compone
 
 test("architecture: auto viewBox keeps expanded boundary titles readable at desktop scale", () => {
   const d = load("architecture")
-  delete d.meta.viewBox
+  d.meta.viewBox = undefined
   d.meta.quality_profile = "showcase"
-  delete d.meta.views
+  d.meta.views = undefined
   d.components = [
     {
       id: "node",
@@ -1608,10 +1608,10 @@ test("dataflow: showcase rejects a relationship label that hides another route",
   const approvedReplay = d.flows.find(
     (flow) => flow.label === "approved replay",
   )
-  delete approvedReplay.labelAt
-  delete approvedReplay.labelDx
-  delete approvedReplay.labelDy
-  delete approvedReplay.labelSegment
+  approvedReplay.labelAt = undefined
+  approvedReplay.labelDx = undefined
+  approvedReplay.labelDy = undefined
+  approvedReplay.labelSegment = undefined
   const { code, stderr } = render("dataflow", d)
   assert.notEqual(code, 0, `expected non-zero exit; stderr:\n${stderr}`)
   assert.match(

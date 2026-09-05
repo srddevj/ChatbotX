@@ -215,7 +215,7 @@ test("preview: invalid candidates preserve the last verified artifact and repair
       "schema failure replaced the last verified output",
     )
 
-    delete source.components[0].unexpected
+    source.components[0].unexpected = undefined
     source.meta.title = "Verified Repair"
     source.components[0].label = "Repaired Browser"
     fs.writeFileSync(input, JSON.stringify(source))

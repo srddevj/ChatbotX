@@ -17,7 +17,7 @@ import {
 } from "../bin/visual-check.mjs"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const skillRoot = path.resolve(__dirname, "..")
+const _skillRoot = path.resolve(__dirname, "..")
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "archify-visual-check-"))
 const png = Buffer.from("89504e470d0a1a0a", "hex")
 

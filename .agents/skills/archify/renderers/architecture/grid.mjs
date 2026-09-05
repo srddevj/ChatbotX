@@ -12,7 +12,7 @@ export const DEFAULT_GRID = {
 
 export function gridLayout(arch) {
   const raw = arch.layout
-  if (!raw || raw.mode !== "grid") {
+  if (raw?.mode !== "grid") {
     return null
   }
   return { ...DEFAULT_GRID, ...raw }

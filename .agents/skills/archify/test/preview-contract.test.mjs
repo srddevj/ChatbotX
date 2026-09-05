@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url"
 const here = path.dirname(fileURLToPath(import.meta.url))
 const skillRoot = path.resolve(here, "..")
 const repoRoot = path.resolve(skillRoot, "..")
-const skill = fs.readFileSync(path.join(skillRoot, "SKILL.md"), "utf8")
+const _skill = fs.readFileSync(path.join(skillRoot, "SKILL.md"), "utf8")
 const delivery = fs.readFileSync(
   path.join(skillRoot, "references", "delivery-contract.md"),
   "utf8",

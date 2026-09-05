@@ -654,7 +654,7 @@ export async function prepareDiagramBrandMarks(diagramType, diagram) {
       const resolved = url
         ? await remoteBrand(url.href, remoteByUrl, deadline)
         : null
-      if (!resolved || resolved.status !== "captured") {
+      if (resolved?.status !== "captured") {
         unknown.push(
           `/${collection}/${index}/brand could not reproduce the pinned capture: ${resolved?.reason || "invalid URL"}`,
         )

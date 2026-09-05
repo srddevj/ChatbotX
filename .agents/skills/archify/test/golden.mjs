@@ -199,7 +199,7 @@ expectFailure(
   "missing schema_version",
   "sequence",
   (d) => {
-    delete d.schema_version
+    d.schema_version = undefined
   },
   "schema_version",
 )
@@ -209,7 +209,7 @@ expectFailure(
   (d) => {
     const approval = d.states.find((s) => s.id === "approval")
     const failed = d.states.find((s) => s.id === "failed")
-    delete failed.yOffset
+    failed.yOffset = undefined
     failed.col = approval.col
   },
   "less than 10px apart",

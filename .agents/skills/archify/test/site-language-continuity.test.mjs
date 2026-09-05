@@ -140,7 +140,7 @@ function startStaticServer(root) {
         "content-type": `${contentType}; charset=utf-8`,
       })
       response.end(body)
-    } catch (_) {
+    } catch {
       response.writeHead(404).end("Not found")
     }
   })

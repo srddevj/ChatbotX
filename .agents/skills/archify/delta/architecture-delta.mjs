@@ -71,7 +71,7 @@ function normalizeBoundary(boundary) {
 
 export function canonicalArchitecture(diagram) {
   const meta = { ...(diagram.meta || {}) }
-  delete meta.output
+  meta.output = undefined
   if (meta.repository) {
     meta.repository = normalizeRepository(meta.repository)
   }

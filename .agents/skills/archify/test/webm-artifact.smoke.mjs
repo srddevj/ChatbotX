@@ -39,7 +39,7 @@ function executable(candidates) {
         ["-c", `command -v "$1"`, "archify-which", candidate],
         { encoding: "utf8" },
       ).trim()
-    } catch (_) {
+    } catch {
       // Try the next platform-specific name.
     }
   }
@@ -371,7 +371,7 @@ async function devtoolsEndpoint(port, chromeProcess, diagnostics) {
       if (response.ok) {
         return (await response.json()).webSocketDebuggerUrl
       }
-    } catch (_) {
+    } catch {
       // Chrome may need a moment to bind the debugging port.
     }
     if (chromeProcess.exitCode !== null) {
@@ -418,7 +418,7 @@ async function connectCdp(webSocketUrl) {
   })
   return {
     socket,
-    send(method, params = {}, sessionId) {
+    send(method, params, sessionId) {
       const id = ++nextId
       return new Promise((resolve, reject) => {
         pending.set(id, { resolve, reject })

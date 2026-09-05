@@ -153,7 +153,7 @@ function measureState(state) {
     : isOutcome
       ? layout.outcomeXs
       : layout.eventXs
-  const cx = xs[state.col] ?? xs[xs.length - 1]
+  const cx = xs[state.col] ?? xs.at(-1)
   const y =
     (isPhase ? layout.phaseY : isOutcome ? layout.outcomeY : layout.eventY) +
     (state.yOffset || 0)
@@ -302,10 +302,7 @@ function validateLifecycle() {
     }
     if (states.has(transition.from) && states.has(transition.to)) {
       const routed = pathFor(transition)
-      const [start, end] = [
-        routed.points[0],
-        routed.points[routed.points.length - 1],
-      ]
+      const [start, end] = [routed.points[0], routed.points.at(-1)]
       const distance = Math.hypot(end[0] - start[0], end[1] - start[1])
       if (distance < 32) {
         problems.push(
@@ -511,7 +508,6 @@ function routeVia(transition, from, to, start, end, fromSide, toSide) {
         [x, end[1]],
       ]
     }
-    case "auto":
     default: {
       if (start[0] === end[0] || start[1] === end[1]) {
         return []

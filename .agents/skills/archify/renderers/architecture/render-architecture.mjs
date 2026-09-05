@@ -652,10 +652,7 @@ function validateArchitecture() {
     }
     if (components.has(conn.from) && components.has(conn.to)) {
       const routed = pathFor(conn)
-      const [start, end] = [
-        routed.points[0],
-        routed.points[routed.points.length - 1],
-      ]
+      const [start, end] = [routed.points[0], routed.points.at(-1)]
       const distance = Math.hypot(end[0] - start[0], end[1] - start[1])
       if (distance < 24) {
         problems.push(
@@ -1062,7 +1059,6 @@ function routeVia(conn, from, to, start, end, fromSide, toSide) {
         [end[0], midY],
       ]
     }
-    case "auto":
     default: {
       // Direct line unless the anchors are clearly orthogonal-friendly.
       const deltaX = Math.abs(start[0] - end[0])

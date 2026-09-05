@@ -26,19 +26,19 @@ const NODE_COLLECTION = {
   lifecycle: "states",
 }
 
-function render(mode, example, animation = "trace", visualPreset) {
+function render(mode, example, animation, visualPreset) {
   const doc = JSON.parse(
     fs.readFileSync(path.join(skillRoot, "examples", example), "utf8"),
   )
   if (animation) {
     doc.meta = { ...doc.meta, animation }
   } else {
-    delete doc.meta.animation
+    doc.meta.animation = undefined
   }
   if (visualPreset) {
     doc.meta.visual_preset = visualPreset
   } else if (visualPreset === null) {
-    delete doc.meta.visual_preset
+    doc.meta.visual_preset = undefined
   }
   const suffix = `${animation || "static"}-${visualPreset || "default"}`
   const input = path.join(tmp, `${mode}-${suffix}.json`)

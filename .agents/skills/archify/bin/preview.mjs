@@ -736,7 +736,7 @@ export async function startPreview(options) {
 
   if (options.watch !== false) {
     try {
-      watcher = fs.watch(path.dirname(inputPath), (event, filename) => {
+      watcher = fs.watch(path.dirname(inputPath), (_event, filename) => {
         if (!filename || filename.toString() === path.basename(inputPath)) {
           observeSource()
         }

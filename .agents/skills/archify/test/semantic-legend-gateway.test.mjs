@@ -60,9 +60,9 @@ test("only legends with an exact node-kind meaning publish bridge entries", () =
       // semantic bridge contract focused by rendering the same typed nodes with
       // an explicit full legend and no relationship geometry in the band.
       document.meta.legend = { mode: "all" }
-      delete document.meta.viewBox
+      document.meta.viewBox = undefined
       document.edges = []
-      delete document.mainPath
+      document.mainPath = undefined
     }),
   )
   assert.deepEqual(values(workflow, "data-legend-kind"), [

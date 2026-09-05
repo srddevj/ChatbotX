@@ -93,9 +93,9 @@ test("MCO showcase preserves checked-in connection-label geometry", () => {
       pinnedRepository,
       "MCO case and experiment must pin the same repository revision",
     )
-    delete source.meta.repository
+    source.meta.repository = undefined
     for (const component of source.components) {
-      delete component.sources
+      component.sources = undefined
     }
     const input = path.join(tmp, "mco-runtime.architecture.json")
     const output = path.join(tmp, "mco-runtime.html")

@@ -180,7 +180,7 @@ test("zh-CN localizes renderer-owned output across all five modes without transl
     const document = example(type)
     const authoredTitle = document.meta.title
     document.meta.locale = "zh-CN"
-    delete document.meta.subtitle
+    document.meta.subtitle = undefined
 
     const result = run(type, document)
     assert.equal(result.status, 0, `${type}: ${result.stderr || result.stdout}`)
@@ -278,8 +278,8 @@ test("omitted locale preserves non-English authored content and the English View
     const document = example(type)
     const authoredTitle = `作者内容-${type}`
     document.meta.title = authoredTitle
-    delete document.meta.locale
-    delete document.meta.subtitle
+    document.meta.locale = undefined
+    document.meta.subtitle = undefined
 
     const result = run(type, document)
     assert.equal(result.status, 0, `${type}: ${result.stderr || result.stdout}`)

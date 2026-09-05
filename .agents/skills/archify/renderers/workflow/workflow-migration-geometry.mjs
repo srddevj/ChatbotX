@@ -13,7 +13,7 @@ export function intrinsicWorkflow(workflow) {
   const intrinsic = clone(workflow)
   intrinsic.schema_version = TARGET_SCHEMA_VERSION
   intrinsic.meta = { ...intrinsic.meta }
-  delete intrinsic.meta.viewBox
+  intrinsic.meta.viewBox = undefined
   return intrinsic
 }
 
@@ -59,7 +59,7 @@ export function planningWorkflow(workflow) {
         !projectedPairs.has(`${from}\u0000${planned.mainPath[index + 1]}`),
     )
     if (projectionBreaksMainPath) {
-      delete planned.mainPath
+      planned.mainPath = undefined
     }
   }
 

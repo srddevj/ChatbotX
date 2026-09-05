@@ -1952,7 +1952,7 @@ export function roundedPath(points, radius) {
     commands.push(`L ${before[0]} ${before[1]}`)
     commands.push(`Q ${cx} ${cy} ${after[0]} ${after[1]}`)
   }
-  const [endX, endY] = points[points.length - 1]
+  const [endX, endY] = points.at(-1)
   commands.push(`L ${endX} ${endY}`)
   return commands.join(" ")
 }

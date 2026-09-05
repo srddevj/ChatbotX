@@ -250,7 +250,7 @@ export function animateAttr(meta, kind, step) {
 // Stable semantic hooks for the standalone HTML explorer. IDs already pass
 // the schema's conservative identifier pattern; escape again at the markup
 // boundary so these helpers remain safe if that contract expands later.
-export function focusNodeAttrs(id, label, metadata = {}, locale) {
+export function focusNodeAttrs(id, label, metadata, locale) {
   const optional = [
     ["data-node-kind", metadata.kind],
     ["data-node-sublabel", metadata.sublabel],

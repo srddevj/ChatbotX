@@ -18,7 +18,7 @@ export const VISUAL_CHECK_VIEWPORTS = Object.freeze([
 
 const CAPTURE_VIEWPORTS = Object.freeze([
   VISUAL_CHECK_VIEWPORTS[0],
-  VISUAL_CHECK_VIEWPORTS[VISUAL_CHECK_VIEWPORTS.length - 1],
+  VISUAL_CHECK_VIEWPORTS.at(-1),
 ])
 const THEMES = Object.freeze(["light", "dark"])
 const EXIT = Object.freeze({ pass: 0, fail: 1, skipped: 2 })
@@ -268,7 +268,7 @@ class PipeCdp {
     }
   }
 
-  send(method, params = {}, sessionId, timeoutMs = 15_000) {
+  send(method, params, sessionId, timeoutMs = 15_000) {
     const id = this.nextId++
     const message = { id, method, params }
     if (sessionId) {

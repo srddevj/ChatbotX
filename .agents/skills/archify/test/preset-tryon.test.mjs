@@ -23,7 +23,7 @@ function render(mode, preset) {
     fs.readFileSync(path.join(skillRoot, "examples", CASES[mode]), "utf8"),
   )
   if (preset === undefined) {
-    delete source.meta.visual_preset
+    source.meta.visual_preset = undefined
   } else {
     source.meta.visual_preset = preset
   }

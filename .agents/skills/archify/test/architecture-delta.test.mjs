@@ -187,7 +187,7 @@ test("change navigator order is exact-ID based, complete, unique, and stable", (
 test("exact identity fails closed instead of guessing relationships or unrelated systems", () => {
   const base = read(baseFixture)
   const missingRelationship = read(headFixture)
-  delete missingRelationship.connections[0].id
+  missingRelationship.connections[0].id = undefined
   assert.throws(
     () => compareArchitecture(base, missingRelationship),
     (error) =>
@@ -769,7 +769,7 @@ test("formatting-only input changes raw proof but not semantic hash or artifact 
 
 test("compare failure preserves an existing trusted artifact", () => {
   const invalid = read(headFixture)
-  delete invalid.connections[0].id
+  invalid.connections[0].id = undefined
   const invalidPath = path.join(tmp, "invalid-head.json")
   const output = path.join(tmp, "preserved.html")
   fs.writeFileSync(invalidPath, JSON.stringify(invalid))

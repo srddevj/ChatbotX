@@ -26,7 +26,7 @@ function render(mode, example, animation = "trace") {
   if (animation) {
     doc.meta.animation = animation
   } else {
-    delete doc.meta.animation
+    doc.meta.animation = undefined
   }
   const input = path.join(tmp, `${mode}-${animation || "static"}.json`)
   const output = path.join(tmp, `${mode}-${animation || "static"}.html`)

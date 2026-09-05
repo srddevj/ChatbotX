@@ -37,7 +37,7 @@ function formatErrors(errors, data) {
       const where = annotatePath(e.instancePath, data)
       const detail =
         e.params && Object.keys(e.params).length
-          ? " " + JSON.stringify(e.params)
+          ? ` ${JSON.stringify(e.params)}`
           : ""
       return `  ${where} ${e.message}${detail}`
     })

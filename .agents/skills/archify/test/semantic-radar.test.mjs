@@ -662,7 +662,7 @@ test("Semantic Radar automatically avoids a tall Semantic Passport", {
           },
         ],
         boundaries: [],
-        connections: peers.map((peer, index) => ({
+        connections: peers.map((peer, _index) => ({
           id: `hub-to-${peer.id}`,
           from: "hub",
           to: peer.id,

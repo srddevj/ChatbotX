@@ -217,7 +217,7 @@ const schema31 = {
 }
 const schema33 = { enum: ["en", "zh-CN"] }
 const schema37 = { enum: ["auto", "all", "hidden"] }
-const schema38 = {
+const _schema38 = {
   type: "object",
   additionalProperties: false,
   minProperties: 1,
@@ -226,7 +226,7 @@ const schema38 = {
     visible: { type: "boolean" },
   },
 }
-const schema35 = { type: "string", pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" }
+const _schema35 = { type: "string", pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" }
 const schema57 = {
   enum: [
     "frontend",
@@ -238,7 +238,7 @@ const schema57 = {
     "external",
   ],
 }
-const schema58 = {
+const _schema58 = {
   oneOf: [
     {
       type: "string",
@@ -267,7 +267,7 @@ const schema58 = {
 }
 const schema62 = { enum: ["default", "emphasis", "security", "dashed"] }
 const schema63 = { enum: ["left", "right", "top", "bottom"] }
-const schema65 = {
+const _schema65 = {
   type: "array",
   prefixItems: [{ type: "number" }, { type: "number" }],
   items: false,
@@ -308,7 +308,7 @@ const func3 = function ucs2length(str) {
   }
   return length
 }
-const schema34 = {
+const _schema34 = {
   type: "array",
   maxItems: 5,
   items: {
@@ -362,10 +362,10 @@ function validate22(
     const len0 = data.length
     for (let i0 = 0; i0 < len0; i0++) {
       const data0 = data[i0]
-      if (data0 && typeof data0 == "object" && !Array.isArray(data0)) {
+      if (data0 && typeof data0 === "object" && !Array.isArray(data0)) {
         if (data0.id === undefined) {
           const err1 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "id" },
@@ -380,7 +380,7 @@ function validate22(
         }
         if (data0.label === undefined) {
           const err2 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "label" },
@@ -395,7 +395,7 @@ function validate22(
         }
         if (data0.focus === undefined) {
           const err3 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "focus" },
@@ -418,7 +418,7 @@ function validate22(
             )
           ) {
             const err4 = {
-              instancePath: instancePath + "/" + i0,
+              instancePath: `${instancePath}/${i0}`,
               schemaPath: "#/items/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key0 },
@@ -437,7 +437,7 @@ function validate22(
           if (typeof data1 === "string") {
             if (!pattern4.test(data1)) {
               const err5 = {
-                instancePath: instancePath + "/" + i0 + "/id",
+                instancePath: `${instancePath}/${i0}/id`,
                 schemaPath: "#/$defs/id/pattern",
                 keyword: "pattern",
                 params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -452,7 +452,7 @@ function validate22(
             }
           } else {
             const err6 = {
-              instancePath: instancePath + "/" + i0 + "/id",
+              instancePath: `${instancePath}/${i0}/id`,
               schemaPath: "#/$defs/id/type",
               keyword: "type",
               params: { type: "string" },
@@ -471,7 +471,7 @@ function validate22(
           if (typeof data2 === "string") {
             if (func3(data2) > 48) {
               const err7 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/maxLength",
                 keyword: "maxLength",
                 params: { limit: 48 },
@@ -486,7 +486,7 @@ function validate22(
             }
             if (func3(data2) < 1) {
               const err8 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -501,7 +501,7 @@ function validate22(
             }
           } else {
             const err9 = {
-              instancePath: instancePath + "/" + i0 + "/label",
+              instancePath: `${instancePath}/${i0}/label`,
               schemaPath: "#/items/properties/label/type",
               keyword: "type",
               params: { type: "string" },
@@ -520,7 +520,7 @@ function validate22(
           if (Array.isArray(data3)) {
             if (data3.length < 1) {
               const err10 = {
-                instancePath: instancePath + "/" + i0 + "/focus",
+                instancePath: `${instancePath}/${i0}/focus`,
                 schemaPath: "#/items/properties/focus/minItems",
                 keyword: "minItems",
                 params: { limit: 1 },
@@ -539,7 +539,7 @@ function validate22(
               if (typeof data4 === "string") {
                 if (!pattern4.test(data4)) {
                   const err11 = {
-                    instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                    instancePath: `${instancePath}/${i0}/focus/${i1}`,
                     schemaPath: "#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -554,7 +554,7 @@ function validate22(
                 }
               } else {
                 const err12 = {
-                  instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                  instancePath: `${instancePath}/${i0}/focus/${i1}`,
                   schemaPath: "#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -570,7 +570,7 @@ function validate22(
             }
           } else {
             const err13 = {
-              instancePath: instancePath + "/" + i0 + "/focus",
+              instancePath: `${instancePath}/${i0}/focus`,
               schemaPath: "#/items/properties/focus/type",
               keyword: "type",
               params: { type: "array" },
@@ -589,7 +589,7 @@ function validate22(
           if (typeof data5 === "string") {
             if (func3(data5) > 140) {
               const err14 = {
-                instancePath: instancePath + "/" + i0 + "/note",
+                instancePath: `${instancePath}/${i0}/note`,
                 schemaPath: "#/items/properties/note/maxLength",
                 keyword: "maxLength",
                 params: { limit: 140 },
@@ -604,7 +604,7 @@ function validate22(
             }
           } else {
             const err15 = {
-              instancePath: instancePath + "/" + i0 + "/note",
+              instancePath: `${instancePath}/${i0}/note`,
               schemaPath: "#/items/properties/note/type",
               keyword: "type",
               params: { type: "string" },
@@ -620,7 +620,7 @@ function validate22(
         }
       } else {
         const err16 = {
-          instancePath: instancePath + "/" + i0,
+          instancePath: `${instancePath}/${i0}`,
           schemaPath: "#/items/type",
           keyword: "type",
           params: { type: "object" },
@@ -653,7 +653,7 @@ function validate22(
   return errors === 0
 }
 validate22.evaluated = { items: true, dynamicProps: false, dynamicItems: false }
-const schema52 = {
+const _schema52 = {
   type: "object",
   additionalProperties: false,
   required: ["from", "to"],
@@ -681,7 +681,7 @@ function validate24(
   if (evaluated0.dynamicItems) {
     evaluated0.items = undefined
   }
-  if (data && typeof data == "object" && !Array.isArray(data)) {
+  if (data && typeof data === "object" && !Array.isArray(data)) {
     if (data.from === undefined) {
       const err0 = {
         instancePath,
@@ -734,7 +734,7 @@ function validate24(
       if (typeof data0 === "string") {
         if (!pattern4.test(data0)) {
           const err3 = {
-            instancePath: instancePath + "/from",
+            instancePath: `${instancePath}/from`,
             schemaPath: "common.schema.json#/$defs/id/pattern",
             keyword: "pattern",
             params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -749,7 +749,7 @@ function validate24(
         }
       } else {
         const err4 = {
-          instancePath: instancePath + "/from",
+          instancePath: `${instancePath}/from`,
           schemaPath: "common.schema.json#/$defs/id/type",
           keyword: "type",
           params: { type: "string" },
@@ -768,7 +768,7 @@ function validate24(
       if (typeof data1 === "string") {
         if (!pattern4.test(data1)) {
           const err5 = {
-            instancePath: instancePath + "/to",
+            instancePath: `${instancePath}/to`,
             schemaPath: "common.schema.json#/$defs/id/pattern",
             keyword: "pattern",
             params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -783,7 +783,7 @@ function validate24(
         }
       } else {
         const err6 = {
-          instancePath: instancePath + "/to",
+          instancePath: `${instancePath}/to`,
           schemaPath: "common.schema.json#/$defs/id/type",
           keyword: "type",
           params: { type: "string" },
@@ -839,7 +839,7 @@ function validate20(
   if (evaluated0.dynamicItems) {
     evaluated0.items = undefined
   }
-  if (data && typeof data == "object" && !Array.isArray(data)) {
+  if (data && typeof data === "object" && !Array.isArray(data)) {
     if (data.schema_version === undefined) {
       const err0 = {
         instancePath,
@@ -951,7 +951,7 @@ function validate20(
       const data0 = data.schema_version
       if (!(data0 === 1 || data0 === 2)) {
         const err7 = {
-          instancePath: instancePath + "/schema_version",
+          instancePath: `${instancePath}/schema_version`,
           schemaPath: "#/properties/schema_version/enum",
           keyword: "enum",
           params: { allowedValues: schema31.properties.schema_version.enum },
@@ -967,7 +967,7 @@ function validate20(
     }
     if (data.diagram_type !== undefined && data.diagram_type !== "workflow") {
       const err8 = {
-        instancePath: instancePath + "/diagram_type",
+        instancePath: `${instancePath}/diagram_type`,
         schemaPath: "#/properties/diagram_type/const",
         keyword: "const",
         params: { allowedValue: "workflow" },
@@ -982,10 +982,10 @@ function validate20(
     }
     if (data.meta !== undefined) {
       const data2 = data.meta
-      if (data2 && typeof data2 == "object" && !Array.isArray(data2)) {
+      if (data2 && typeof data2 === "object" && !Array.isArray(data2)) {
         if (data2.title === undefined) {
           const err9 = {
-            instancePath: instancePath + "/meta",
+            instancePath: `${instancePath}/meta`,
             schemaPath: "#/properties/meta/required",
             keyword: "required",
             params: { missingProperty: "title" },
@@ -1001,7 +1001,7 @@ function validate20(
         for (const key1 in data2) {
           if (!func1.call(schema31.properties.meta.properties, key1)) {
             const err10 = {
-              instancePath: instancePath + "/meta",
+              instancePath: `${instancePath}/meta`,
               schemaPath: "#/properties/meta/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key1 },
@@ -1020,7 +1020,7 @@ function validate20(
           if (typeof data3 === "string") {
             if (func3(data3) < 1) {
               const err11 = {
-                instancePath: instancePath + "/meta/title",
+                instancePath: `${instancePath}/meta/title`,
                 schemaPath: "#/properties/meta/properties/title/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -1035,7 +1035,7 @@ function validate20(
             }
           } else {
             const err12 = {
-              instancePath: instancePath + "/meta/title",
+              instancePath: `${instancePath}/meta/title`,
               schemaPath: "#/properties/meta/properties/title/type",
               keyword: "type",
               params: { type: "string" },
@@ -1053,7 +1053,7 @@ function validate20(
           const data4 = data2.locale
           if (!(data4 === "en" || data4 === "zh-CN")) {
             const err13 = {
-              instancePath: instancePath + "/meta/locale",
+              instancePath: `${instancePath}/meta/locale`,
               schemaPath: "common.schema.json#/$defs/locale/enum",
               keyword: "enum",
               params: { allowedValues: schema33.enum },
@@ -1072,7 +1072,7 @@ function validate20(
           typeof data2.subtitle !== "string"
         ) {
           const err14 = {
-            instancePath: instancePath + "/meta/subtitle",
+            instancePath: `${instancePath}/meta/subtitle`,
             schemaPath: "#/properties/meta/properties/subtitle/type",
             keyword: "type",
             params: { type: "string" },
@@ -1087,7 +1087,7 @@ function validate20(
         }
         if (data2.output !== undefined && typeof data2.output !== "string") {
           const err15 = {
-            instancePath: instancePath + "/meta/output",
+            instancePath: `${instancePath}/meta/output`,
             schemaPath: "#/properties/meta/properties/output/type",
             keyword: "type",
             params: { type: "string" },
@@ -1104,7 +1104,7 @@ function validate20(
           const data7 = data2.animation
           if (!(data7 === "trace" || data7 === "none")) {
             const err16 = {
-              instancePath: instancePath + "/meta/animation",
+              instancePath: `${instancePath}/meta/animation`,
               schemaPath: "#/properties/meta/properties/animation/enum",
               keyword: "enum",
               params: {
@@ -1132,7 +1132,7 @@ function validate20(
             )
           ) {
             const err17 = {
-              instancePath: instancePath + "/meta/visual_preset",
+              instancePath: `${instancePath}/meta/visual_preset`,
               schemaPath: "#/properties/meta/properties/visual_preset/enum",
               keyword: "enum",
               params: {
@@ -1153,7 +1153,7 @@ function validate20(
           const data9 = data2.quality_profile
           if (!(data9 === "standard" || data9 === "showcase")) {
             const err18 = {
-              instancePath: instancePath + "/meta/quality_profile",
+              instancePath: `${instancePath}/meta/quality_profile`,
               schemaPath: "#/properties/meta/properties/quality_profile/enum",
               keyword: "enum",
               params: {
@@ -1173,7 +1173,7 @@ function validate20(
         if (
           data2.views !== undefined &&
           !validate22(data2.views, {
-            instancePath: instancePath + "/meta/views",
+            instancePath: `${instancePath}/meta/views`,
             parentData: data2,
             parentDataProperty: "views",
             rootData,
@@ -1188,11 +1188,11 @@ function validate20(
         }
         if (data2.legend !== undefined) {
           const data11 = data2.legend
-          if (data11 && typeof data11 == "object" && !Array.isArray(data11)) {
+          if (data11 && typeof data11 === "object" && !Array.isArray(data11)) {
             for (const key2 in data11) {
               if (!(key2 === "mode" || key2 === "entries")) {
                 const err19 = {
-                  instancePath: instancePath + "/meta/legend",
+                  instancePath: `${instancePath}/meta/legend`,
                   schemaPath:
                     "#/properties/meta/properties/legend/additionalProperties",
                   keyword: "additionalProperties",
@@ -1213,7 +1213,7 @@ function validate20(
                 !(data12 === "auto" || data12 === "all" || data12 === "hidden")
               ) {
                 const err20 = {
-                  instancePath: instancePath + "/meta/legend/mode",
+                  instancePath: `${instancePath}/meta/legend/mode`,
                   schemaPath: "common.schema.json#/$defs/legendMode/enum",
                   keyword: "enum",
                   params: { allowedValues: schema37.enum },
@@ -1231,7 +1231,7 @@ function validate20(
               const data13 = data11.entries
               if (
                 data13 &&
-                typeof data13 == "object" &&
+                typeof data13 === "object" &&
                 !Array.isArray(data13)
               ) {
                 for (const key3 in data13) {
@@ -1247,7 +1247,7 @@ function validate20(
                     )
                   ) {
                     const err21 = {
-                      instancePath: instancePath + "/meta/legend/entries",
+                      instancePath: `${instancePath}/meta/legend/entries`,
                       schemaPath:
                         "#/properties/meta/properties/legend/properties/entries/additionalProperties",
                       keyword: "additionalProperties",
@@ -1266,13 +1266,12 @@ function validate20(
                   const data14 = data13.frontend
                   if (
                     data14 &&
-                    typeof data14 == "object" &&
+                    typeof data14 === "object" &&
                     !Array.isArray(data14)
                   ) {
                     if (Object.keys(data14).length < 1) {
                       const err22 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/frontend",
+                        instancePath: `${instancePath}/meta/legend/entries/frontend`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -1289,8 +1288,7 @@ function validate20(
                     for (const key4 in data14) {
                       if (!(key4 === "label" || key4 === "visible")) {
                         const err23 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/frontend",
+                          instancePath: `${instancePath}/meta/legend/entries/frontend`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -1386,8 +1384,7 @@ function validate20(
                     }
                   } else {
                     const err28 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/frontend",
+                      instancePath: `${instancePath}/meta/legend/entries/frontend`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -1405,13 +1402,12 @@ function validate20(
                   const data17 = data13.backend
                   if (
                     data17 &&
-                    typeof data17 == "object" &&
+                    typeof data17 === "object" &&
                     !Array.isArray(data17)
                   ) {
                     if (Object.keys(data17).length < 1) {
                       const err29 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/backend",
+                        instancePath: `${instancePath}/meta/legend/entries/backend`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -1428,8 +1424,7 @@ function validate20(
                     for (const key5 in data17) {
                       if (!(key5 === "label" || key5 === "visible")) {
                         const err30 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/backend",
+                          instancePath: `${instancePath}/meta/legend/entries/backend`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -1485,8 +1480,7 @@ function validate20(
                         }
                       } else {
                         const err33 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/backend/label",
+                          instancePath: `${instancePath}/meta/legend/entries/backend/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -1506,8 +1500,7 @@ function validate20(
                       typeof data17.visible !== "boolean"
                     ) {
                       const err34 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/backend/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/backend/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -1523,8 +1516,7 @@ function validate20(
                     }
                   } else {
                     const err35 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/backend",
+                      instancePath: `${instancePath}/meta/legend/entries/backend`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -1542,13 +1534,12 @@ function validate20(
                   const data20 = data13.database
                   if (
                     data20 &&
-                    typeof data20 == "object" &&
+                    typeof data20 === "object" &&
                     !Array.isArray(data20)
                   ) {
                     if (Object.keys(data20).length < 1) {
                       const err36 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/database",
+                        instancePath: `${instancePath}/meta/legend/entries/database`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -1565,8 +1556,7 @@ function validate20(
                     for (const key6 in data20) {
                       if (!(key6 === "label" || key6 === "visible")) {
                         const err37 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/database",
+                          instancePath: `${instancePath}/meta/legend/entries/database`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -1662,8 +1652,7 @@ function validate20(
                     }
                   } else {
                     const err42 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/database",
+                      instancePath: `${instancePath}/meta/legend/entries/database`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -1681,13 +1670,12 @@ function validate20(
                   const data23 = data13.cloud
                   if (
                     data23 &&
-                    typeof data23 == "object" &&
+                    typeof data23 === "object" &&
                     !Array.isArray(data23)
                   ) {
                     if (Object.keys(data23).length < 1) {
                       const err43 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/cloud",
+                        instancePath: `${instancePath}/meta/legend/entries/cloud`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -1704,8 +1692,7 @@ function validate20(
                     for (const key7 in data23) {
                       if (!(key7 === "label" || key7 === "visible")) {
                         const err44 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/cloud",
+                          instancePath: `${instancePath}/meta/legend/entries/cloud`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -1725,8 +1712,7 @@ function validate20(
                       if (typeof data24 === "string") {
                         if (func3(data24) > 80) {
                           const err45 = {
-                            instancePath:
-                              instancePath + "/meta/legend/entries/cloud/label",
+                            instancePath: `${instancePath}/meta/legend/entries/cloud/label`,
                             schemaPath:
                               "common.schema.json#/$defs/legendEntry/properties/label/maxLength",
                             keyword: "maxLength",
@@ -1742,8 +1728,7 @@ function validate20(
                         }
                         if (func3(data24) < 1) {
                           const err46 = {
-                            instancePath:
-                              instancePath + "/meta/legend/entries/cloud/label",
+                            instancePath: `${instancePath}/meta/legend/entries/cloud/label`,
                             schemaPath:
                               "common.schema.json#/$defs/legendEntry/properties/label/minLength",
                             keyword: "minLength",
@@ -1759,8 +1744,7 @@ function validate20(
                         }
                       } else {
                         const err47 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/cloud/label",
+                          instancePath: `${instancePath}/meta/legend/entries/cloud/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -1780,8 +1764,7 @@ function validate20(
                       typeof data23.visible !== "boolean"
                     ) {
                       const err48 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/cloud/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/cloud/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -1797,7 +1780,7 @@ function validate20(
                     }
                   } else {
                     const err49 = {
-                      instancePath: instancePath + "/meta/legend/entries/cloud",
+                      instancePath: `${instancePath}/meta/legend/entries/cloud`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -1815,13 +1798,12 @@ function validate20(
                   const data26 = data13.security
                   if (
                     data26 &&
-                    typeof data26 == "object" &&
+                    typeof data26 === "object" &&
                     !Array.isArray(data26)
                   ) {
                     if (Object.keys(data26).length < 1) {
                       const err50 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/security",
+                        instancePath: `${instancePath}/meta/legend/entries/security`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -1838,8 +1820,7 @@ function validate20(
                     for (const key8 in data26) {
                       if (!(key8 === "label" || key8 === "visible")) {
                         const err51 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/security",
+                          instancePath: `${instancePath}/meta/legend/entries/security`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -1935,8 +1916,7 @@ function validate20(
                     }
                   } else {
                     const err56 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/security",
+                      instancePath: `${instancePath}/meta/legend/entries/security`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -1954,13 +1934,12 @@ function validate20(
                   const data29 = data13.messagebus
                   if (
                     data29 &&
-                    typeof data29 == "object" &&
+                    typeof data29 === "object" &&
                     !Array.isArray(data29)
                   ) {
                     if (Object.keys(data29).length < 1) {
                       const err57 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/messagebus",
+                        instancePath: `${instancePath}/meta/legend/entries/messagebus`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -1977,8 +1956,7 @@ function validate20(
                     for (const key9 in data29) {
                       if (!(key9 === "label" || key9 === "visible")) {
                         const err58 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/messagebus",
+                          instancePath: `${instancePath}/meta/legend/entries/messagebus`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -2074,8 +2052,7 @@ function validate20(
                     }
                   } else {
                     const err63 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/messagebus",
+                      instancePath: `${instancePath}/meta/legend/entries/messagebus`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -2093,13 +2070,12 @@ function validate20(
                   const data32 = data13.external
                   if (
                     data32 &&
-                    typeof data32 == "object" &&
+                    typeof data32 === "object" &&
                     !Array.isArray(data32)
                   ) {
                     if (Object.keys(data32).length < 1) {
                       const err64 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/external",
+                        instancePath: `${instancePath}/meta/legend/entries/external`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -2116,8 +2092,7 @@ function validate20(
                     for (const key10 in data32) {
                       if (!(key10 === "label" || key10 === "visible")) {
                         const err65 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/external",
+                          instancePath: `${instancePath}/meta/legend/entries/external`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -2213,8 +2188,7 @@ function validate20(
                     }
                   } else {
                     const err70 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/external",
+                      instancePath: `${instancePath}/meta/legend/entries/external`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -2230,7 +2204,7 @@ function validate20(
                 }
               } else {
                 const err71 = {
-                  instancePath: instancePath + "/meta/legend/entries",
+                  instancePath: `${instancePath}/meta/legend/entries`,
                   schemaPath:
                     "#/properties/meta/properties/legend/properties/entries/type",
                   keyword: "type",
@@ -2247,7 +2221,7 @@ function validate20(
             }
           } else {
             const err72 = {
-              instancePath: instancePath + "/meta/legend",
+              instancePath: `${instancePath}/meta/legend`,
               schemaPath: "#/properties/meta/properties/legend/type",
               keyword: "type",
               params: { type: "object" },
@@ -2266,7 +2240,7 @@ function validate20(
           if (Array.isArray(data35)) {
             if (data35.length > 2) {
               const err73 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/maxItems",
                 keyword: "maxItems",
                 params: { limit: 2 },
@@ -2281,7 +2255,7 @@ function validate20(
             }
             if (data35.length < 2) {
               const err74 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/minItems",
                 keyword: "minItems",
                 params: { limit: 2 },
@@ -2297,10 +2271,10 @@ function validate20(
             const len0 = data35.length
             if (len0 > 0) {
               const data36 = data35[0]
-              if (typeof data36 == "number" && isFinite(data36)) {
-                if (data36 < 700 || isNaN(data36)) {
+              if (typeof data36 === "number" && Number.isFinite(data36)) {
+                if (data36 < 700 || Number.isNaN(data36)) {
                   const err75 = {
-                    instancePath: instancePath + "/meta/viewBox/0",
+                    instancePath: `${instancePath}/meta/viewBox/0`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/0/minimum",
                     keyword: "minimum",
@@ -2316,7 +2290,7 @@ function validate20(
                 }
               } else {
                 const err76 = {
-                  instancePath: instancePath + "/meta/viewBox/0",
+                  instancePath: `${instancePath}/meta/viewBox/0`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/0/type",
                   keyword: "type",
@@ -2333,10 +2307,10 @@ function validate20(
             }
             if (len0 > 1) {
               const data37 = data35[1]
-              if (typeof data37 == "number" && isFinite(data37)) {
-                if (data37 < 240 || isNaN(data37)) {
+              if (typeof data37 === "number" && Number.isFinite(data37)) {
+                if (data37 < 240 || Number.isNaN(data37)) {
                   const err77 = {
-                    instancePath: instancePath + "/meta/viewBox/1",
+                    instancePath: `${instancePath}/meta/viewBox/1`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/1/minimum",
                     keyword: "minimum",
@@ -2352,7 +2326,7 @@ function validate20(
                 }
               } else {
                 const err78 = {
-                  instancePath: instancePath + "/meta/viewBox/1",
+                  instancePath: `${instancePath}/meta/viewBox/1`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/1/type",
                   keyword: "type",
@@ -2370,7 +2344,7 @@ function validate20(
             const len1 = data35.length
             if (!(len1 <= 2)) {
               const err79 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/items",
                 keyword: "items",
                 params: { limit: 2 },
@@ -2385,7 +2359,7 @@ function validate20(
             }
           } else {
             const err80 = {
-              instancePath: instancePath + "/meta/viewBox",
+              instancePath: `${instancePath}/meta/viewBox`,
               schemaPath: "#/properties/meta/properties/viewBox/type",
               keyword: "type",
               params: { type: "array" },
@@ -2401,7 +2375,7 @@ function validate20(
         }
       } else {
         const err81 = {
-          instancePath: instancePath + "/meta",
+          instancePath: `${instancePath}/meta`,
           schemaPath: "#/properties/meta/type",
           keyword: "type",
           params: { type: "object" },
@@ -2420,7 +2394,7 @@ function validate20(
       if (Array.isArray(data38)) {
         if (data38.length < 1) {
           const err82 = {
-            instancePath: instancePath + "/lanes",
+            instancePath: `${instancePath}/lanes`,
             schemaPath: "#/properties/lanes/minItems",
             keyword: "minItems",
             params: { limit: 1 },
@@ -2436,10 +2410,10 @@ function validate20(
         const len2 = data38.length
         for (let i0 = 0; i0 < len2; i0++) {
           const data39 = data38[i0]
-          if (data39 && typeof data39 == "object" && !Array.isArray(data39)) {
+          if (data39 && typeof data39 === "object" && !Array.isArray(data39)) {
             if (data39.id === undefined) {
               const err83 = {
-                instancePath: instancePath + "/lanes/" + i0,
+                instancePath: `${instancePath}/lanes/${i0}`,
                 schemaPath: "#/properties/lanes/items/required",
                 keyword: "required",
                 params: { missingProperty: "id" },
@@ -2454,7 +2428,7 @@ function validate20(
             }
             if (data39.label === undefined) {
               const err84 = {
-                instancePath: instancePath + "/lanes/" + i0,
+                instancePath: `${instancePath}/lanes/${i0}`,
                 schemaPath: "#/properties/lanes/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -2472,7 +2446,7 @@ function validate20(
                 !(key11 === "id" || key11 === "label" || key11 === "variant")
               ) {
                 const err85 = {
-                  instancePath: instancePath + "/lanes/" + i0,
+                  instancePath: `${instancePath}/lanes/${i0}`,
                   schemaPath: "#/properties/lanes/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key11 },
@@ -2491,7 +2465,7 @@ function validate20(
               if (typeof data40 === "string") {
                 if (!pattern4.test(data40)) {
                   const err86 = {
-                    instancePath: instancePath + "/lanes/" + i0 + "/id",
+                    instancePath: `${instancePath}/lanes/${i0}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -2506,7 +2480,7 @@ function validate20(
                 }
               } else {
                 const err87 = {
-                  instancePath: instancePath + "/lanes/" + i0 + "/id",
+                  instancePath: `${instancePath}/lanes/${i0}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -2525,7 +2499,7 @@ function validate20(
               if (typeof data41 === "string") {
                 if (func3(data41) < 1) {
                   const err88 = {
-                    instancePath: instancePath + "/lanes/" + i0 + "/label",
+                    instancePath: `${instancePath}/lanes/${i0}/label`,
                     schemaPath:
                       "#/properties/lanes/items/properties/label/minLength",
                     keyword: "minLength",
@@ -2541,7 +2515,7 @@ function validate20(
                 }
               } else {
                 const err89 = {
-                  instancePath: instancePath + "/lanes/" + i0 + "/label",
+                  instancePath: `${instancePath}/lanes/${i0}/label`,
                   schemaPath: "#/properties/lanes/items/properties/label/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -2559,7 +2533,7 @@ function validate20(
               const data42 = data39.variant
               if (!(data42 === "normal" || data42 === "exception")) {
                 const err90 = {
-                  instancePath: instancePath + "/lanes/" + i0 + "/variant",
+                  instancePath: `${instancePath}/lanes/${i0}/variant`,
                   schemaPath:
                     "#/properties/lanes/items/properties/variant/enum",
                   keyword: "enum",
@@ -2579,7 +2553,7 @@ function validate20(
             }
           } else {
             const err91 = {
-              instancePath: instancePath + "/lanes/" + i0,
+              instancePath: `${instancePath}/lanes/${i0}`,
               schemaPath: "#/properties/lanes/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -2595,7 +2569,7 @@ function validate20(
         }
       } else {
         const err92 = {
-          instancePath: instancePath + "/lanes",
+          instancePath: `${instancePath}/lanes`,
           schemaPath: "#/properties/lanes/type",
           keyword: "type",
           params: { type: "array" },
@@ -2615,10 +2589,10 @@ function validate20(
         const len3 = data43.length
         for (let i1 = 0; i1 < len3; i1++) {
           const data44 = data43[i1]
-          if (data44 && typeof data44 == "object" && !Array.isArray(data44)) {
+          if (data44 && typeof data44 === "object" && !Array.isArray(data44)) {
             if (data44.id === undefined) {
               const err93 = {
-                instancePath: instancePath + "/phases/" + i1,
+                instancePath: `${instancePath}/phases/${i1}`,
                 schemaPath: "#/properties/phases/items/required",
                 keyword: "required",
                 params: { missingProperty: "id" },
@@ -2633,7 +2607,7 @@ function validate20(
             }
             if (data44.label === undefined) {
               const err94 = {
-                instancePath: instancePath + "/phases/" + i1,
+                instancePath: `${instancePath}/phases/${i1}`,
                 schemaPath: "#/properties/phases/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -2648,7 +2622,7 @@ function validate20(
             }
             if (data44.fromCol === undefined) {
               const err95 = {
-                instancePath: instancePath + "/phases/" + i1,
+                instancePath: `${instancePath}/phases/${i1}`,
                 schemaPath: "#/properties/phases/items/required",
                 keyword: "required",
                 params: { missingProperty: "fromCol" },
@@ -2663,7 +2637,7 @@ function validate20(
             }
             if (data44.toCol === undefined) {
               const err96 = {
-                instancePath: instancePath + "/phases/" + i1,
+                instancePath: `${instancePath}/phases/${i1}`,
                 schemaPath: "#/properties/phases/items/required",
                 keyword: "required",
                 params: { missingProperty: "toCol" },
@@ -2687,7 +2661,7 @@ function validate20(
                 )
               ) {
                 const err97 = {
-                  instancePath: instancePath + "/phases/" + i1,
+                  instancePath: `${instancePath}/phases/${i1}`,
                   schemaPath: "#/properties/phases/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key12 },
@@ -2706,7 +2680,7 @@ function validate20(
               if (typeof data45 === "string") {
                 if (!pattern4.test(data45)) {
                   const err98 = {
-                    instancePath: instancePath + "/phases/" + i1 + "/id",
+                    instancePath: `${instancePath}/phases/${i1}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -2721,7 +2695,7 @@ function validate20(
                 }
               } else {
                 const err99 = {
-                  instancePath: instancePath + "/phases/" + i1 + "/id",
+                  instancePath: `${instancePath}/phases/${i1}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -2740,7 +2714,7 @@ function validate20(
               if (typeof data46 === "string") {
                 if (func3(data46) < 1) {
                   const err100 = {
-                    instancePath: instancePath + "/phases/" + i1 + "/label",
+                    instancePath: `${instancePath}/phases/${i1}/label`,
                     schemaPath:
                       "#/properties/phases/items/properties/label/minLength",
                     keyword: "minLength",
@@ -2756,7 +2730,7 @@ function validate20(
                 }
               } else {
                 const err101 = {
-                  instancePath: instancePath + "/phases/" + i1 + "/label",
+                  instancePath: `${instancePath}/phases/${i1}/label`,
                   schemaPath: "#/properties/phases/items/properties/label/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -2774,13 +2748,13 @@ function validate20(
               const data47 = data44.fromCol
               if (
                 !(
-                  typeof data47 == "number" &&
-                  !(data47 % 1 || isNaN(data47)) &&
-                  isFinite(data47)
+                  typeof data47 === "number" &&
+                  !(data47 % 1 || Number.isNaN(data47)) &&
+                  Number.isFinite(data47)
                 )
               ) {
                 const err102 = {
-                  instancePath: instancePath + "/phases/" + i1 + "/fromCol",
+                  instancePath: `${instancePath}/phases/${i1}/fromCol`,
                   schemaPath:
                     "#/properties/phases/items/properties/fromCol/type",
                   keyword: "type",
@@ -2794,10 +2768,10 @@ function validate20(
                 }
                 errors++
               }
-              if (typeof data47 == "number" && isFinite(data47)) {
-                if (data47 > 5 || isNaN(data47)) {
+              if (typeof data47 === "number" && Number.isFinite(data47)) {
+                if (data47 > 5 || Number.isNaN(data47)) {
                   const err103 = {
-                    instancePath: instancePath + "/phases/" + i1 + "/fromCol",
+                    instancePath: `${instancePath}/phases/${i1}/fromCol`,
                     schemaPath:
                       "#/properties/phases/items/properties/fromCol/maximum",
                     keyword: "maximum",
@@ -2811,9 +2785,9 @@ function validate20(
                   }
                   errors++
                 }
-                if (data47 < 0 || isNaN(data47)) {
+                if (data47 < 0 || Number.isNaN(data47)) {
                   const err104 = {
-                    instancePath: instancePath + "/phases/" + i1 + "/fromCol",
+                    instancePath: `${instancePath}/phases/${i1}/fromCol`,
                     schemaPath:
                       "#/properties/phases/items/properties/fromCol/minimum",
                     keyword: "minimum",
@@ -2833,13 +2807,13 @@ function validate20(
               const data48 = data44.toCol
               if (
                 !(
-                  typeof data48 == "number" &&
-                  !(data48 % 1 || isNaN(data48)) &&
-                  isFinite(data48)
+                  typeof data48 === "number" &&
+                  !(data48 % 1 || Number.isNaN(data48)) &&
+                  Number.isFinite(data48)
                 )
               ) {
                 const err105 = {
-                  instancePath: instancePath + "/phases/" + i1 + "/toCol",
+                  instancePath: `${instancePath}/phases/${i1}/toCol`,
                   schemaPath: "#/properties/phases/items/properties/toCol/type",
                   keyword: "type",
                   params: { type: "integer" },
@@ -2852,10 +2826,10 @@ function validate20(
                 }
                 errors++
               }
-              if (typeof data48 == "number" && isFinite(data48)) {
-                if (data48 > 5 || isNaN(data48)) {
+              if (typeof data48 === "number" && Number.isFinite(data48)) {
+                if (data48 > 5 || Number.isNaN(data48)) {
                   const err106 = {
-                    instancePath: instancePath + "/phases/" + i1 + "/toCol",
+                    instancePath: `${instancePath}/phases/${i1}/toCol`,
                     schemaPath:
                       "#/properties/phases/items/properties/toCol/maximum",
                     keyword: "maximum",
@@ -2869,9 +2843,9 @@ function validate20(
                   }
                   errors++
                 }
-                if (data48 < 0 || isNaN(data48)) {
+                if (data48 < 0 || Number.isNaN(data48)) {
                   const err107 = {
-                    instancePath: instancePath + "/phases/" + i1 + "/toCol",
+                    instancePath: `${instancePath}/phases/${i1}/toCol`,
                     schemaPath:
                       "#/properties/phases/items/properties/toCol/minimum",
                     keyword: "minimum",
@@ -2898,7 +2872,7 @@ function validate20(
                 )
               ) {
                 const err108 = {
-                  instancePath: instancePath + "/phases/" + i1 + "/variant",
+                  instancePath: `${instancePath}/phases/${i1}/variant`,
                   schemaPath:
                     "#/properties/phases/items/properties/variant/enum",
                   keyword: "enum",
@@ -2918,7 +2892,7 @@ function validate20(
             }
           } else {
             const err109 = {
-              instancePath: instancePath + "/phases/" + i1,
+              instancePath: `${instancePath}/phases/${i1}`,
               schemaPath: "#/properties/phases/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -2934,7 +2908,7 @@ function validate20(
         }
       } else {
         const err110 = {
-          instancePath: instancePath + "/phases",
+          instancePath: `${instancePath}/phases`,
           schemaPath: "#/properties/phases/type",
           keyword: "type",
           params: { type: "array" },
@@ -2954,10 +2928,10 @@ function validate20(
         const len4 = data50.length
         for (let i2 = 0; i2 < len4; i2++) {
           const data51 = data50[i2]
-          if (data51 && typeof data51 == "object" && !Array.isArray(data51)) {
+          if (data51 && typeof data51 === "object" && !Array.isArray(data51)) {
             if (data51.id === undefined) {
               const err111 = {
-                instancePath: instancePath + "/groups/" + i2,
+                instancePath: `${instancePath}/groups/${i2}`,
                 schemaPath: "#/properties/groups/items/required",
                 keyword: "required",
                 params: { missingProperty: "id" },
@@ -2972,7 +2946,7 @@ function validate20(
             }
             if (data51.label === undefined) {
               const err112 = {
-                instancePath: instancePath + "/groups/" + i2,
+                instancePath: `${instancePath}/groups/${i2}`,
                 schemaPath: "#/properties/groups/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -2987,7 +2961,7 @@ function validate20(
             }
             if (data51.lane === undefined) {
               const err113 = {
-                instancePath: instancePath + "/groups/" + i2,
+                instancePath: `${instancePath}/groups/${i2}`,
                 schemaPath: "#/properties/groups/items/required",
                 keyword: "required",
                 params: { missingProperty: "lane" },
@@ -3002,7 +2976,7 @@ function validate20(
             }
             if (data51.fromCol === undefined) {
               const err114 = {
-                instancePath: instancePath + "/groups/" + i2,
+                instancePath: `${instancePath}/groups/${i2}`,
                 schemaPath: "#/properties/groups/items/required",
                 keyword: "required",
                 params: { missingProperty: "fromCol" },
@@ -3017,7 +2991,7 @@ function validate20(
             }
             if (data51.toCol === undefined) {
               const err115 = {
-                instancePath: instancePath + "/groups/" + i2,
+                instancePath: `${instancePath}/groups/${i2}`,
                 schemaPath: "#/properties/groups/items/required",
                 keyword: "required",
                 params: { missingProperty: "toCol" },
@@ -3042,7 +3016,7 @@ function validate20(
                 )
               ) {
                 const err116 = {
-                  instancePath: instancePath + "/groups/" + i2,
+                  instancePath: `${instancePath}/groups/${i2}`,
                   schemaPath: "#/properties/groups/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key13 },
@@ -3061,7 +3035,7 @@ function validate20(
               if (typeof data52 === "string") {
                 if (!pattern4.test(data52)) {
                   const err117 = {
-                    instancePath: instancePath + "/groups/" + i2 + "/id",
+                    instancePath: `${instancePath}/groups/${i2}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -3076,7 +3050,7 @@ function validate20(
                 }
               } else {
                 const err118 = {
-                  instancePath: instancePath + "/groups/" + i2 + "/id",
+                  instancePath: `${instancePath}/groups/${i2}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -3095,7 +3069,7 @@ function validate20(
               if (typeof data53 === "string") {
                 if (func3(data53) < 1) {
                   const err119 = {
-                    instancePath: instancePath + "/groups/" + i2 + "/label",
+                    instancePath: `${instancePath}/groups/${i2}/label`,
                     schemaPath:
                       "#/properties/groups/items/properties/label/minLength",
                     keyword: "minLength",
@@ -3111,7 +3085,7 @@ function validate20(
                 }
               } else {
                 const err120 = {
-                  instancePath: instancePath + "/groups/" + i2 + "/label",
+                  instancePath: `${instancePath}/groups/${i2}/label`,
                   schemaPath: "#/properties/groups/items/properties/label/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -3130,7 +3104,7 @@ function validate20(
               if (typeof data54 === "string") {
                 if (!pattern4.test(data54)) {
                   const err121 = {
-                    instancePath: instancePath + "/groups/" + i2 + "/lane",
+                    instancePath: `${instancePath}/groups/${i2}/lane`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -3145,7 +3119,7 @@ function validate20(
                 }
               } else {
                 const err122 = {
-                  instancePath: instancePath + "/groups/" + i2 + "/lane",
+                  instancePath: `${instancePath}/groups/${i2}/lane`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -3163,13 +3137,13 @@ function validate20(
               const data55 = data51.fromCol
               if (
                 !(
-                  typeof data55 == "number" &&
-                  !(data55 % 1 || isNaN(data55)) &&
-                  isFinite(data55)
+                  typeof data55 === "number" &&
+                  !(data55 % 1 || Number.isNaN(data55)) &&
+                  Number.isFinite(data55)
                 )
               ) {
                 const err123 = {
-                  instancePath: instancePath + "/groups/" + i2 + "/fromCol",
+                  instancePath: `${instancePath}/groups/${i2}/fromCol`,
                   schemaPath:
                     "#/properties/groups/items/properties/fromCol/type",
                   keyword: "type",
@@ -3183,10 +3157,10 @@ function validate20(
                 }
                 errors++
               }
-              if (typeof data55 == "number" && isFinite(data55)) {
-                if (data55 > 5 || isNaN(data55)) {
+              if (typeof data55 === "number" && Number.isFinite(data55)) {
+                if (data55 > 5 || Number.isNaN(data55)) {
                   const err124 = {
-                    instancePath: instancePath + "/groups/" + i2 + "/fromCol",
+                    instancePath: `${instancePath}/groups/${i2}/fromCol`,
                     schemaPath:
                       "#/properties/groups/items/properties/fromCol/maximum",
                     keyword: "maximum",
@@ -3200,9 +3174,9 @@ function validate20(
                   }
                   errors++
                 }
-                if (data55 < 0 || isNaN(data55)) {
+                if (data55 < 0 || Number.isNaN(data55)) {
                   const err125 = {
-                    instancePath: instancePath + "/groups/" + i2 + "/fromCol",
+                    instancePath: `${instancePath}/groups/${i2}/fromCol`,
                     schemaPath:
                       "#/properties/groups/items/properties/fromCol/minimum",
                     keyword: "minimum",
@@ -3222,13 +3196,13 @@ function validate20(
               const data56 = data51.toCol
               if (
                 !(
-                  typeof data56 == "number" &&
-                  !(data56 % 1 || isNaN(data56)) &&
-                  isFinite(data56)
+                  typeof data56 === "number" &&
+                  !(data56 % 1 || Number.isNaN(data56)) &&
+                  Number.isFinite(data56)
                 )
               ) {
                 const err126 = {
-                  instancePath: instancePath + "/groups/" + i2 + "/toCol",
+                  instancePath: `${instancePath}/groups/${i2}/toCol`,
                   schemaPath: "#/properties/groups/items/properties/toCol/type",
                   keyword: "type",
                   params: { type: "integer" },
@@ -3241,10 +3215,10 @@ function validate20(
                 }
                 errors++
               }
-              if (typeof data56 == "number" && isFinite(data56)) {
-                if (data56 > 5 || isNaN(data56)) {
+              if (typeof data56 === "number" && Number.isFinite(data56)) {
+                if (data56 > 5 || Number.isNaN(data56)) {
                   const err127 = {
-                    instancePath: instancePath + "/groups/" + i2 + "/toCol",
+                    instancePath: `${instancePath}/groups/${i2}/toCol`,
                     schemaPath:
                       "#/properties/groups/items/properties/toCol/maximum",
                     keyword: "maximum",
@@ -3258,9 +3232,9 @@ function validate20(
                   }
                   errors++
                 }
-                if (data56 < 0 || isNaN(data56)) {
+                if (data56 < 0 || Number.isNaN(data56)) {
                   const err128 = {
-                    instancePath: instancePath + "/groups/" + i2 + "/toCol",
+                    instancePath: `${instancePath}/groups/${i2}/toCol`,
                     schemaPath:
                       "#/properties/groups/items/properties/toCol/minimum",
                     keyword: "minimum",
@@ -3287,7 +3261,7 @@ function validate20(
                 )
               ) {
                 const err129 = {
-                  instancePath: instancePath + "/groups/" + i2 + "/variant",
+                  instancePath: `${instancePath}/groups/${i2}/variant`,
                   schemaPath:
                     "#/properties/groups/items/properties/variant/enum",
                   keyword: "enum",
@@ -3307,7 +3281,7 @@ function validate20(
             }
           } else {
             const err130 = {
-              instancePath: instancePath + "/groups/" + i2,
+              instancePath: `${instancePath}/groups/${i2}`,
               schemaPath: "#/properties/groups/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -3323,7 +3297,7 @@ function validate20(
         }
       } else {
         const err131 = {
-          instancePath: instancePath + "/groups",
+          instancePath: `${instancePath}/groups`,
           schemaPath: "#/properties/groups/type",
           keyword: "type",
           params: { type: "array" },
@@ -3342,7 +3316,7 @@ function validate20(
       if (Array.isArray(data58)) {
         if (data58.length < 2) {
           const err132 = {
-            instancePath: instancePath + "/mainPath",
+            instancePath: `${instancePath}/mainPath`,
             schemaPath: "#/properties/mainPath/minItems",
             keyword: "minItems",
             params: { limit: 2 },
@@ -3361,7 +3335,7 @@ function validate20(
           if (typeof data59 === "string") {
             if (!pattern4.test(data59)) {
               const err133 = {
-                instancePath: instancePath + "/mainPath/" + i3,
+                instancePath: `${instancePath}/mainPath/${i3}`,
                 schemaPath: "common.schema.json#/$defs/id/pattern",
                 keyword: "pattern",
                 params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -3376,7 +3350,7 @@ function validate20(
             }
           } else {
             const err134 = {
-              instancePath: instancePath + "/mainPath/" + i3,
+              instancePath: `${instancePath}/mainPath/${i3}`,
               schemaPath: "common.schema.json#/$defs/id/type",
               keyword: "type",
               params: { type: "string" },
@@ -3392,7 +3366,7 @@ function validate20(
         }
       } else {
         const err135 = {
-          instancePath: instancePath + "/mainPath",
+          instancePath: `${instancePath}/mainPath`,
           schemaPath: "#/properties/mainPath/type",
           keyword: "type",
           params: { type: "array" },
@@ -3408,10 +3382,10 @@ function validate20(
     }
     if (data.semanticChecks !== undefined) {
       const data60 = data.semanticChecks
-      if (data60 && typeof data60 == "object" && !Array.isArray(data60)) {
+      if (data60 && typeof data60 === "object" && !Array.isArray(data60)) {
         if (Object.keys(data60).length < 1) {
           const err136 = {
-            instancePath: instancePath + "/semanticChecks",
+            instancePath: `${instancePath}/semanticChecks`,
             schemaPath: "#/properties/semanticChecks/minProperties",
             keyword: "minProperties",
             params: { limit: 1 },
@@ -3434,7 +3408,7 @@ function validate20(
             )
           ) {
             const err137 = {
-              instancePath: instancePath + "/semanticChecks",
+              instancePath: `${instancePath}/semanticChecks`,
               schemaPath: "#/properties/semanticChecks/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key14 },
@@ -3457,8 +3431,7 @@ function validate20(
               if (typeof data62 === "string") {
                 if (!pattern4.test(data62)) {
                   const err138 = {
-                    instancePath:
-                      instancePath + "/semanticChecks/allowedRoots/" + i4,
+                    instancePath: `${instancePath}/semanticChecks/allowedRoots/${i4}`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -3473,8 +3446,7 @@ function validate20(
                 }
               } else {
                 const err139 = {
-                  instancePath:
-                    instancePath + "/semanticChecks/allowedRoots/" + i4,
+                  instancePath: `${instancePath}/semanticChecks/allowedRoots/${i4}`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -3490,7 +3462,7 @@ function validate20(
             }
           } else {
             const err140 = {
-              instancePath: instancePath + "/semanticChecks/allowedRoots",
+              instancePath: `${instancePath}/semanticChecks/allowedRoots`,
               schemaPath:
                 "#/properties/semanticChecks/properties/allowedRoots/type",
               keyword: "type",
@@ -3514,8 +3486,7 @@ function validate20(
               if (typeof data64 === "string") {
                 if (!pattern4.test(data64)) {
                   const err141 = {
-                    instancePath:
-                      instancePath + "/semanticChecks/allowedTerminals/" + i5,
+                    instancePath: `${instancePath}/semanticChecks/allowedTerminals/${i5}`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -3530,8 +3501,7 @@ function validate20(
                 }
               } else {
                 const err142 = {
-                  instancePath:
-                    instancePath + "/semanticChecks/allowedTerminals/" + i5,
+                  instancePath: `${instancePath}/semanticChecks/allowedTerminals/${i5}`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -3547,7 +3517,7 @@ function validate20(
             }
           } else {
             const err143 = {
-              instancePath: instancePath + "/semanticChecks/allowedTerminals",
+              instancePath: `${instancePath}/semanticChecks/allowedTerminals`,
               schemaPath:
                 "#/properties/semanticChecks/properties/allowedTerminals/type",
               keyword: "type",
@@ -3569,8 +3539,7 @@ function validate20(
             for (let i6 = 0; i6 < len8; i6++) {
               if (
                 !validate24(data65[i6], {
-                  instancePath:
-                    instancePath + "/semanticChecks/requiredEdges/" + i6,
+                  instancePath: `${instancePath}/semanticChecks/requiredEdges/${i6}`,
                   parentData: data65,
                   parentDataProperty: i6,
                   rootData,
@@ -3586,7 +3555,7 @@ function validate20(
             }
           } else {
             const err144 = {
-              instancePath: instancePath + "/semanticChecks/requiredEdges",
+              instancePath: `${instancePath}/semanticChecks/requiredEdges`,
               schemaPath:
                 "#/properties/semanticChecks/properties/requiredEdges/type",
               keyword: "type",
@@ -3608,8 +3577,7 @@ function validate20(
             for (let i7 = 0; i7 < len9; i7++) {
               if (
                 !validate24(data67[i7], {
-                  instancePath:
-                    instancePath + "/semanticChecks/requiredPaths/" + i7,
+                  instancePath: `${instancePath}/semanticChecks/requiredPaths/${i7}`,
                   parentData: data67,
                   parentDataProperty: i7,
                   rootData,
@@ -3625,7 +3593,7 @@ function validate20(
             }
           } else {
             const err145 = {
-              instancePath: instancePath + "/semanticChecks/requiredPaths",
+              instancePath: `${instancePath}/semanticChecks/requiredPaths`,
               schemaPath:
                 "#/properties/semanticChecks/properties/requiredPaths/type",
               keyword: "type",
@@ -3642,7 +3610,7 @@ function validate20(
         }
       } else {
         const err146 = {
-          instancePath: instancePath + "/semanticChecks",
+          instancePath: `${instancePath}/semanticChecks`,
           schemaPath: "#/properties/semanticChecks/type",
           keyword: "type",
           params: { type: "object" },
@@ -3661,7 +3629,7 @@ function validate20(
       if (Array.isArray(data69)) {
         if (data69.length < 1) {
           const err147 = {
-            instancePath: instancePath + "/nodes",
+            instancePath: `${instancePath}/nodes`,
             schemaPath: "#/properties/nodes/minItems",
             keyword: "minItems",
             params: { limit: 1 },
@@ -3677,10 +3645,10 @@ function validate20(
         const len10 = data69.length
         for (let i8 = 0; i8 < len10; i8++) {
           const data70 = data69[i8]
-          if (data70 && typeof data70 == "object" && !Array.isArray(data70)) {
+          if (data70 && typeof data70 === "object" && !Array.isArray(data70)) {
             if (data70.id === undefined) {
               const err148 = {
-                instancePath: instancePath + "/nodes/" + i8,
+                instancePath: `${instancePath}/nodes/${i8}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "id" },
@@ -3695,7 +3663,7 @@ function validate20(
             }
             if (data70.lane === undefined) {
               const err149 = {
-                instancePath: instancePath + "/nodes/" + i8,
+                instancePath: `${instancePath}/nodes/${i8}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "lane" },
@@ -3710,7 +3678,7 @@ function validate20(
             }
             if (data70.col === undefined) {
               const err150 = {
-                instancePath: instancePath + "/nodes/" + i8,
+                instancePath: `${instancePath}/nodes/${i8}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "col" },
@@ -3725,7 +3693,7 @@ function validate20(
             }
             if (data70.type === undefined) {
               const err151 = {
-                instancePath: instancePath + "/nodes/" + i8,
+                instancePath: `${instancePath}/nodes/${i8}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "type" },
@@ -3740,7 +3708,7 @@ function validate20(
             }
             if (data70.label === undefined) {
               const err152 = {
-                instancePath: instancePath + "/nodes/" + i8,
+                instancePath: `${instancePath}/nodes/${i8}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -3758,7 +3726,7 @@ function validate20(
                 !func1.call(schema31.properties.nodes.items.properties, key15)
               ) {
                 const err153 = {
-                  instancePath: instancePath + "/nodes/" + i8,
+                  instancePath: `${instancePath}/nodes/${i8}`,
                   schemaPath: "#/properties/nodes/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key15 },
@@ -3777,7 +3745,7 @@ function validate20(
               if (typeof data71 === "string") {
                 if (!pattern4.test(data71)) {
                   const err154 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/id",
+                    instancePath: `${instancePath}/nodes/${i8}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -3792,7 +3760,7 @@ function validate20(
                 }
               } else {
                 const err155 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/id",
+                  instancePath: `${instancePath}/nodes/${i8}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -3811,7 +3779,7 @@ function validate20(
               if (typeof data72 === "string") {
                 if (!pattern4.test(data72)) {
                   const err156 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/lane",
+                    instancePath: `${instancePath}/nodes/${i8}/lane`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -3826,7 +3794,7 @@ function validate20(
                 }
               } else {
                 const err157 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/lane",
+                  instancePath: `${instancePath}/nodes/${i8}/lane`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -3844,13 +3812,13 @@ function validate20(
               const data73 = data70.col
               if (
                 !(
-                  typeof data73 == "number" &&
-                  !(data73 % 1 || isNaN(data73)) &&
-                  isFinite(data73)
+                  typeof data73 === "number" &&
+                  !(data73 % 1 || Number.isNaN(data73)) &&
+                  Number.isFinite(data73)
                 )
               ) {
                 const err158 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/col",
+                  instancePath: `${instancePath}/nodes/${i8}/col`,
                   schemaPath: "#/properties/nodes/items/properties/col/type",
                   keyword: "type",
                   params: { type: "integer" },
@@ -3863,10 +3831,10 @@ function validate20(
                 }
                 errors++
               }
-              if (typeof data73 == "number" && isFinite(data73)) {
-                if (data73 > 5 || isNaN(data73)) {
+              if (typeof data73 === "number" && Number.isFinite(data73)) {
+                if (data73 > 5 || Number.isNaN(data73)) {
                   const err159 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/col",
+                    instancePath: `${instancePath}/nodes/${i8}/col`,
                     schemaPath:
                       "#/properties/nodes/items/properties/col/maximum",
                     keyword: "maximum",
@@ -3880,9 +3848,9 @@ function validate20(
                   }
                   errors++
                 }
-                if (data73 < 0 || isNaN(data73)) {
+                if (data73 < 0 || Number.isNaN(data73)) {
                   const err160 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/col",
+                    instancePath: `${instancePath}/nodes/${i8}/col`,
                     schemaPath:
                       "#/properties/nodes/items/properties/col/minimum",
                     keyword: "minimum",
@@ -3912,7 +3880,7 @@ function validate20(
                 )
               ) {
                 const err161 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/type",
+                  instancePath: `${instancePath}/nodes/${i8}/type`,
                   schemaPath: "common.schema.json#/$defs/componentType/enum",
                   keyword: "enum",
                   params: { allowedValues: schema57.enum },
@@ -3931,7 +3899,7 @@ function validate20(
               if (typeof data75 === "string") {
                 if (func3(data75) < 1) {
                   const err162 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/label",
+                    instancePath: `${instancePath}/nodes/${i8}/label`,
                     schemaPath:
                       "#/properties/nodes/items/properties/label/minLength",
                     keyword: "minLength",
@@ -3947,7 +3915,7 @@ function validate20(
                 }
               } else {
                 const err163 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/label",
+                  instancePath: `${instancePath}/nodes/${i8}/label`,
                   schemaPath: "#/properties/nodes/items/properties/label/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -3966,7 +3934,7 @@ function validate20(
               typeof data70.sublabel !== "string"
             ) {
               const err164 = {
-                instancePath: instancePath + "/nodes/" + i8 + "/sublabel",
+                instancePath: `${instancePath}/nodes/${i8}/sublabel`,
                 schemaPath: "#/properties/nodes/items/properties/sublabel/type",
                 keyword: "type",
                 params: { type: "string" },
@@ -3981,7 +3949,7 @@ function validate20(
             }
             if (data70.tag !== undefined && typeof data70.tag !== "string") {
               const err165 = {
-                instancePath: instancePath + "/nodes/" + i8 + "/tag",
+                instancePath: `${instancePath}/nodes/${i8}/tag`,
                 schemaPath: "#/properties/nodes/items/properties/tag/type",
                 keyword: "type",
                 params: { type: "string" },
@@ -4006,7 +3974,7 @@ function validate20(
               if (typeof data78 === "string") {
                 if (func3(data78) > 80) {
                   const err166 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i8}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/maxLength",
                     keyword: "maxLength",
@@ -4022,7 +3990,7 @@ function validate20(
                 }
                 if (!pattern17.test(data78)) {
                   const err167 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i8}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/pattern",
                     keyword: "pattern",
@@ -4037,12 +4005,12 @@ function validate20(
                   errors++
                 }
               }
-              var _valid1 = _errs184 === errors
+              const _valid1 = _errs184 === errors
               valid56 = valid56 || _valid1
               const _errs185 = errors
               if (typeof data78 === "string" && !pattern18.test(data78)) {
                 const err168 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i8}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/1/pattern",
                   keyword: "pattern",
@@ -4056,7 +4024,7 @@ function validate20(
                 }
                 errors++
               }
-              var _valid1 = _errs185 === errors
+              const _valid1 = _errs185 === errors
               valid56 = valid56 || _valid1
               if (valid56) {
                 errors = _errs183
@@ -4069,7 +4037,7 @@ function validate20(
                 }
               } else {
                 const err169 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i8}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf",
                   keyword: "anyOf",
@@ -4086,7 +4054,7 @@ function validate20(
               if (typeof data78 === "string") {
                 if (func3(data78) > 2048) {
                   const err170 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i8}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/maxLength",
                     keyword: "maxLength",
@@ -4102,7 +4070,7 @@ function validate20(
                 }
                 if (func3(data78) < 1) {
                   const err171 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i8}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/minLength",
                     keyword: "minLength",
@@ -4118,7 +4086,7 @@ function validate20(
                 }
               } else {
                 const err172 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i8}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/type",
                   keyword: "type",
@@ -4132,7 +4100,7 @@ function validate20(
                 }
                 errors++
               }
-              var _valid0 = _errs181 === errors
+              const _valid0 = _errs181 === errors
               if (_valid0) {
                 valid55 = true
                 passing0 = 0
@@ -4140,12 +4108,12 @@ function validate20(
               const _errs186 = errors
               if (
                 data78 &&
-                typeof data78 == "object" &&
+                typeof data78 === "object" &&
                 !Array.isArray(data78)
               ) {
                 if (data78.url === undefined) {
                   const err173 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i8}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -4161,7 +4129,7 @@ function validate20(
                 }
                 if (data78.sha256 === undefined) {
                   const err174 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i8}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -4178,7 +4146,7 @@ function validate20(
                 for (const key16 in data78) {
                   if (!(key16 === "url" || key16 === "sha256")) {
                     const err175 = {
-                      instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                      instancePath: `${instancePath}/nodes/${i8}/brand`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/additionalProperties",
                       keyword: "additionalProperties",
@@ -4198,8 +4166,7 @@ function validate20(
                   if (typeof data79 === "string") {
                     if (func3(data79) > 2048) {
                       const err176 = {
-                        instancePath:
-                          instancePath + "/nodes/" + i8 + "/brand/url",
+                        instancePath: `${instancePath}/nodes/${i8}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/maxLength",
                         keyword: "maxLength",
@@ -4215,8 +4182,7 @@ function validate20(
                     }
                     if (func3(data79) < 8) {
                       const err177 = {
-                        instancePath:
-                          instancePath + "/nodes/" + i8 + "/brand/url",
+                        instancePath: `${instancePath}/nodes/${i8}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/minLength",
                         keyword: "minLength",
@@ -4232,8 +4198,7 @@ function validate20(
                     }
                     if (!pattern18.test(data79)) {
                       const err178 = {
-                        instancePath:
-                          instancePath + "/nodes/" + i8 + "/brand/url",
+                        instancePath: `${instancePath}/nodes/${i8}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/pattern",
                         keyword: "pattern",
@@ -4249,8 +4214,7 @@ function validate20(
                     }
                   } else {
                     const err179 = {
-                      instancePath:
-                        instancePath + "/nodes/" + i8 + "/brand/url",
+                      instancePath: `${instancePath}/nodes/${i8}/brand/url`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/type",
                       keyword: "type",
@@ -4270,8 +4234,7 @@ function validate20(
                   if (typeof data80 === "string") {
                     if (!pattern20.test(data80)) {
                       const err180 = {
-                        instancePath:
-                          instancePath + "/nodes/" + i8 + "/brand/sha256",
+                        instancePath: `${instancePath}/nodes/${i8}/brand/sha256`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/sha256/pattern",
                         keyword: "pattern",
@@ -4287,8 +4250,7 @@ function validate20(
                     }
                   } else {
                     const err181 = {
-                      instancePath:
-                        instancePath + "/nodes/" + i8 + "/brand/sha256",
+                      instancePath: `${instancePath}/nodes/${i8}/brand/sha256`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/sha256/type",
                       keyword: "type",
@@ -4305,7 +4267,7 @@ function validate20(
                 }
               } else {
                 const err182 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i8}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/1/type",
                   keyword: "type",
@@ -4319,7 +4281,7 @@ function validate20(
                 }
                 errors++
               }
-              var _valid0 = _errs186 === errors
+              const _valid0 = _errs186 === errors
               if (_valid0 && valid55) {
                 valid55 = false
                 passing0 = [passing0, 1]
@@ -4338,7 +4300,7 @@ function validate20(
                 }
               } else {
                 const err183 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i8}/brand`,
                   schemaPath: "common.schema.json#/$defs/brandMark/oneOf",
                   keyword: "oneOf",
                   params: { passingSchemas: passing0 },
@@ -4354,10 +4316,10 @@ function validate20(
             }
             if (data70.width !== undefined) {
               const data81 = data70.width
-              if (typeof data81 == "number" && isFinite(data81)) {
-                if (data81 < 32 || isNaN(data81)) {
+              if (typeof data81 === "number" && Number.isFinite(data81)) {
+                if (data81 < 32 || Number.isNaN(data81)) {
                   const err184 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/width",
+                    instancePath: `${instancePath}/nodes/${i8}/width`,
                     schemaPath:
                       "#/properties/nodes/items/properties/width/minimum",
                     keyword: "minimum",
@@ -4373,7 +4335,7 @@ function validate20(
                 }
               } else {
                 const err185 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/width",
+                  instancePath: `${instancePath}/nodes/${i8}/width`,
                   schemaPath: "#/properties/nodes/items/properties/width/type",
                   keyword: "type",
                   params: { type: "number" },
@@ -4389,10 +4351,10 @@ function validate20(
             }
             if (data70.height !== undefined) {
               const data82 = data70.height
-              if (typeof data82 == "number" && isFinite(data82)) {
-                if (data82 < 32 || isNaN(data82)) {
+              if (typeof data82 === "number" && Number.isFinite(data82)) {
+                if (data82 < 32 || Number.isNaN(data82)) {
                   const err186 = {
-                    instancePath: instancePath + "/nodes/" + i8 + "/height",
+                    instancePath: `${instancePath}/nodes/${i8}/height`,
                     schemaPath:
                       "#/properties/nodes/items/properties/height/minimum",
                     keyword: "minimum",
@@ -4408,7 +4370,7 @@ function validate20(
                 }
               } else {
                 const err187 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/height",
+                  instancePath: `${instancePath}/nodes/${i8}/height`,
                   schemaPath: "#/properties/nodes/items/properties/height/type",
                   keyword: "type",
                   params: { type: "number" },
@@ -4424,9 +4386,9 @@ function validate20(
             }
             if (data70.yOffset !== undefined) {
               const data83 = data70.yOffset
-              if (!(typeof data83 == "number" && isFinite(data83))) {
+              if (!(typeof data83 === "number" && Number.isFinite(data83))) {
                 const err188 = {
-                  instancePath: instancePath + "/nodes/" + i8 + "/yOffset",
+                  instancePath: `${instancePath}/nodes/${i8}/yOffset`,
                   schemaPath:
                     "#/properties/nodes/items/properties/yOffset/type",
                   keyword: "type",
@@ -4443,7 +4405,7 @@ function validate20(
             }
           } else {
             const err189 = {
-              instancePath: instancePath + "/nodes/" + i8,
+              instancePath: `${instancePath}/nodes/${i8}`,
               schemaPath: "#/properties/nodes/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -4459,7 +4421,7 @@ function validate20(
         }
       } else {
         const err190 = {
-          instancePath: instancePath + "/nodes",
+          instancePath: `${instancePath}/nodes`,
           schemaPath: "#/properties/nodes/type",
           keyword: "type",
           params: { type: "array" },
@@ -4479,10 +4441,10 @@ function validate20(
         const len11 = data84.length
         for (let i9 = 0; i9 < len11; i9++) {
           const data85 = data84[i9]
-          if (data85 && typeof data85 == "object" && !Array.isArray(data85)) {
+          if (data85 && typeof data85 === "object" && !Array.isArray(data85)) {
             if (data85.from === undefined) {
               const err191 = {
-                instancePath: instancePath + "/edges/" + i9,
+                instancePath: `${instancePath}/edges/${i9}`,
                 schemaPath: "#/properties/edges/items/required",
                 keyword: "required",
                 params: { missingProperty: "from" },
@@ -4497,7 +4459,7 @@ function validate20(
             }
             if (data85.to === undefined) {
               const err192 = {
-                instancePath: instancePath + "/edges/" + i9,
+                instancePath: `${instancePath}/edges/${i9}`,
                 schemaPath: "#/properties/edges/items/required",
                 keyword: "required",
                 params: { missingProperty: "to" },
@@ -4515,7 +4477,7 @@ function validate20(
                 !func1.call(schema31.properties.edges.items.properties, key17)
               ) {
                 const err193 = {
-                  instancePath: instancePath + "/edges/" + i9,
+                  instancePath: `${instancePath}/edges/${i9}`,
                   schemaPath: "#/properties/edges/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key17 },
@@ -4534,7 +4496,7 @@ function validate20(
               if (typeof data86 === "string") {
                 if (!pattern4.test(data86)) {
                   const err194 = {
-                    instancePath: instancePath + "/edges/" + i9 + "/id",
+                    instancePath: `${instancePath}/edges/${i9}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -4549,7 +4511,7 @@ function validate20(
                 }
               } else {
                 const err195 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/id",
+                  instancePath: `${instancePath}/edges/${i9}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -4568,7 +4530,7 @@ function validate20(
               if (typeof data87 === "string") {
                 if (!pattern4.test(data87)) {
                   const err196 = {
-                    instancePath: instancePath + "/edges/" + i9 + "/from",
+                    instancePath: `${instancePath}/edges/${i9}/from`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -4583,7 +4545,7 @@ function validate20(
                 }
               } else {
                 const err197 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/from",
+                  instancePath: `${instancePath}/edges/${i9}/from`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -4602,7 +4564,7 @@ function validate20(
               if (typeof data88 === "string") {
                 if (!pattern4.test(data88)) {
                   const err198 = {
-                    instancePath: instancePath + "/edges/" + i9 + "/to",
+                    instancePath: `${instancePath}/edges/${i9}/to`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -4617,7 +4579,7 @@ function validate20(
                 }
               } else {
                 const err199 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/to",
+                  instancePath: `${instancePath}/edges/${i9}/to`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -4636,7 +4598,7 @@ function validate20(
               typeof data85.label !== "string"
             ) {
               const err200 = {
-                instancePath: instancePath + "/edges/" + i9 + "/label",
+                instancePath: `${instancePath}/edges/${i9}/label`,
                 schemaPath: "#/properties/edges/items/properties/label/type",
                 keyword: "type",
                 params: { type: "string" },
@@ -4660,7 +4622,7 @@ function validate20(
                 )
               ) {
                 const err201 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/variant",
+                  instancePath: `${instancePath}/edges/${i9}/variant`,
                   schemaPath: "common.schema.json#/$defs/variant/enum",
                   keyword: "enum",
                   params: { allowedValues: schema62.enum },
@@ -4686,7 +4648,7 @@ function validate20(
                 )
               ) {
                 const err202 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/role",
+                  instancePath: `${instancePath}/edges/${i9}/role`,
                   schemaPath: "#/properties/edges/items/properties/role/enum",
                   keyword: "enum",
                   params: {
@@ -4714,7 +4676,7 @@ function validate20(
                 )
               ) {
                 const err203 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/fromSide",
+                  instancePath: `${instancePath}/edges/${i9}/fromSide`,
                   schemaPath: "#/$defs/side/enum",
                   keyword: "enum",
                   params: { allowedValues: schema63.enum },
@@ -4739,7 +4701,7 @@ function validate20(
                 )
               ) {
                 const err204 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/toSide",
+                  instancePath: `${instancePath}/edges/${i9}/toSide`,
                   schemaPath: "#/$defs/side/enum",
                   keyword: "enum",
                   params: { allowedValues: schema63.enum },
@@ -4767,7 +4729,7 @@ function validate20(
                 )
               ) {
                 const err205 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/route",
+                  instancePath: `${instancePath}/edges/${i9}/route`,
                   schemaPath: "#/properties/edges/items/properties/route/enum",
                   keyword: "enum",
                   params: {
@@ -4793,8 +4755,7 @@ function validate20(
                   if (Array.isArray(data96)) {
                     if (data96.length > 2) {
                       const err206 = {
-                        instancePath:
-                          instancePath + "/edges/" + i9 + "/via/" + i10,
+                        instancePath: `${instancePath}/edges/${i9}/via/${i10}`,
                         schemaPath: "common.schema.json#/$defs/point/maxItems",
                         keyword: "maxItems",
                         params: { limit: 2 },
@@ -4809,8 +4770,7 @@ function validate20(
                     }
                     if (data96.length < 2) {
                       const err207 = {
-                        instancePath:
-                          instancePath + "/edges/" + i9 + "/via/" + i10,
+                        instancePath: `${instancePath}/edges/${i9}/via/${i10}`,
                         schemaPath: "common.schema.json#/$defs/point/minItems",
                         keyword: "minItems",
                         params: { limit: 2 },
@@ -4826,7 +4786,9 @@ function validate20(
                     const len13 = data96.length
                     if (len13 > 0) {
                       const data97 = data96[0]
-                      if (!(typeof data97 == "number" && isFinite(data97))) {
+                      if (
+                        !(typeof data97 === "number" && Number.isFinite(data97))
+                      ) {
                         const err208 = {
                           instancePath:
                             instancePath +
@@ -4851,7 +4813,9 @@ function validate20(
                     }
                     if (len13 > 1) {
                       const data98 = data96[1]
-                      if (!(typeof data98 == "number" && isFinite(data98))) {
+                      if (
+                        !(typeof data98 === "number" && Number.isFinite(data98))
+                      ) {
                         const err209 = {
                           instancePath:
                             instancePath +
@@ -4877,8 +4841,7 @@ function validate20(
                     const len14 = data96.length
                     if (!(len14 <= 2)) {
                       const err210 = {
-                        instancePath:
-                          instancePath + "/edges/" + i9 + "/via/" + i10,
+                        instancePath: `${instancePath}/edges/${i9}/via/${i10}`,
                         schemaPath: "common.schema.json#/$defs/point/items",
                         keyword: "items",
                         params: { limit: 2 },
@@ -4893,8 +4856,7 @@ function validate20(
                     }
                   } else {
                     const err211 = {
-                      instancePath:
-                        instancePath + "/edges/" + i9 + "/via/" + i10,
+                      instancePath: `${instancePath}/edges/${i9}/via/${i10}`,
                       schemaPath: "common.schema.json#/$defs/point/type",
                       keyword: "type",
                       params: { type: "array" },
@@ -4910,7 +4872,7 @@ function validate20(
                 }
               } else {
                 const err212 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/via",
+                  instancePath: `${instancePath}/edges/${i9}/via`,
                   schemaPath: "#/properties/edges/items/properties/via/type",
                   keyword: "type",
                   params: { type: "array" },
@@ -4929,7 +4891,7 @@ function validate20(
               if (Array.isArray(data99)) {
                 if (data99.length > 2) {
                   const err213 = {
-                    instancePath: instancePath + "/edges/" + i9 + "/labelAt",
+                    instancePath: `${instancePath}/edges/${i9}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/maxItems",
                     keyword: "maxItems",
                     params: { limit: 2 },
@@ -4944,7 +4906,7 @@ function validate20(
                 }
                 if (data99.length < 2) {
                   const err214 = {
-                    instancePath: instancePath + "/edges/" + i9 + "/labelAt",
+                    instancePath: `${instancePath}/edges/${i9}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/minItems",
                     keyword: "minItems",
                     params: { limit: 2 },
@@ -4960,10 +4922,11 @@ function validate20(
                 const len15 = data99.length
                 if (len15 > 0) {
                   const data100 = data99[0]
-                  if (!(typeof data100 == "number" && isFinite(data100))) {
+                  if (
+                    !(typeof data100 === "number" && Number.isFinite(data100))
+                  ) {
                     const err215 = {
-                      instancePath:
-                        instancePath + "/edges/" + i9 + "/labelAt/0",
+                      instancePath: `${instancePath}/edges/${i9}/labelAt/0`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/0/type",
                       keyword: "type",
@@ -4980,10 +4943,11 @@ function validate20(
                 }
                 if (len15 > 1) {
                   const data101 = data99[1]
-                  if (!(typeof data101 == "number" && isFinite(data101))) {
+                  if (
+                    !(typeof data101 === "number" && Number.isFinite(data101))
+                  ) {
                     const err216 = {
-                      instancePath:
-                        instancePath + "/edges/" + i9 + "/labelAt/1",
+                      instancePath: `${instancePath}/edges/${i9}/labelAt/1`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/1/type",
                       keyword: "type",
@@ -5001,7 +4965,7 @@ function validate20(
                 const len16 = data99.length
                 if (!(len16 <= 2)) {
                   const err217 = {
-                    instancePath: instancePath + "/edges/" + i9 + "/labelAt",
+                    instancePath: `${instancePath}/edges/${i9}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/items",
                     keyword: "items",
                     params: { limit: 2 },
@@ -5016,7 +4980,7 @@ function validate20(
                 }
               } else {
                 const err218 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/labelAt",
+                  instancePath: `${instancePath}/edges/${i9}/labelAt`,
                   schemaPath: "common.schema.json#/$defs/point/type",
                   keyword: "type",
                   params: { type: "array" },
@@ -5032,9 +4996,9 @@ function validate20(
             }
             if (data85.labelDx !== undefined) {
               const data102 = data85.labelDx
-              if (!(typeof data102 == "number" && isFinite(data102))) {
+              if (!(typeof data102 === "number" && Number.isFinite(data102))) {
                 const err219 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/labelDx",
+                  instancePath: `${instancePath}/edges/${i9}/labelDx`,
                   schemaPath:
                     "#/properties/edges/items/properties/labelDx/type",
                   keyword: "type",
@@ -5051,9 +5015,9 @@ function validate20(
             }
             if (data85.labelDy !== undefined) {
               const data103 = data85.labelDy
-              if (!(typeof data103 == "number" && isFinite(data103))) {
+              if (!(typeof data103 === "number" && Number.isFinite(data103))) {
                 const err220 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/labelDy",
+                  instancePath: `${instancePath}/edges/${i9}/labelDy`,
                   schemaPath:
                     "#/properties/edges/items/properties/labelDy/type",
                   keyword: "type",
@@ -5072,13 +5036,13 @@ function validate20(
               const data104 = data85.labelSegment
               if (
                 !(
-                  typeof data104 == "number" &&
-                  !(data104 % 1 || isNaN(data104)) &&
-                  isFinite(data104)
+                  typeof data104 === "number" &&
+                  !(data104 % 1 || Number.isNaN(data104)) &&
+                  Number.isFinite(data104)
                 )
               ) {
                 const err221 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/labelSegment",
+                  instancePath: `${instancePath}/edges/${i9}/labelSegment`,
                   schemaPath:
                     "#/properties/edges/items/properties/labelSegment/type",
                   keyword: "type",
@@ -5093,12 +5057,12 @@ function validate20(
                 errors++
               }
               if (
-                typeof data104 == "number" &&
-                isFinite(data104) &&
-                (data104 < 0 || isNaN(data104))
+                typeof data104 === "number" &&
+                Number.isFinite(data104) &&
+                (data104 < 0 || Number.isNaN(data104))
               ) {
                 const err222 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/labelSegment",
+                  instancePath: `${instancePath}/edges/${i9}/labelSegment`,
                   schemaPath:
                     "#/properties/edges/items/properties/labelSegment/minimum",
                   keyword: "minimum",
@@ -5115,9 +5079,9 @@ function validate20(
             }
             if (data85.channelX !== undefined) {
               const data105 = data85.channelX
-              if (!(typeof data105 == "number" && isFinite(data105))) {
+              if (!(typeof data105 === "number" && Number.isFinite(data105))) {
                 const err223 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/channelX",
+                  instancePath: `${instancePath}/edges/${i9}/channelX`,
                   schemaPath:
                     "#/properties/edges/items/properties/channelX/type",
                   keyword: "type",
@@ -5134,9 +5098,9 @@ function validate20(
             }
             if (data85.channelY !== undefined) {
               const data106 = data85.channelY
-              if (!(typeof data106 == "number" && isFinite(data106))) {
+              if (!(typeof data106 === "number" && Number.isFinite(data106))) {
                 const err224 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/channelY",
+                  instancePath: `${instancePath}/edges/${i9}/channelY`,
                   schemaPath:
                     "#/properties/edges/items/properties/channelY/type",
                   keyword: "type",
@@ -5153,10 +5117,10 @@ function validate20(
             }
             if (data85.bias !== undefined) {
               const data107 = data85.bias
-              if (typeof data107 == "number" && isFinite(data107)) {
-                if (data107 > 1 || isNaN(data107)) {
+              if (typeof data107 === "number" && Number.isFinite(data107)) {
+                if (data107 > 1 || Number.isNaN(data107)) {
                   const err225 = {
-                    instancePath: instancePath + "/edges/" + i9 + "/bias",
+                    instancePath: `${instancePath}/edges/${i9}/bias`,
                     schemaPath:
                       "#/properties/edges/items/properties/bias/maximum",
                     keyword: "maximum",
@@ -5170,9 +5134,9 @@ function validate20(
                   }
                   errors++
                 }
-                if (data107 < 0 || isNaN(data107)) {
+                if (data107 < 0 || Number.isNaN(data107)) {
                   const err226 = {
-                    instancePath: instancePath + "/edges/" + i9 + "/bias",
+                    instancePath: `${instancePath}/edges/${i9}/bias`,
                     schemaPath:
                       "#/properties/edges/items/properties/bias/minimum",
                     keyword: "minimum",
@@ -5188,7 +5152,7 @@ function validate20(
                 }
               } else {
                 const err227 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/bias",
+                  instancePath: `${instancePath}/edges/${i9}/bias`,
                   schemaPath: "#/properties/edges/items/properties/bias/type",
                   keyword: "type",
                   params: { type: "number" },
@@ -5204,10 +5168,10 @@ function validate20(
             }
             if (data85.width !== undefined) {
               const data108 = data85.width
-              if (typeof data108 == "number" && isFinite(data108)) {
-                if (data108 < 0.5 || isNaN(data108)) {
+              if (typeof data108 === "number" && Number.isFinite(data108)) {
+                if (data108 < 0.5 || Number.isNaN(data108)) {
                   const err228 = {
-                    instancePath: instancePath + "/edges/" + i9 + "/width",
+                    instancePath: `${instancePath}/edges/${i9}/width`,
                     schemaPath:
                       "#/properties/edges/items/properties/width/minimum",
                     keyword: "minimum",
@@ -5223,7 +5187,7 @@ function validate20(
                 }
               } else {
                 const err229 = {
-                  instancePath: instancePath + "/edges/" + i9 + "/width",
+                  instancePath: `${instancePath}/edges/${i9}/width`,
                   schemaPath: "#/properties/edges/items/properties/width/type",
                   keyword: "type",
                   params: { type: "number" },
@@ -5239,7 +5203,7 @@ function validate20(
             }
           } else {
             const err230 = {
-              instancePath: instancePath + "/edges/" + i9,
+              instancePath: `${instancePath}/edges/${i9}`,
               schemaPath: "#/properties/edges/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -5255,7 +5219,7 @@ function validate20(
         }
       } else {
         const err231 = {
-          instancePath: instancePath + "/edges",
+          instancePath: `${instancePath}/edges`,
           schemaPath: "#/properties/edges/type",
           keyword: "type",
           params: { type: "array" },
@@ -5277,12 +5241,12 @@ function validate20(
           const data110 = data109[i11]
           if (
             data110 &&
-            typeof data110 == "object" &&
+            typeof data110 === "object" &&
             !Array.isArray(data110)
           ) {
             if (data110.dot === undefined) {
               const err232 = {
-                instancePath: instancePath + "/cards/" + i11,
+                instancePath: `${instancePath}/cards/${i11}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "dot" },
@@ -5297,7 +5261,7 @@ function validate20(
             }
             if (data110.title === undefined) {
               const err233 = {
-                instancePath: instancePath + "/cards/" + i11,
+                instancePath: `${instancePath}/cards/${i11}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "title" },
@@ -5312,7 +5276,7 @@ function validate20(
             }
             if (data110.items === undefined) {
               const err234 = {
-                instancePath: instancePath + "/cards/" + i11,
+                instancePath: `${instancePath}/cards/${i11}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "items" },
@@ -5330,7 +5294,7 @@ function validate20(
                 !(key18 === "dot" || key18 === "title" || key18 === "items")
               ) {
                 const err235 = {
-                  instancePath: instancePath + "/cards/" + i11,
+                  instancePath: `${instancePath}/cards/${i11}`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -5359,7 +5323,7 @@ function validate20(
                 )
               ) {
                 const err236 = {
-                  instancePath: instancePath + "/cards/" + i11 + "/dot",
+                  instancePath: `${instancePath}/cards/${i11}/dot`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/dot/enum",
                   keyword: "enum",
@@ -5379,7 +5343,7 @@ function validate20(
               if (typeof data112 === "string") {
                 if (func3(data112) < 1) {
                   const err237 = {
-                    instancePath: instancePath + "/cards/" + i11 + "/title",
+                    instancePath: `${instancePath}/cards/${i11}/title`,
                     schemaPath:
                       "common.schema.json#/$defs/cards/items/properties/title/minLength",
                     keyword: "minLength",
@@ -5395,7 +5359,7 @@ function validate20(
                 }
               } else {
                 const err238 = {
-                  instancePath: instancePath + "/cards/" + i11 + "/title",
+                  instancePath: `${instancePath}/cards/${i11}/title`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/title/type",
                   keyword: "type",
@@ -5417,8 +5381,7 @@ function validate20(
                 for (let i12 = 0; i12 < len18; i12++) {
                   if (typeof data113[i12] !== "string") {
                     const err239 = {
-                      instancePath:
-                        instancePath + "/cards/" + i11 + "/items/" + i12,
+                      instancePath: `${instancePath}/cards/${i11}/items/${i12}`,
                       schemaPath:
                         "common.schema.json#/$defs/cards/items/properties/items/items/type",
                       keyword: "type",
@@ -5435,7 +5398,7 @@ function validate20(
                 }
               } else {
                 const err240 = {
-                  instancePath: instancePath + "/cards/" + i11 + "/items",
+                  instancePath: `${instancePath}/cards/${i11}/items`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/items/type",
                   keyword: "type",
@@ -5452,7 +5415,7 @@ function validate20(
             }
           } else {
             const err241 = {
-              instancePath: instancePath + "/cards/" + i11,
+              instancePath: `${instancePath}/cards/${i11}`,
               schemaPath: "common.schema.json#/$defs/cards/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -5468,7 +5431,7 @@ function validate20(
         }
       } else {
         const err242 = {
-          instancePath: instancePath + "/cards",
+          instancePath: `${instancePath}/cards`,
           schemaPath: "common.schema.json#/$defs/cards/type",
           keyword: "type",
           params: { type: "array" },
@@ -5673,10 +5636,10 @@ function validate28(
     const len0 = data.length
     for (let i0 = 0; i0 < len0; i0++) {
       const data0 = data[i0]
-      if (data0 && typeof data0 == "object" && !Array.isArray(data0)) {
+      if (data0 && typeof data0 === "object" && !Array.isArray(data0)) {
         if (data0.id === undefined) {
           const err1 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "id" },
@@ -5691,7 +5654,7 @@ function validate28(
         }
         if (data0.label === undefined) {
           const err2 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "label" },
@@ -5706,7 +5669,7 @@ function validate28(
         }
         if (data0.focus === undefined) {
           const err3 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "focus" },
@@ -5729,7 +5692,7 @@ function validate28(
             )
           ) {
             const err4 = {
-              instancePath: instancePath + "/" + i0,
+              instancePath: `${instancePath}/${i0}`,
               schemaPath: "#/items/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key0 },
@@ -5748,7 +5711,7 @@ function validate28(
           if (typeof data1 === "string") {
             if (!pattern4.test(data1)) {
               const err5 = {
-                instancePath: instancePath + "/" + i0 + "/id",
+                instancePath: `${instancePath}/${i0}/id`,
                 schemaPath: "#/$defs/id/pattern",
                 keyword: "pattern",
                 params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -5763,7 +5726,7 @@ function validate28(
             }
           } else {
             const err6 = {
-              instancePath: instancePath + "/" + i0 + "/id",
+              instancePath: `${instancePath}/${i0}/id`,
               schemaPath: "#/$defs/id/type",
               keyword: "type",
               params: { type: "string" },
@@ -5782,7 +5745,7 @@ function validate28(
           if (typeof data2 === "string") {
             if (func3(data2) > 48) {
               const err7 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/maxLength",
                 keyword: "maxLength",
                 params: { limit: 48 },
@@ -5797,7 +5760,7 @@ function validate28(
             }
             if (func3(data2) < 1) {
               const err8 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -5812,7 +5775,7 @@ function validate28(
             }
           } else {
             const err9 = {
-              instancePath: instancePath + "/" + i0 + "/label",
+              instancePath: `${instancePath}/${i0}/label`,
               schemaPath: "#/items/properties/label/type",
               keyword: "type",
               params: { type: "string" },
@@ -5831,7 +5794,7 @@ function validate28(
           if (Array.isArray(data3)) {
             if (data3.length < 1) {
               const err10 = {
-                instancePath: instancePath + "/" + i0 + "/focus",
+                instancePath: `${instancePath}/${i0}/focus`,
                 schemaPath: "#/items/properties/focus/minItems",
                 keyword: "minItems",
                 params: { limit: 1 },
@@ -5850,7 +5813,7 @@ function validate28(
               if (typeof data4 === "string") {
                 if (!pattern4.test(data4)) {
                   const err11 = {
-                    instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                    instancePath: `${instancePath}/${i0}/focus/${i1}`,
                     schemaPath: "#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -5865,7 +5828,7 @@ function validate28(
                 }
               } else {
                 const err12 = {
-                  instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                  instancePath: `${instancePath}/${i0}/focus/${i1}`,
                   schemaPath: "#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -5881,7 +5844,7 @@ function validate28(
             }
           } else {
             const err13 = {
-              instancePath: instancePath + "/" + i0 + "/focus",
+              instancePath: `${instancePath}/${i0}/focus`,
               schemaPath: "#/items/properties/focus/type",
               keyword: "type",
               params: { type: "array" },
@@ -5900,7 +5863,7 @@ function validate28(
           if (typeof data5 === "string") {
             if (func3(data5) > 140) {
               const err14 = {
-                instancePath: instancePath + "/" + i0 + "/note",
+                instancePath: `${instancePath}/${i0}/note`,
                 schemaPath: "#/items/properties/note/maxLength",
                 keyword: "maxLength",
                 params: { limit: 140 },
@@ -5915,7 +5878,7 @@ function validate28(
             }
           } else {
             const err15 = {
-              instancePath: instancePath + "/" + i0 + "/note",
+              instancePath: `${instancePath}/${i0}/note`,
               schemaPath: "#/items/properties/note/type",
               keyword: "type",
               params: { type: "string" },
@@ -5931,7 +5894,7 @@ function validate28(
         }
       } else {
         const err16 = {
-          instancePath: instancePath + "/" + i0,
+          instancePath: `${instancePath}/${i0}`,
           schemaPath: "#/items/type",
           keyword: "type",
           params: { type: "object" },
@@ -5984,7 +5947,7 @@ function validate27(
   if (evaluated0.dynamicItems) {
     evaluated0.items = undefined
   }
-  if (data && typeof data == "object" && !Array.isArray(data)) {
+  if (data && typeof data === "object" && !Array.isArray(data)) {
     if (data.schema_version === undefined) {
       const err0 = {
         instancePath,
@@ -6090,7 +6053,7 @@ function validate27(
     }
     if (data.schema_version !== undefined && data.schema_version !== 1) {
       const err6 = {
-        instancePath: instancePath + "/schema_version",
+        instancePath: `${instancePath}/schema_version`,
         schemaPath: "#/properties/schema_version/const",
         keyword: "const",
         params: { allowedValue: 1 },
@@ -6105,7 +6068,7 @@ function validate27(
     }
     if (data.diagram_type !== undefined && data.diagram_type !== "sequence") {
       const err7 = {
-        instancePath: instancePath + "/diagram_type",
+        instancePath: `${instancePath}/diagram_type`,
         schemaPath: "#/properties/diagram_type/const",
         keyword: "const",
         params: { allowedValue: "sequence" },
@@ -6120,10 +6083,10 @@ function validate27(
     }
     if (data.meta !== undefined) {
       const data2 = data.meta
-      if (data2 && typeof data2 == "object" && !Array.isArray(data2)) {
+      if (data2 && typeof data2 === "object" && !Array.isArray(data2)) {
         if (data2.title === undefined) {
           const err8 = {
-            instancePath: instancePath + "/meta",
+            instancePath: `${instancePath}/meta`,
             schemaPath: "#/properties/meta/required",
             keyword: "required",
             params: { missingProperty: "title" },
@@ -6139,7 +6102,7 @@ function validate27(
         for (const key1 in data2) {
           if (!func1.call(schema68.properties.meta.properties, key1)) {
             const err9 = {
-              instancePath: instancePath + "/meta",
+              instancePath: `${instancePath}/meta`,
               schemaPath: "#/properties/meta/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key1 },
@@ -6158,7 +6121,7 @@ function validate27(
           if (typeof data3 === "string") {
             if (func3(data3) < 1) {
               const err10 = {
-                instancePath: instancePath + "/meta/title",
+                instancePath: `${instancePath}/meta/title`,
                 schemaPath: "#/properties/meta/properties/title/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -6173,7 +6136,7 @@ function validate27(
             }
           } else {
             const err11 = {
-              instancePath: instancePath + "/meta/title",
+              instancePath: `${instancePath}/meta/title`,
               schemaPath: "#/properties/meta/properties/title/type",
               keyword: "type",
               params: { type: "string" },
@@ -6191,7 +6154,7 @@ function validate27(
           const data4 = data2.locale
           if (!(data4 === "en" || data4 === "zh-CN")) {
             const err12 = {
-              instancePath: instancePath + "/meta/locale",
+              instancePath: `${instancePath}/meta/locale`,
               schemaPath: "common.schema.json#/$defs/locale/enum",
               keyword: "enum",
               params: { allowedValues: schema33.enum },
@@ -6210,7 +6173,7 @@ function validate27(
           typeof data2.subtitle !== "string"
         ) {
           const err13 = {
-            instancePath: instancePath + "/meta/subtitle",
+            instancePath: `${instancePath}/meta/subtitle`,
             schemaPath: "#/properties/meta/properties/subtitle/type",
             keyword: "type",
             params: { type: "string" },
@@ -6225,7 +6188,7 @@ function validate27(
         }
         if (data2.output !== undefined && typeof data2.output !== "string") {
           const err14 = {
-            instancePath: instancePath + "/meta/output",
+            instancePath: `${instancePath}/meta/output`,
             schemaPath: "#/properties/meta/properties/output/type",
             keyword: "type",
             params: { type: "string" },
@@ -6242,7 +6205,7 @@ function validate27(
           const data7 = data2.animation
           if (!(data7 === "trace" || data7 === "none")) {
             const err15 = {
-              instancePath: instancePath + "/meta/animation",
+              instancePath: `${instancePath}/meta/animation`,
               schemaPath: "common.schema.json#/$defs/animation/enum",
               keyword: "enum",
               params: { allowedValues: schema70.enum },
@@ -6267,7 +6230,7 @@ function validate27(
             )
           ) {
             const err16 = {
-              instancePath: instancePath + "/meta/visual_preset",
+              instancePath: `${instancePath}/meta/visual_preset`,
               schemaPath: "common.schema.json#/$defs/visualPreset/enum",
               keyword: "enum",
               params: { allowedValues: schema71.enum },
@@ -6285,7 +6248,7 @@ function validate27(
           const data9 = data2.quality_profile
           if (!(data9 === "standard" || data9 === "showcase")) {
             const err17 = {
-              instancePath: instancePath + "/meta/quality_profile",
+              instancePath: `${instancePath}/meta/quality_profile`,
               schemaPath: "common.schema.json#/$defs/qualityProfile/enum",
               keyword: "enum",
               params: { allowedValues: schema72.enum },
@@ -6303,7 +6266,7 @@ function validate27(
           const data10 = data2.column_fit
           if (!(data10 === "fixed" || data10 === "spread")) {
             const err18 = {
-              instancePath: instancePath + "/meta/column_fit",
+              instancePath: `${instancePath}/meta/column_fit`,
               schemaPath: "#/properties/meta/properties/column_fit/enum",
               keyword: "enum",
               params: {
@@ -6323,7 +6286,7 @@ function validate27(
         if (
           data2.views !== undefined &&
           !validate28(data2.views, {
-            instancePath: instancePath + "/meta/views",
+            instancePath: `${instancePath}/meta/views`,
             parentData: data2,
             parentDataProperty: "views",
             rootData,
@@ -6338,11 +6301,11 @@ function validate27(
         }
         if (data2.legend !== undefined) {
           const data12 = data2.legend
-          if (data12 && typeof data12 == "object" && !Array.isArray(data12)) {
+          if (data12 && typeof data12 === "object" && !Array.isArray(data12)) {
             for (const key2 in data12) {
               if (!(key2 === "mode" || key2 === "entries")) {
                 const err19 = {
-                  instancePath: instancePath + "/meta/legend",
+                  instancePath: `${instancePath}/meta/legend`,
                   schemaPath:
                     "#/properties/meta/properties/legend/additionalProperties",
                   keyword: "additionalProperties",
@@ -6363,7 +6326,7 @@ function validate27(
                 !(data13 === "auto" || data13 === "all" || data13 === "hidden")
               ) {
                 const err20 = {
-                  instancePath: instancePath + "/meta/legend/mode",
+                  instancePath: `${instancePath}/meta/legend/mode`,
                   schemaPath: "common.schema.json#/$defs/legendMode/enum",
                   keyword: "enum",
                   params: { allowedValues: schema37.enum },
@@ -6381,7 +6344,7 @@ function validate27(
               const data14 = data12.entries
               if (
                 data14 &&
-                typeof data14 == "object" &&
+                typeof data14 === "object" &&
                 !Array.isArray(data14)
               ) {
                 for (const key3 in data14) {
@@ -6395,7 +6358,7 @@ function validate27(
                     )
                   ) {
                     const err21 = {
-                      instancePath: instancePath + "/meta/legend/entries",
+                      instancePath: `${instancePath}/meta/legend/entries`,
                       schemaPath:
                         "#/properties/meta/properties/legend/properties/entries/additionalProperties",
                       keyword: "additionalProperties",
@@ -6414,13 +6377,12 @@ function validate27(
                   const data15 = data14.default
                   if (
                     data15 &&
-                    typeof data15 == "object" &&
+                    typeof data15 === "object" &&
                     !Array.isArray(data15)
                   ) {
                     if (Object.keys(data15).length < 1) {
                       const err22 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/default",
+                        instancePath: `${instancePath}/meta/legend/entries/default`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -6437,8 +6399,7 @@ function validate27(
                     for (const key4 in data15) {
                       if (!(key4 === "label" || key4 === "visible")) {
                         const err23 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/default",
+                          instancePath: `${instancePath}/meta/legend/entries/default`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -6494,8 +6455,7 @@ function validate27(
                         }
                       } else {
                         const err26 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/default/label",
+                          instancePath: `${instancePath}/meta/legend/entries/default/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -6515,8 +6475,7 @@ function validate27(
                       typeof data15.visible !== "boolean"
                     ) {
                       const err27 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/default/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/default/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -6532,8 +6491,7 @@ function validate27(
                     }
                   } else {
                     const err28 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/default",
+                      instancePath: `${instancePath}/meta/legend/entries/default`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -6551,13 +6509,12 @@ function validate27(
                   const data18 = data14.emphasis
                   if (
                     data18 &&
-                    typeof data18 == "object" &&
+                    typeof data18 === "object" &&
                     !Array.isArray(data18)
                   ) {
                     if (Object.keys(data18).length < 1) {
                       const err29 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/emphasis",
+                        instancePath: `${instancePath}/meta/legend/entries/emphasis`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -6574,8 +6531,7 @@ function validate27(
                     for (const key5 in data18) {
                       if (!(key5 === "label" || key5 === "visible")) {
                         const err30 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/emphasis",
+                          instancePath: `${instancePath}/meta/legend/entries/emphasis`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -6671,8 +6627,7 @@ function validate27(
                     }
                   } else {
                     const err35 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/emphasis",
+                      instancePath: `${instancePath}/meta/legend/entries/emphasis`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -6690,13 +6645,12 @@ function validate27(
                   const data21 = data14.security
                   if (
                     data21 &&
-                    typeof data21 == "object" &&
+                    typeof data21 === "object" &&
                     !Array.isArray(data21)
                   ) {
                     if (Object.keys(data21).length < 1) {
                       const err36 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/security",
+                        instancePath: `${instancePath}/meta/legend/entries/security`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -6713,8 +6667,7 @@ function validate27(
                     for (const key6 in data21) {
                       if (!(key6 === "label" || key6 === "visible")) {
                         const err37 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/security",
+                          instancePath: `${instancePath}/meta/legend/entries/security`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -6810,8 +6763,7 @@ function validate27(
                     }
                   } else {
                     const err42 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/security",
+                      instancePath: `${instancePath}/meta/legend/entries/security`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -6829,13 +6781,12 @@ function validate27(
                   const data24 = data14.dashed
                   if (
                     data24 &&
-                    typeof data24 == "object" &&
+                    typeof data24 === "object" &&
                     !Array.isArray(data24)
                   ) {
                     if (Object.keys(data24).length < 1) {
                       const err43 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/dashed",
+                        instancePath: `${instancePath}/meta/legend/entries/dashed`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -6852,8 +6803,7 @@ function validate27(
                     for (const key7 in data24) {
                       if (!(key7 === "label" || key7 === "visible")) {
                         const err44 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/dashed",
+                          instancePath: `${instancePath}/meta/legend/entries/dashed`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -6909,8 +6859,7 @@ function validate27(
                         }
                       } else {
                         const err47 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/dashed/label",
+                          instancePath: `${instancePath}/meta/legend/entries/dashed/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -6930,8 +6879,7 @@ function validate27(
                       typeof data24.visible !== "boolean"
                     ) {
                       const err48 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/dashed/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/dashed/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -6947,8 +6895,7 @@ function validate27(
                     }
                   } else {
                     const err49 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/dashed",
+                      instancePath: `${instancePath}/meta/legend/entries/dashed`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -6966,13 +6913,12 @@ function validate27(
                   const data27 = data14.return
                   if (
                     data27 &&
-                    typeof data27 == "object" &&
+                    typeof data27 === "object" &&
                     !Array.isArray(data27)
                   ) {
                     if (Object.keys(data27).length < 1) {
                       const err50 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/return",
+                        instancePath: `${instancePath}/meta/legend/entries/return`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -6989,8 +6935,7 @@ function validate27(
                     for (const key8 in data27) {
                       if (!(key8 === "label" || key8 === "visible")) {
                         const err51 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/return",
+                          instancePath: `${instancePath}/meta/legend/entries/return`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -7046,8 +6991,7 @@ function validate27(
                         }
                       } else {
                         const err54 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/return/label",
+                          instancePath: `${instancePath}/meta/legend/entries/return/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -7067,8 +7011,7 @@ function validate27(
                       typeof data27.visible !== "boolean"
                     ) {
                       const err55 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/return/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/return/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -7084,8 +7027,7 @@ function validate27(
                     }
                   } else {
                     const err56 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/return",
+                      instancePath: `${instancePath}/meta/legend/entries/return`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -7101,7 +7043,7 @@ function validate27(
                 }
               } else {
                 const err57 = {
-                  instancePath: instancePath + "/meta/legend/entries",
+                  instancePath: `${instancePath}/meta/legend/entries`,
                   schemaPath:
                     "#/properties/meta/properties/legend/properties/entries/type",
                   keyword: "type",
@@ -7118,7 +7060,7 @@ function validate27(
             }
           } else {
             const err58 = {
-              instancePath: instancePath + "/meta/legend",
+              instancePath: `${instancePath}/meta/legend`,
               schemaPath: "#/properties/meta/properties/legend/type",
               keyword: "type",
               params: { type: "object" },
@@ -7137,7 +7079,7 @@ function validate27(
           if (Array.isArray(data30)) {
             if (data30.length > 2) {
               const err59 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/maxItems",
                 keyword: "maxItems",
                 params: { limit: 2 },
@@ -7152,7 +7094,7 @@ function validate27(
             }
             if (data30.length < 2) {
               const err60 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/minItems",
                 keyword: "minItems",
                 params: { limit: 2 },
@@ -7168,10 +7110,10 @@ function validate27(
             const len0 = data30.length
             if (len0 > 0) {
               const data31 = data30[0]
-              if (typeof data31 == "number" && isFinite(data31)) {
-                if (data31 < 480 || isNaN(data31)) {
+              if (typeof data31 === "number" && Number.isFinite(data31)) {
+                if (data31 < 480 || Number.isNaN(data31)) {
                   const err61 = {
-                    instancePath: instancePath + "/meta/viewBox/0",
+                    instancePath: `${instancePath}/meta/viewBox/0`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/0/minimum",
                     keyword: "minimum",
@@ -7187,7 +7129,7 @@ function validate27(
                 }
               } else {
                 const err62 = {
-                  instancePath: instancePath + "/meta/viewBox/0",
+                  instancePath: `${instancePath}/meta/viewBox/0`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/0/type",
                   keyword: "type",
@@ -7204,10 +7146,10 @@ function validate27(
             }
             if (len0 > 1) {
               const data32 = data30[1]
-              if (typeof data32 == "number" && isFinite(data32)) {
-                if (data32 < 480 || isNaN(data32)) {
+              if (typeof data32 === "number" && Number.isFinite(data32)) {
+                if (data32 < 480 || Number.isNaN(data32)) {
                   const err63 = {
-                    instancePath: instancePath + "/meta/viewBox/1",
+                    instancePath: `${instancePath}/meta/viewBox/1`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/1/minimum",
                     keyword: "minimum",
@@ -7223,7 +7165,7 @@ function validate27(
                 }
               } else {
                 const err64 = {
-                  instancePath: instancePath + "/meta/viewBox/1",
+                  instancePath: `${instancePath}/meta/viewBox/1`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/1/type",
                   keyword: "type",
@@ -7241,7 +7183,7 @@ function validate27(
             const len1 = data30.length
             if (!(len1 <= 2)) {
               const err65 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/items",
                 keyword: "items",
                 params: { limit: 2 },
@@ -7256,7 +7198,7 @@ function validate27(
             }
           } else {
             const err66 = {
-              instancePath: instancePath + "/meta/viewBox",
+              instancePath: `${instancePath}/meta/viewBox`,
               schemaPath: "#/properties/meta/properties/viewBox/type",
               keyword: "type",
               params: { type: "array" },
@@ -7272,7 +7214,7 @@ function validate27(
         }
       } else {
         const err67 = {
-          instancePath: instancePath + "/meta",
+          instancePath: `${instancePath}/meta`,
           schemaPath: "#/properties/meta/type",
           keyword: "type",
           params: { type: "object" },
@@ -7291,7 +7233,7 @@ function validate27(
       if (Array.isArray(data33)) {
         if (data33.length < 2) {
           const err68 = {
-            instancePath: instancePath + "/participants",
+            instancePath: `${instancePath}/participants`,
             schemaPath: "#/properties/participants/minItems",
             keyword: "minItems",
             params: { limit: 2 },
@@ -7307,10 +7249,10 @@ function validate27(
         const len2 = data33.length
         for (let i0 = 0; i0 < len2; i0++) {
           const data34 = data33[i0]
-          if (data34 && typeof data34 == "object" && !Array.isArray(data34)) {
+          if (data34 && typeof data34 === "object" && !Array.isArray(data34)) {
             if (data34.id === undefined) {
               const err69 = {
-                instancePath: instancePath + "/participants/" + i0,
+                instancePath: `${instancePath}/participants/${i0}`,
                 schemaPath: "#/properties/participants/items/required",
                 keyword: "required",
                 params: { missingProperty: "id" },
@@ -7325,7 +7267,7 @@ function validate27(
             }
             if (data34.type === undefined) {
               const err70 = {
-                instancePath: instancePath + "/participants/" + i0,
+                instancePath: `${instancePath}/participants/${i0}`,
                 schemaPath: "#/properties/participants/items/required",
                 keyword: "required",
                 params: { missingProperty: "type" },
@@ -7340,7 +7282,7 @@ function validate27(
             }
             if (data34.label === undefined) {
               const err71 = {
-                instancePath: instancePath + "/participants/" + i0,
+                instancePath: `${instancePath}/participants/${i0}`,
                 schemaPath: "#/properties/participants/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -7364,7 +7306,7 @@ function validate27(
                 )
               ) {
                 const err72 = {
-                  instancePath: instancePath + "/participants/" + i0,
+                  instancePath: `${instancePath}/participants/${i0}`,
                   schemaPath:
                     "#/properties/participants/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -7384,7 +7326,7 @@ function validate27(
               if (typeof data35 === "string") {
                 if (!pattern4.test(data35)) {
                   const err73 = {
-                    instancePath: instancePath + "/participants/" + i0 + "/id",
+                    instancePath: `${instancePath}/participants/${i0}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -7399,7 +7341,7 @@ function validate27(
                 }
               } else {
                 const err74 = {
-                  instancePath: instancePath + "/participants/" + i0 + "/id",
+                  instancePath: `${instancePath}/participants/${i0}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -7427,7 +7369,7 @@ function validate27(
                 )
               ) {
                 const err75 = {
-                  instancePath: instancePath + "/participants/" + i0 + "/type",
+                  instancePath: `${instancePath}/participants/${i0}/type`,
                   schemaPath: "common.schema.json#/$defs/componentType/enum",
                   keyword: "enum",
                   params: { allowedValues: schema57.enum },
@@ -7446,8 +7388,7 @@ function validate27(
               if (typeof data37 === "string") {
                 if (func3(data37) < 1) {
                   const err76 = {
-                    instancePath:
-                      instancePath + "/participants/" + i0 + "/label",
+                    instancePath: `${instancePath}/participants/${i0}/label`,
                     schemaPath:
                       "#/properties/participants/items/properties/label/minLength",
                     keyword: "minLength",
@@ -7463,7 +7404,7 @@ function validate27(
                 }
               } else {
                 const err77 = {
-                  instancePath: instancePath + "/participants/" + i0 + "/label",
+                  instancePath: `${instancePath}/participants/${i0}/label`,
                   schemaPath:
                     "#/properties/participants/items/properties/label/type",
                   keyword: "type",
@@ -7483,8 +7424,7 @@ function validate27(
               typeof data34.sublabel !== "string"
             ) {
               const err78 = {
-                instancePath:
-                  instancePath + "/participants/" + i0 + "/sublabel",
+                instancePath: `${instancePath}/participants/${i0}/sublabel`,
                 schemaPath:
                   "#/properties/participants/items/properties/sublabel/type",
                 keyword: "type",
@@ -7510,8 +7450,7 @@ function validate27(
               if (typeof data39 === "string") {
                 if (func3(data39) > 80) {
                   const err79 = {
-                    instancePath:
-                      instancePath + "/participants/" + i0 + "/brand",
+                    instancePath: `${instancePath}/participants/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/maxLength",
                     keyword: "maxLength",
@@ -7527,8 +7466,7 @@ function validate27(
                 }
                 if (!pattern17.test(data39)) {
                   const err80 = {
-                    instancePath:
-                      instancePath + "/participants/" + i0 + "/brand",
+                    instancePath: `${instancePath}/participants/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/pattern",
                     keyword: "pattern",
@@ -7543,12 +7481,12 @@ function validate27(
                   errors++
                 }
               }
-              var _valid1 = _errs97 === errors
+              const _valid1 = _errs97 === errors
               valid27 = valid27 || _valid1
               const _errs98 = errors
               if (typeof data39 === "string" && !pattern18.test(data39)) {
                 const err81 = {
-                  instancePath: instancePath + "/participants/" + i0 + "/brand",
+                  instancePath: `${instancePath}/participants/${i0}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/1/pattern",
                   keyword: "pattern",
@@ -7562,7 +7500,7 @@ function validate27(
                 }
                 errors++
               }
-              var _valid1 = _errs98 === errors
+              const _valid1 = _errs98 === errors
               valid27 = valid27 || _valid1
               if (valid27) {
                 errors = _errs96
@@ -7575,7 +7513,7 @@ function validate27(
                 }
               } else {
                 const err82 = {
-                  instancePath: instancePath + "/participants/" + i0 + "/brand",
+                  instancePath: `${instancePath}/participants/${i0}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf",
                   keyword: "anyOf",
@@ -7592,8 +7530,7 @@ function validate27(
               if (typeof data39 === "string") {
                 if (func3(data39) > 2048) {
                   const err83 = {
-                    instancePath:
-                      instancePath + "/participants/" + i0 + "/brand",
+                    instancePath: `${instancePath}/participants/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/maxLength",
                     keyword: "maxLength",
@@ -7609,8 +7546,7 @@ function validate27(
                 }
                 if (func3(data39) < 1) {
                   const err84 = {
-                    instancePath:
-                      instancePath + "/participants/" + i0 + "/brand",
+                    instancePath: `${instancePath}/participants/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/minLength",
                     keyword: "minLength",
@@ -7626,7 +7562,7 @@ function validate27(
                 }
               } else {
                 const err85 = {
-                  instancePath: instancePath + "/participants/" + i0 + "/brand",
+                  instancePath: `${instancePath}/participants/${i0}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/type",
                   keyword: "type",
@@ -7640,7 +7576,7 @@ function validate27(
                 }
                 errors++
               }
-              var _valid0 = _errs94 === errors
+              const _valid0 = _errs94 === errors
               if (_valid0) {
                 valid26 = true
                 passing0 = 0
@@ -7648,13 +7584,12 @@ function validate27(
               const _errs99 = errors
               if (
                 data39 &&
-                typeof data39 == "object" &&
+                typeof data39 === "object" &&
                 !Array.isArray(data39)
               ) {
                 if (data39.url === undefined) {
                   const err86 = {
-                    instancePath:
-                      instancePath + "/participants/" + i0 + "/brand",
+                    instancePath: `${instancePath}/participants/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -7670,8 +7605,7 @@ function validate27(
                 }
                 if (data39.sha256 === undefined) {
                   const err87 = {
-                    instancePath:
-                      instancePath + "/participants/" + i0 + "/brand",
+                    instancePath: `${instancePath}/participants/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -7688,8 +7622,7 @@ function validate27(
                 for (const key10 in data39) {
                   if (!(key10 === "url" || key10 === "sha256")) {
                     const err88 = {
-                      instancePath:
-                        instancePath + "/participants/" + i0 + "/brand",
+                      instancePath: `${instancePath}/participants/${i0}/brand`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/additionalProperties",
                       keyword: "additionalProperties",
@@ -7709,8 +7642,7 @@ function validate27(
                   if (typeof data40 === "string") {
                     if (func3(data40) > 2048) {
                       const err89 = {
-                        instancePath:
-                          instancePath + "/participants/" + i0 + "/brand/url",
+                        instancePath: `${instancePath}/participants/${i0}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/maxLength",
                         keyword: "maxLength",
@@ -7726,8 +7658,7 @@ function validate27(
                     }
                     if (func3(data40) < 8) {
                       const err90 = {
-                        instancePath:
-                          instancePath + "/participants/" + i0 + "/brand/url",
+                        instancePath: `${instancePath}/participants/${i0}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/minLength",
                         keyword: "minLength",
@@ -7743,8 +7674,7 @@ function validate27(
                     }
                     if (!pattern18.test(data40)) {
                       const err91 = {
-                        instancePath:
-                          instancePath + "/participants/" + i0 + "/brand/url",
+                        instancePath: `${instancePath}/participants/${i0}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/pattern",
                         keyword: "pattern",
@@ -7760,8 +7690,7 @@ function validate27(
                     }
                   } else {
                     const err92 = {
-                      instancePath:
-                        instancePath + "/participants/" + i0 + "/brand/url",
+                      instancePath: `${instancePath}/participants/${i0}/brand/url`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/type",
                       keyword: "type",
@@ -7801,8 +7730,7 @@ function validate27(
                     }
                   } else {
                     const err94 = {
-                      instancePath:
-                        instancePath + "/participants/" + i0 + "/brand/sha256",
+                      instancePath: `${instancePath}/participants/${i0}/brand/sha256`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/sha256/type",
                       keyword: "type",
@@ -7819,7 +7747,7 @@ function validate27(
                 }
               } else {
                 const err95 = {
-                  instancePath: instancePath + "/participants/" + i0 + "/brand",
+                  instancePath: `${instancePath}/participants/${i0}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/1/type",
                   keyword: "type",
@@ -7833,7 +7761,7 @@ function validate27(
                 }
                 errors++
               }
-              var _valid0 = _errs99 === errors
+              const _valid0 = _errs99 === errors
               if (_valid0 && valid26) {
                 valid26 = false
                 passing0 = [passing0, 1]
@@ -7852,7 +7780,7 @@ function validate27(
                 }
               } else {
                 const err96 = {
-                  instancePath: instancePath + "/participants/" + i0 + "/brand",
+                  instancePath: `${instancePath}/participants/${i0}/brand`,
                   schemaPath: "common.schema.json#/$defs/brandMark/oneOf",
                   keyword: "oneOf",
                   params: { passingSchemas: passing0 },
@@ -7868,7 +7796,7 @@ function validate27(
             }
           } else {
             const err97 = {
-              instancePath: instancePath + "/participants/" + i0,
+              instancePath: `${instancePath}/participants/${i0}`,
               schemaPath: "#/properties/participants/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -7884,7 +7812,7 @@ function validate27(
         }
       } else {
         const err98 = {
-          instancePath: instancePath + "/participants",
+          instancePath: `${instancePath}/participants`,
           schemaPath: "#/properties/participants/type",
           keyword: "type",
           params: { type: "array" },
@@ -7904,10 +7832,10 @@ function validate27(
         const len3 = data42.length
         for (let i1 = 0; i1 < len3; i1++) {
           const data43 = data42[i1]
-          if (data43 && typeof data43 == "object" && !Array.isArray(data43)) {
+          if (data43 && typeof data43 === "object" && !Array.isArray(data43)) {
             if (data43.from === undefined) {
               const err99 = {
-                instancePath: instancePath + "/segments/" + i1,
+                instancePath: `${instancePath}/segments/${i1}`,
                 schemaPath: "#/properties/segments/items/required",
                 keyword: "required",
                 params: { missingProperty: "from" },
@@ -7922,7 +7850,7 @@ function validate27(
             }
             if (data43.to === undefined) {
               const err100 = {
-                instancePath: instancePath + "/segments/" + i1,
+                instancePath: `${instancePath}/segments/${i1}`,
                 schemaPath: "#/properties/segments/items/required",
                 keyword: "required",
                 params: { missingProperty: "to" },
@@ -7937,7 +7865,7 @@ function validate27(
             }
             if (data43.label === undefined) {
               const err101 = {
-                instancePath: instancePath + "/segments/" + i1,
+                instancePath: `${instancePath}/segments/${i1}`,
                 schemaPath: "#/properties/segments/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -7953,7 +7881,7 @@ function validate27(
             for (const key11 in data43) {
               if (!(key11 === "from" || key11 === "to" || key11 === "label")) {
                 const err102 = {
-                  instancePath: instancePath + "/segments/" + i1,
+                  instancePath: `${instancePath}/segments/${i1}`,
                   schemaPath:
                     "#/properties/segments/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -7970,9 +7898,9 @@ function validate27(
             }
             if (data43.from !== undefined) {
               const data44 = data43.from
-              if (!(typeof data44 == "number" && isFinite(data44))) {
+              if (!(typeof data44 === "number" && Number.isFinite(data44))) {
                 const err103 = {
-                  instancePath: instancePath + "/segments/" + i1 + "/from",
+                  instancePath: `${instancePath}/segments/${i1}/from`,
                   schemaPath:
                     "#/properties/segments/items/properties/from/type",
                   keyword: "type",
@@ -7989,9 +7917,9 @@ function validate27(
             }
             if (data43.to !== undefined) {
               const data45 = data43.to
-              if (!(typeof data45 == "number" && isFinite(data45))) {
+              if (!(typeof data45 === "number" && Number.isFinite(data45))) {
                 const err104 = {
-                  instancePath: instancePath + "/segments/" + i1 + "/to",
+                  instancePath: `${instancePath}/segments/${i1}/to`,
                   schemaPath: "#/properties/segments/items/properties/to/type",
                   keyword: "type",
                   params: { type: "number" },
@@ -8010,7 +7938,7 @@ function validate27(
               if (typeof data46 === "string") {
                 if (func3(data46) < 1) {
                   const err105 = {
-                    instancePath: instancePath + "/segments/" + i1 + "/label",
+                    instancePath: `${instancePath}/segments/${i1}/label`,
                     schemaPath:
                       "#/properties/segments/items/properties/label/minLength",
                     keyword: "minLength",
@@ -8026,7 +7954,7 @@ function validate27(
                 }
               } else {
                 const err106 = {
-                  instancePath: instancePath + "/segments/" + i1 + "/label",
+                  instancePath: `${instancePath}/segments/${i1}/label`,
                   schemaPath:
                     "#/properties/segments/items/properties/label/type",
                   keyword: "type",
@@ -8043,7 +7971,7 @@ function validate27(
             }
           } else {
             const err107 = {
-              instancePath: instancePath + "/segments/" + i1,
+              instancePath: `${instancePath}/segments/${i1}`,
               schemaPath: "#/properties/segments/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -8059,7 +7987,7 @@ function validate27(
         }
       } else {
         const err108 = {
-          instancePath: instancePath + "/segments",
+          instancePath: `${instancePath}/segments`,
           schemaPath: "#/properties/segments/type",
           keyword: "type",
           params: { type: "array" },
@@ -8078,7 +8006,7 @@ function validate27(
       if (Array.isArray(data47)) {
         if (data47.length < 1) {
           const err109 = {
-            instancePath: instancePath + "/messages",
+            instancePath: `${instancePath}/messages`,
             schemaPath: "#/properties/messages/minItems",
             keyword: "minItems",
             params: { limit: 1 },
@@ -8094,10 +8022,10 @@ function validate27(
         const len4 = data47.length
         for (let i2 = 0; i2 < len4; i2++) {
           const data48 = data47[i2]
-          if (data48 && typeof data48 == "object" && !Array.isArray(data48)) {
+          if (data48 && typeof data48 === "object" && !Array.isArray(data48)) {
             if (data48.from === undefined) {
               const err110 = {
-                instancePath: instancePath + "/messages/" + i2,
+                instancePath: `${instancePath}/messages/${i2}`,
                 schemaPath: "#/properties/messages/items/required",
                 keyword: "required",
                 params: { missingProperty: "from" },
@@ -8112,7 +8040,7 @@ function validate27(
             }
             if (data48.to === undefined) {
               const err111 = {
-                instancePath: instancePath + "/messages/" + i2,
+                instancePath: `${instancePath}/messages/${i2}`,
                 schemaPath: "#/properties/messages/items/required",
                 keyword: "required",
                 params: { missingProperty: "to" },
@@ -8127,7 +8055,7 @@ function validate27(
             }
             if (data48.y === undefined) {
               const err112 = {
-                instancePath: instancePath + "/messages/" + i2,
+                instancePath: `${instancePath}/messages/${i2}`,
                 schemaPath: "#/properties/messages/items/required",
                 keyword: "required",
                 params: { missingProperty: "y" },
@@ -8142,7 +8070,7 @@ function validate27(
             }
             if (data48.label === undefined) {
               const err113 = {
-                instancePath: instancePath + "/messages/" + i2,
+                instancePath: `${instancePath}/messages/${i2}`,
                 schemaPath: "#/properties/messages/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -8168,7 +8096,7 @@ function validate27(
                 )
               ) {
                 const err114 = {
-                  instancePath: instancePath + "/messages/" + i2,
+                  instancePath: `${instancePath}/messages/${i2}`,
                   schemaPath:
                     "#/properties/messages/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -8188,7 +8116,7 @@ function validate27(
               if (typeof data49 === "string") {
                 if (!pattern4.test(data49)) {
                   const err115 = {
-                    instancePath: instancePath + "/messages/" + i2 + "/id",
+                    instancePath: `${instancePath}/messages/${i2}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -8203,7 +8131,7 @@ function validate27(
                 }
               } else {
                 const err116 = {
-                  instancePath: instancePath + "/messages/" + i2 + "/id",
+                  instancePath: `${instancePath}/messages/${i2}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -8222,7 +8150,7 @@ function validate27(
               if (typeof data50 === "string") {
                 if (!pattern4.test(data50)) {
                   const err117 = {
-                    instancePath: instancePath + "/messages/" + i2 + "/from",
+                    instancePath: `${instancePath}/messages/${i2}/from`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -8237,7 +8165,7 @@ function validate27(
                 }
               } else {
                 const err118 = {
-                  instancePath: instancePath + "/messages/" + i2 + "/from",
+                  instancePath: `${instancePath}/messages/${i2}/from`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -8256,7 +8184,7 @@ function validate27(
               if (typeof data51 === "string") {
                 if (!pattern4.test(data51)) {
                   const err119 = {
-                    instancePath: instancePath + "/messages/" + i2 + "/to",
+                    instancePath: `${instancePath}/messages/${i2}/to`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -8271,7 +8199,7 @@ function validate27(
                 }
               } else {
                 const err120 = {
-                  instancePath: instancePath + "/messages/" + i2 + "/to",
+                  instancePath: `${instancePath}/messages/${i2}/to`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -8287,10 +8215,10 @@ function validate27(
             }
             if (data48.y !== undefined) {
               const data52 = data48.y
-              if (typeof data52 == "number" && isFinite(data52)) {
-                if (data52 < 160 || isNaN(data52)) {
+              if (typeof data52 === "number" && Number.isFinite(data52)) {
+                if (data52 < 160 || Number.isNaN(data52)) {
                   const err121 = {
-                    instancePath: instancePath + "/messages/" + i2 + "/y",
+                    instancePath: `${instancePath}/messages/${i2}/y`,
                     schemaPath:
                       "#/properties/messages/items/properties/y/minimum",
                     keyword: "minimum",
@@ -8306,7 +8234,7 @@ function validate27(
                 }
               } else {
                 const err122 = {
-                  instancePath: instancePath + "/messages/" + i2 + "/y",
+                  instancePath: `${instancePath}/messages/${i2}/y`,
                   schemaPath: "#/properties/messages/items/properties/y/type",
                   keyword: "type",
                   params: { type: "number" },
@@ -8325,7 +8253,7 @@ function validate27(
               if (typeof data53 === "string") {
                 if (func3(data53) < 1) {
                   const err123 = {
-                    instancePath: instancePath + "/messages/" + i2 + "/label",
+                    instancePath: `${instancePath}/messages/${i2}/label`,
                     schemaPath:
                       "#/properties/messages/items/properties/label/minLength",
                     keyword: "minLength",
@@ -8341,7 +8269,7 @@ function validate27(
                 }
               } else {
                 const err124 = {
-                  instancePath: instancePath + "/messages/" + i2 + "/label",
+                  instancePath: `${instancePath}/messages/${i2}/label`,
                   schemaPath:
                     "#/properties/messages/items/properties/label/type",
                   keyword: "type",
@@ -8368,7 +8296,7 @@ function validate27(
                 )
               ) {
                 const err125 = {
-                  instancePath: instancePath + "/messages/" + i2 + "/variant",
+                  instancePath: `${instancePath}/messages/${i2}/variant`,
                   schemaPath:
                     "#/properties/messages/items/properties/variant/enum",
                   keyword: "enum",
@@ -8389,7 +8317,7 @@ function validate27(
             }
             if (data48.note !== undefined && typeof data48.note !== "string") {
               const err126 = {
-                instancePath: instancePath + "/messages/" + i2 + "/note",
+                instancePath: `${instancePath}/messages/${i2}/note`,
                 schemaPath: "#/properties/messages/items/properties/note/type",
                 keyword: "type",
                 params: { type: "string" },
@@ -8404,7 +8332,7 @@ function validate27(
             }
           } else {
             const err127 = {
-              instancePath: instancePath + "/messages/" + i2,
+              instancePath: `${instancePath}/messages/${i2}`,
               schemaPath: "#/properties/messages/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -8420,7 +8348,7 @@ function validate27(
         }
       } else {
         const err128 = {
-          instancePath: instancePath + "/messages",
+          instancePath: `${instancePath}/messages`,
           schemaPath: "#/properties/messages/type",
           keyword: "type",
           params: { type: "array" },
@@ -8440,10 +8368,10 @@ function validate27(
         const len5 = data56.length
         for (let i3 = 0; i3 < len5; i3++) {
           const data57 = data56[i3]
-          if (data57 && typeof data57 == "object" && !Array.isArray(data57)) {
+          if (data57 && typeof data57 === "object" && !Array.isArray(data57)) {
             if (data57.participant === undefined) {
               const err129 = {
-                instancePath: instancePath + "/activations/" + i3,
+                instancePath: `${instancePath}/activations/${i3}`,
                 schemaPath: "#/properties/activations/items/required",
                 keyword: "required",
                 params: { missingProperty: "participant" },
@@ -8458,7 +8386,7 @@ function validate27(
             }
             if (data57.from === undefined) {
               const err130 = {
-                instancePath: instancePath + "/activations/" + i3,
+                instancePath: `${instancePath}/activations/${i3}`,
                 schemaPath: "#/properties/activations/items/required",
                 keyword: "required",
                 params: { missingProperty: "from" },
@@ -8473,7 +8401,7 @@ function validate27(
             }
             if (data57.to === undefined) {
               const err131 = {
-                instancePath: instancePath + "/activations/" + i3,
+                instancePath: `${instancePath}/activations/${i3}`,
                 schemaPath: "#/properties/activations/items/required",
                 keyword: "required",
                 params: { missingProperty: "to" },
@@ -8496,7 +8424,7 @@ function validate27(
                 )
               ) {
                 const err132 = {
-                  instancePath: instancePath + "/activations/" + i3,
+                  instancePath: `${instancePath}/activations/${i3}`,
                   schemaPath:
                     "#/properties/activations/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -8516,8 +8444,7 @@ function validate27(
               if (typeof data58 === "string") {
                 if (!pattern4.test(data58)) {
                   const err133 = {
-                    instancePath:
-                      instancePath + "/activations/" + i3 + "/participant",
+                    instancePath: `${instancePath}/activations/${i3}/participant`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -8532,8 +8459,7 @@ function validate27(
                 }
               } else {
                 const err134 = {
-                  instancePath:
-                    instancePath + "/activations/" + i3 + "/participant",
+                  instancePath: `${instancePath}/activations/${i3}/participant`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -8549,9 +8475,9 @@ function validate27(
             }
             if (data57.from !== undefined) {
               const data59 = data57.from
-              if (!(typeof data59 == "number" && isFinite(data59))) {
+              if (!(typeof data59 === "number" && Number.isFinite(data59))) {
                 const err135 = {
-                  instancePath: instancePath + "/activations/" + i3 + "/from",
+                  instancePath: `${instancePath}/activations/${i3}/from`,
                   schemaPath:
                     "#/properties/activations/items/properties/from/type",
                   keyword: "type",
@@ -8568,9 +8494,9 @@ function validate27(
             }
             if (data57.to !== undefined) {
               const data60 = data57.to
-              if (!(typeof data60 == "number" && isFinite(data60))) {
+              if (!(typeof data60 === "number" && Number.isFinite(data60))) {
                 const err136 = {
-                  instancePath: instancePath + "/activations/" + i3 + "/to",
+                  instancePath: `${instancePath}/activations/${i3}/to`,
                   schemaPath:
                     "#/properties/activations/items/properties/to/type",
                   keyword: "type",
@@ -8599,7 +8525,7 @@ function validate27(
                 )
               ) {
                 const err137 = {
-                  instancePath: instancePath + "/activations/" + i3 + "/type",
+                  instancePath: `${instancePath}/activations/${i3}/type`,
                   schemaPath: "common.schema.json#/$defs/componentType/enum",
                   keyword: "enum",
                   params: { allowedValues: schema57.enum },
@@ -8615,7 +8541,7 @@ function validate27(
             }
           } else {
             const err138 = {
-              instancePath: instancePath + "/activations/" + i3,
+              instancePath: `${instancePath}/activations/${i3}`,
               schemaPath: "#/properties/activations/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -8631,7 +8557,7 @@ function validate27(
         }
       } else {
         const err139 = {
-          instancePath: instancePath + "/activations",
+          instancePath: `${instancePath}/activations`,
           schemaPath: "#/properties/activations/type",
           keyword: "type",
           params: { type: "array" },
@@ -8651,10 +8577,10 @@ function validate27(
         const len6 = data62.length
         for (let i4 = 0; i4 < len6; i4++) {
           const data63 = data62[i4]
-          if (data63 && typeof data63 == "object" && !Array.isArray(data63)) {
+          if (data63 && typeof data63 === "object" && !Array.isArray(data63)) {
             if (data63.dot === undefined) {
               const err140 = {
-                instancePath: instancePath + "/cards/" + i4,
+                instancePath: `${instancePath}/cards/${i4}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "dot" },
@@ -8669,7 +8595,7 @@ function validate27(
             }
             if (data63.title === undefined) {
               const err141 = {
-                instancePath: instancePath + "/cards/" + i4,
+                instancePath: `${instancePath}/cards/${i4}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "title" },
@@ -8684,7 +8610,7 @@ function validate27(
             }
             if (data63.items === undefined) {
               const err142 = {
-                instancePath: instancePath + "/cards/" + i4,
+                instancePath: `${instancePath}/cards/${i4}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "items" },
@@ -8702,7 +8628,7 @@ function validate27(
                 !(key14 === "dot" || key14 === "title" || key14 === "items")
               ) {
                 const err143 = {
-                  instancePath: instancePath + "/cards/" + i4,
+                  instancePath: `${instancePath}/cards/${i4}`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -8731,7 +8657,7 @@ function validate27(
                 )
               ) {
                 const err144 = {
-                  instancePath: instancePath + "/cards/" + i4 + "/dot",
+                  instancePath: `${instancePath}/cards/${i4}/dot`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/dot/enum",
                   keyword: "enum",
@@ -8751,7 +8677,7 @@ function validate27(
               if (typeof data65 === "string") {
                 if (func3(data65) < 1) {
                   const err145 = {
-                    instancePath: instancePath + "/cards/" + i4 + "/title",
+                    instancePath: `${instancePath}/cards/${i4}/title`,
                     schemaPath:
                       "common.schema.json#/$defs/cards/items/properties/title/minLength",
                     keyword: "minLength",
@@ -8767,7 +8693,7 @@ function validate27(
                 }
               } else {
                 const err146 = {
-                  instancePath: instancePath + "/cards/" + i4 + "/title",
+                  instancePath: `${instancePath}/cards/${i4}/title`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/title/type",
                   keyword: "type",
@@ -8789,8 +8715,7 @@ function validate27(
                 for (let i5 = 0; i5 < len7; i5++) {
                   if (typeof data66[i5] !== "string") {
                     const err147 = {
-                      instancePath:
-                        instancePath + "/cards/" + i4 + "/items/" + i5,
+                      instancePath: `${instancePath}/cards/${i4}/items/${i5}`,
                       schemaPath:
                         "common.schema.json#/$defs/cards/items/properties/items/items/type",
                       keyword: "type",
@@ -8807,7 +8732,7 @@ function validate27(
                 }
               } else {
                 const err148 = {
-                  instancePath: instancePath + "/cards/" + i4 + "/items",
+                  instancePath: `${instancePath}/cards/${i4}/items`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/items/type",
                   keyword: "type",
@@ -8824,7 +8749,7 @@ function validate27(
             }
           } else {
             const err149 = {
-              instancePath: instancePath + "/cards/" + i4,
+              instancePath: `${instancePath}/cards/${i4}`,
               schemaPath: "common.schema.json#/$defs/cards/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -8840,7 +8765,7 @@ function validate27(
         }
       } else {
         const err150 = {
-          instancePath: instancePath + "/cards",
+          instancePath: `${instancePath}/cards`,
           schemaPath: "common.schema.json#/$defs/cards/type",
           keyword: "type",
           params: { type: "array" },
@@ -9009,7 +8934,7 @@ const schema91 = {
   },
 }
 const schema112 = { enum: ["left", "right", "top", "bottom"] }
-const schema116 = { type: "number", minimum: 0.5 }
+const _schema116 = { type: "number", minimum: 0.5 }
 function validate31(
   data,
   {
@@ -9048,10 +8973,10 @@ function validate31(
     const len0 = data.length
     for (let i0 = 0; i0 < len0; i0++) {
       const data0 = data[i0]
-      if (data0 && typeof data0 == "object" && !Array.isArray(data0)) {
+      if (data0 && typeof data0 === "object" && !Array.isArray(data0)) {
         if (data0.id === undefined) {
           const err1 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "id" },
@@ -9066,7 +8991,7 @@ function validate31(
         }
         if (data0.label === undefined) {
           const err2 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "label" },
@@ -9081,7 +9006,7 @@ function validate31(
         }
         if (data0.focus === undefined) {
           const err3 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "focus" },
@@ -9104,7 +9029,7 @@ function validate31(
             )
           ) {
             const err4 = {
-              instancePath: instancePath + "/" + i0,
+              instancePath: `${instancePath}/${i0}`,
               schemaPath: "#/items/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key0 },
@@ -9123,7 +9048,7 @@ function validate31(
           if (typeof data1 === "string") {
             if (!pattern4.test(data1)) {
               const err5 = {
-                instancePath: instancePath + "/" + i0 + "/id",
+                instancePath: `${instancePath}/${i0}/id`,
                 schemaPath: "#/$defs/id/pattern",
                 keyword: "pattern",
                 params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -9138,7 +9063,7 @@ function validate31(
             }
           } else {
             const err6 = {
-              instancePath: instancePath + "/" + i0 + "/id",
+              instancePath: `${instancePath}/${i0}/id`,
               schemaPath: "#/$defs/id/type",
               keyword: "type",
               params: { type: "string" },
@@ -9157,7 +9082,7 @@ function validate31(
           if (typeof data2 === "string") {
             if (func3(data2) > 48) {
               const err7 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/maxLength",
                 keyword: "maxLength",
                 params: { limit: 48 },
@@ -9172,7 +9097,7 @@ function validate31(
             }
             if (func3(data2) < 1) {
               const err8 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -9187,7 +9112,7 @@ function validate31(
             }
           } else {
             const err9 = {
-              instancePath: instancePath + "/" + i0 + "/label",
+              instancePath: `${instancePath}/${i0}/label`,
               schemaPath: "#/items/properties/label/type",
               keyword: "type",
               params: { type: "string" },
@@ -9206,7 +9131,7 @@ function validate31(
           if (Array.isArray(data3)) {
             if (data3.length < 1) {
               const err10 = {
-                instancePath: instancePath + "/" + i0 + "/focus",
+                instancePath: `${instancePath}/${i0}/focus`,
                 schemaPath: "#/items/properties/focus/minItems",
                 keyword: "minItems",
                 params: { limit: 1 },
@@ -9225,7 +9150,7 @@ function validate31(
               if (typeof data4 === "string") {
                 if (!pattern4.test(data4)) {
                   const err11 = {
-                    instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                    instancePath: `${instancePath}/${i0}/focus/${i1}`,
                     schemaPath: "#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -9240,7 +9165,7 @@ function validate31(
                 }
               } else {
                 const err12 = {
-                  instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                  instancePath: `${instancePath}/${i0}/focus/${i1}`,
                   schemaPath: "#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -9256,7 +9181,7 @@ function validate31(
             }
           } else {
             const err13 = {
-              instancePath: instancePath + "/" + i0 + "/focus",
+              instancePath: `${instancePath}/${i0}/focus`,
               schemaPath: "#/items/properties/focus/type",
               keyword: "type",
               params: { type: "array" },
@@ -9275,7 +9200,7 @@ function validate31(
           if (typeof data5 === "string") {
             if (func3(data5) > 140) {
               const err14 = {
-                instancePath: instancePath + "/" + i0 + "/note",
+                instancePath: `${instancePath}/${i0}/note`,
                 schemaPath: "#/items/properties/note/maxLength",
                 keyword: "maxLength",
                 params: { limit: 140 },
@@ -9290,7 +9215,7 @@ function validate31(
             }
           } else {
             const err15 = {
-              instancePath: instancePath + "/" + i0 + "/note",
+              instancePath: `${instancePath}/${i0}/note`,
               schemaPath: "#/items/properties/note/type",
               keyword: "type",
               params: { type: "string" },
@@ -9306,7 +9231,7 @@ function validate31(
         }
       } else {
         const err16 = {
-          instancePath: instancePath + "/" + i0,
+          instancePath: `${instancePath}/${i0}`,
           schemaPath: "#/items/type",
           keyword: "type",
           params: { type: "object" },
@@ -9359,7 +9284,7 @@ function validate30(
   if (evaluated0.dynamicItems) {
     evaluated0.items = undefined
   }
-  if (data && typeof data == "object" && !Array.isArray(data)) {
+  if (data && typeof data === "object" && !Array.isArray(data)) {
     if (data.schema_version === undefined) {
       const err0 = {
         instancePath,
@@ -9479,7 +9404,7 @@ function validate30(
     }
     if (data.schema_version !== undefined && data.schema_version !== 1) {
       const err7 = {
-        instancePath: instancePath + "/schema_version",
+        instancePath: `${instancePath}/schema_version`,
         schemaPath: "#/properties/schema_version/const",
         keyword: "const",
         params: { allowedValue: 1 },
@@ -9494,7 +9419,7 @@ function validate30(
     }
     if (data.diagram_type !== undefined && data.diagram_type !== "dataflow") {
       const err8 = {
-        instancePath: instancePath + "/diagram_type",
+        instancePath: `${instancePath}/diagram_type`,
         schemaPath: "#/properties/diagram_type/const",
         keyword: "const",
         params: { allowedValue: "dataflow" },
@@ -9509,10 +9434,10 @@ function validate30(
     }
     if (data.meta !== undefined) {
       const data2 = data.meta
-      if (data2 && typeof data2 == "object" && !Array.isArray(data2)) {
+      if (data2 && typeof data2 === "object" && !Array.isArray(data2)) {
         if (data2.title === undefined) {
           const err9 = {
-            instancePath: instancePath + "/meta",
+            instancePath: `${instancePath}/meta`,
             schemaPath: "#/properties/meta/required",
             keyword: "required",
             params: { missingProperty: "title" },
@@ -9528,7 +9453,7 @@ function validate30(
         for (const key1 in data2) {
           if (!func1.call(schema91.properties.meta.properties, key1)) {
             const err10 = {
-              instancePath: instancePath + "/meta",
+              instancePath: `${instancePath}/meta`,
               schemaPath: "#/properties/meta/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key1 },
@@ -9547,7 +9472,7 @@ function validate30(
           if (typeof data3 === "string") {
             if (func3(data3) < 1) {
               const err11 = {
-                instancePath: instancePath + "/meta/title",
+                instancePath: `${instancePath}/meta/title`,
                 schemaPath: "#/properties/meta/properties/title/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -9562,7 +9487,7 @@ function validate30(
             }
           } else {
             const err12 = {
-              instancePath: instancePath + "/meta/title",
+              instancePath: `${instancePath}/meta/title`,
               schemaPath: "#/properties/meta/properties/title/type",
               keyword: "type",
               params: { type: "string" },
@@ -9580,7 +9505,7 @@ function validate30(
           const data4 = data2.locale
           if (!(data4 === "en" || data4 === "zh-CN")) {
             const err13 = {
-              instancePath: instancePath + "/meta/locale",
+              instancePath: `${instancePath}/meta/locale`,
               schemaPath: "common.schema.json#/$defs/locale/enum",
               keyword: "enum",
               params: { allowedValues: schema33.enum },
@@ -9599,7 +9524,7 @@ function validate30(
           typeof data2.subtitle !== "string"
         ) {
           const err14 = {
-            instancePath: instancePath + "/meta/subtitle",
+            instancePath: `${instancePath}/meta/subtitle`,
             schemaPath: "#/properties/meta/properties/subtitle/type",
             keyword: "type",
             params: { type: "string" },
@@ -9614,7 +9539,7 @@ function validate30(
         }
         if (data2.output !== undefined && typeof data2.output !== "string") {
           const err15 = {
-            instancePath: instancePath + "/meta/output",
+            instancePath: `${instancePath}/meta/output`,
             schemaPath: "#/properties/meta/properties/output/type",
             keyword: "type",
             params: { type: "string" },
@@ -9631,7 +9556,7 @@ function validate30(
           const data7 = data2.animation
           if (!(data7 === "trace" || data7 === "none")) {
             const err16 = {
-              instancePath: instancePath + "/meta/animation",
+              instancePath: `${instancePath}/meta/animation`,
               schemaPath: "common.schema.json#/$defs/animation/enum",
               keyword: "enum",
               params: { allowedValues: schema70.enum },
@@ -9656,7 +9581,7 @@ function validate30(
             )
           ) {
             const err17 = {
-              instancePath: instancePath + "/meta/visual_preset",
+              instancePath: `${instancePath}/meta/visual_preset`,
               schemaPath: "common.schema.json#/$defs/visualPreset/enum",
               keyword: "enum",
               params: { allowedValues: schema71.enum },
@@ -9674,7 +9599,7 @@ function validate30(
           const data9 = data2.quality_profile
           if (!(data9 === "standard" || data9 === "showcase")) {
             const err18 = {
-              instancePath: instancePath + "/meta/quality_profile",
+              instancePath: `${instancePath}/meta/quality_profile`,
               schemaPath: "common.schema.json#/$defs/qualityProfile/enum",
               keyword: "enum",
               params: { allowedValues: schema72.enum },
@@ -9691,7 +9616,7 @@ function validate30(
         if (
           data2.views !== undefined &&
           !validate31(data2.views, {
-            instancePath: instancePath + "/meta/views",
+            instancePath: `${instancePath}/meta/views`,
             parentData: data2,
             parentDataProperty: "views",
             rootData,
@@ -9706,11 +9631,11 @@ function validate30(
         }
         if (data2.legend !== undefined) {
           const data11 = data2.legend
-          if (data11 && typeof data11 == "object" && !Array.isArray(data11)) {
+          if (data11 && typeof data11 === "object" && !Array.isArray(data11)) {
             for (const key2 in data11) {
               if (!(key2 === "mode" || key2 === "entries")) {
                 const err19 = {
-                  instancePath: instancePath + "/meta/legend",
+                  instancePath: `${instancePath}/meta/legend`,
                   schemaPath:
                     "#/properties/meta/properties/legend/additionalProperties",
                   keyword: "additionalProperties",
@@ -9731,7 +9656,7 @@ function validate30(
                 !(data12 === "auto" || data12 === "all" || data12 === "hidden")
               ) {
                 const err20 = {
-                  instancePath: instancePath + "/meta/legend/mode",
+                  instancePath: `${instancePath}/meta/legend/mode`,
                   schemaPath: "common.schema.json#/$defs/legendMode/enum",
                   keyword: "enum",
                   params: { allowedValues: schema37.enum },
@@ -9749,7 +9674,7 @@ function validate30(
               const data13 = data11.entries
               if (
                 data13 &&
-                typeof data13 == "object" &&
+                typeof data13 === "object" &&
                 !Array.isArray(data13)
               ) {
                 for (const key3 in data13) {
@@ -9763,7 +9688,7 @@ function validate30(
                     )
                   ) {
                     const err21 = {
-                      instancePath: instancePath + "/meta/legend/entries",
+                      instancePath: `${instancePath}/meta/legend/entries`,
                       schemaPath:
                         "#/properties/meta/properties/legend/properties/entries/additionalProperties",
                       keyword: "additionalProperties",
@@ -9782,13 +9707,12 @@ function validate30(
                   const data14 = data13.default
                   if (
                     data14 &&
-                    typeof data14 == "object" &&
+                    typeof data14 === "object" &&
                     !Array.isArray(data14)
                   ) {
                     if (Object.keys(data14).length < 1) {
                       const err22 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/default",
+                        instancePath: `${instancePath}/meta/legend/entries/default`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -9805,8 +9729,7 @@ function validate30(
                     for (const key4 in data14) {
                       if (!(key4 === "label" || key4 === "visible")) {
                         const err23 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/default",
+                          instancePath: `${instancePath}/meta/legend/entries/default`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -9862,8 +9785,7 @@ function validate30(
                         }
                       } else {
                         const err26 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/default/label",
+                          instancePath: `${instancePath}/meta/legend/entries/default/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -9883,8 +9805,7 @@ function validate30(
                       typeof data14.visible !== "boolean"
                     ) {
                       const err27 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/default/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/default/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -9900,8 +9821,7 @@ function validate30(
                     }
                   } else {
                     const err28 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/default",
+                      instancePath: `${instancePath}/meta/legend/entries/default`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -9919,13 +9839,12 @@ function validate30(
                   const data17 = data13.emphasis
                   if (
                     data17 &&
-                    typeof data17 == "object" &&
+                    typeof data17 === "object" &&
                     !Array.isArray(data17)
                   ) {
                     if (Object.keys(data17).length < 1) {
                       const err29 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/emphasis",
+                        instancePath: `${instancePath}/meta/legend/entries/emphasis`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -9942,8 +9861,7 @@ function validate30(
                     for (const key5 in data17) {
                       if (!(key5 === "label" || key5 === "visible")) {
                         const err30 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/emphasis",
+                          instancePath: `${instancePath}/meta/legend/entries/emphasis`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -10039,8 +9957,7 @@ function validate30(
                     }
                   } else {
                     const err35 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/emphasis",
+                      instancePath: `${instancePath}/meta/legend/entries/emphasis`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -10058,13 +9975,12 @@ function validate30(
                   const data20 = data13.security
                   if (
                     data20 &&
-                    typeof data20 == "object" &&
+                    typeof data20 === "object" &&
                     !Array.isArray(data20)
                   ) {
                     if (Object.keys(data20).length < 1) {
                       const err36 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/security",
+                        instancePath: `${instancePath}/meta/legend/entries/security`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -10081,8 +9997,7 @@ function validate30(
                     for (const key6 in data20) {
                       if (!(key6 === "label" || key6 === "visible")) {
                         const err37 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/security",
+                          instancePath: `${instancePath}/meta/legend/entries/security`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -10178,8 +10093,7 @@ function validate30(
                     }
                   } else {
                     const err42 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/security",
+                      instancePath: `${instancePath}/meta/legend/entries/security`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -10197,13 +10111,12 @@ function validate30(
                   const data23 = data13.dashed
                   if (
                     data23 &&
-                    typeof data23 == "object" &&
+                    typeof data23 === "object" &&
                     !Array.isArray(data23)
                   ) {
                     if (Object.keys(data23).length < 1) {
                       const err43 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/dashed",
+                        instancePath: `${instancePath}/meta/legend/entries/dashed`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -10220,8 +10133,7 @@ function validate30(
                     for (const key7 in data23) {
                       if (!(key7 === "label" || key7 === "visible")) {
                         const err44 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/dashed",
+                          instancePath: `${instancePath}/meta/legend/entries/dashed`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -10277,8 +10189,7 @@ function validate30(
                         }
                       } else {
                         const err47 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/dashed/label",
+                          instancePath: `${instancePath}/meta/legend/entries/dashed/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -10298,8 +10209,7 @@ function validate30(
                       typeof data23.visible !== "boolean"
                     ) {
                       const err48 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/dashed/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/dashed/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -10315,8 +10225,7 @@ function validate30(
                     }
                   } else {
                     const err49 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/dashed",
+                      instancePath: `${instancePath}/meta/legend/entries/dashed`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -10334,13 +10243,12 @@ function validate30(
                   const data26 = data13.database
                   if (
                     data26 &&
-                    typeof data26 == "object" &&
+                    typeof data26 === "object" &&
                     !Array.isArray(data26)
                   ) {
                     if (Object.keys(data26).length < 1) {
                       const err50 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/database",
+                        instancePath: `${instancePath}/meta/legend/entries/database`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -10357,8 +10265,7 @@ function validate30(
                     for (const key8 in data26) {
                       if (!(key8 === "label" || key8 === "visible")) {
                         const err51 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/database",
+                          instancePath: `${instancePath}/meta/legend/entries/database`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -10454,8 +10361,7 @@ function validate30(
                     }
                   } else {
                     const err56 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/database",
+                      instancePath: `${instancePath}/meta/legend/entries/database`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -10471,7 +10377,7 @@ function validate30(
                 }
               } else {
                 const err57 = {
-                  instancePath: instancePath + "/meta/legend/entries",
+                  instancePath: `${instancePath}/meta/legend/entries`,
                   schemaPath:
                     "#/properties/meta/properties/legend/properties/entries/type",
                   keyword: "type",
@@ -10488,7 +10394,7 @@ function validate30(
             }
           } else {
             const err58 = {
-              instancePath: instancePath + "/meta/legend",
+              instancePath: `${instancePath}/meta/legend`,
               schemaPath: "#/properties/meta/properties/legend/type",
               keyword: "type",
               params: { type: "object" },
@@ -10507,7 +10413,7 @@ function validate30(
           if (Array.isArray(data29)) {
             if (data29.length > 2) {
               const err59 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/maxItems",
                 keyword: "maxItems",
                 params: { limit: 2 },
@@ -10522,7 +10428,7 @@ function validate30(
             }
             if (data29.length < 2) {
               const err60 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/minItems",
                 keyword: "minItems",
                 params: { limit: 2 },
@@ -10538,10 +10444,10 @@ function validate30(
             const len0 = data29.length
             if (len0 > 0) {
               const data30 = data29[0]
-              if (typeof data30 == "number" && isFinite(data30)) {
-                if (data30 < 360 || isNaN(data30)) {
+              if (typeof data30 === "number" && Number.isFinite(data30)) {
+                if (data30 < 360 || Number.isNaN(data30)) {
                   const err61 = {
-                    instancePath: instancePath + "/meta/viewBox/0",
+                    instancePath: `${instancePath}/meta/viewBox/0`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/0/minimum",
                     keyword: "minimum",
@@ -10557,7 +10463,7 @@ function validate30(
                 }
               } else {
                 const err62 = {
-                  instancePath: instancePath + "/meta/viewBox/0",
+                  instancePath: `${instancePath}/meta/viewBox/0`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/0/type",
                   keyword: "type",
@@ -10574,10 +10480,10 @@ function validate30(
             }
             if (len0 > 1) {
               const data31 = data29[1]
-              if (typeof data31 == "number" && isFinite(data31)) {
-                if (data31 < 360 || isNaN(data31)) {
+              if (typeof data31 === "number" && Number.isFinite(data31)) {
+                if (data31 < 360 || Number.isNaN(data31)) {
                   const err63 = {
-                    instancePath: instancePath + "/meta/viewBox/1",
+                    instancePath: `${instancePath}/meta/viewBox/1`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/1/minimum",
                     keyword: "minimum",
@@ -10593,7 +10499,7 @@ function validate30(
                 }
               } else {
                 const err64 = {
-                  instancePath: instancePath + "/meta/viewBox/1",
+                  instancePath: `${instancePath}/meta/viewBox/1`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/1/type",
                   keyword: "type",
@@ -10611,7 +10517,7 @@ function validate30(
             const len1 = data29.length
             if (!(len1 <= 2)) {
               const err65 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/items",
                 keyword: "items",
                 params: { limit: 2 },
@@ -10626,7 +10532,7 @@ function validate30(
             }
           } else {
             const err66 = {
-              instancePath: instancePath + "/meta/viewBox",
+              instancePath: `${instancePath}/meta/viewBox`,
               schemaPath: "#/properties/meta/properties/viewBox/type",
               keyword: "type",
               params: { type: "array" },
@@ -10642,7 +10548,7 @@ function validate30(
         }
       } else {
         const err67 = {
-          instancePath: instancePath + "/meta",
+          instancePath: `${instancePath}/meta`,
           schemaPath: "#/properties/meta/type",
           keyword: "type",
           params: { type: "object" },
@@ -10661,7 +10567,7 @@ function validate30(
       if (Array.isArray(data32)) {
         if (data32.length > 5) {
           const err68 = {
-            instancePath: instancePath + "/stages",
+            instancePath: `${instancePath}/stages`,
             schemaPath: "#/properties/stages/maxItems",
             keyword: "maxItems",
             params: { limit: 5 },
@@ -10676,7 +10582,7 @@ function validate30(
         }
         if (data32.length < 2) {
           const err69 = {
-            instancePath: instancePath + "/stages",
+            instancePath: `${instancePath}/stages`,
             schemaPath: "#/properties/stages/minItems",
             keyword: "minItems",
             params: { limit: 2 },
@@ -10692,10 +10598,10 @@ function validate30(
         const len2 = data32.length
         for (let i0 = 0; i0 < len2; i0++) {
           const data33 = data32[i0]
-          if (data33 && typeof data33 == "object" && !Array.isArray(data33)) {
+          if (data33 && typeof data33 === "object" && !Array.isArray(data33)) {
             if (data33.label === undefined) {
               const err70 = {
-                instancePath: instancePath + "/stages/" + i0,
+                instancePath: `${instancePath}/stages/${i0}`,
                 schemaPath: "#/properties/stages/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -10711,7 +10617,7 @@ function validate30(
             for (const key9 in data33) {
               if (!(key9 === "label")) {
                 const err71 = {
-                  instancePath: instancePath + "/stages/" + i0,
+                  instancePath: `${instancePath}/stages/${i0}`,
                   schemaPath: "#/properties/stages/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key9 },
@@ -10730,7 +10636,7 @@ function validate30(
               if (typeof data34 === "string") {
                 if (func3(data34) < 1) {
                   const err72 = {
-                    instancePath: instancePath + "/stages/" + i0 + "/label",
+                    instancePath: `${instancePath}/stages/${i0}/label`,
                     schemaPath:
                       "#/properties/stages/items/properties/label/minLength",
                     keyword: "minLength",
@@ -10746,7 +10652,7 @@ function validate30(
                 }
               } else {
                 const err73 = {
-                  instancePath: instancePath + "/stages/" + i0 + "/label",
+                  instancePath: `${instancePath}/stages/${i0}/label`,
                   schemaPath: "#/properties/stages/items/properties/label/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -10762,7 +10668,7 @@ function validate30(
             }
           } else {
             const err74 = {
-              instancePath: instancePath + "/stages/" + i0,
+              instancePath: `${instancePath}/stages/${i0}`,
               schemaPath: "#/properties/stages/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -10778,7 +10684,7 @@ function validate30(
         }
       } else {
         const err75 = {
-          instancePath: instancePath + "/stages",
+          instancePath: `${instancePath}/stages`,
           schemaPath: "#/properties/stages/type",
           keyword: "type",
           params: { type: "array" },
@@ -10797,7 +10703,7 @@ function validate30(
       if (Array.isArray(data35)) {
         if (data35.length < 2) {
           const err76 = {
-            instancePath: instancePath + "/nodes",
+            instancePath: `${instancePath}/nodes`,
             schemaPath: "#/properties/nodes/minItems",
             keyword: "minItems",
             params: { limit: 2 },
@@ -10813,10 +10719,10 @@ function validate30(
         const len3 = data35.length
         for (let i1 = 0; i1 < len3; i1++) {
           const data36 = data35[i1]
-          if (data36 && typeof data36 == "object" && !Array.isArray(data36)) {
+          if (data36 && typeof data36 === "object" && !Array.isArray(data36)) {
             if (data36.id === undefined) {
               const err77 = {
-                instancePath: instancePath + "/nodes/" + i1,
+                instancePath: `${instancePath}/nodes/${i1}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "id" },
@@ -10831,7 +10737,7 @@ function validate30(
             }
             if (data36.type === undefined) {
               const err78 = {
-                instancePath: instancePath + "/nodes/" + i1,
+                instancePath: `${instancePath}/nodes/${i1}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "type" },
@@ -10846,7 +10752,7 @@ function validate30(
             }
             if (data36.label === undefined) {
               const err79 = {
-                instancePath: instancePath + "/nodes/" + i1,
+                instancePath: `${instancePath}/nodes/${i1}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -10861,7 +10767,7 @@ function validate30(
             }
             if (data36.stage === undefined) {
               const err80 = {
-                instancePath: instancePath + "/nodes/" + i1,
+                instancePath: `${instancePath}/nodes/${i1}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "stage" },
@@ -10876,7 +10782,7 @@ function validate30(
             }
             if (data36.row === undefined) {
               const err81 = {
-                instancePath: instancePath + "/nodes/" + i1,
+                instancePath: `${instancePath}/nodes/${i1}`,
                 schemaPath: "#/properties/nodes/items/required",
                 keyword: "required",
                 params: { missingProperty: "row" },
@@ -10894,7 +10800,7 @@ function validate30(
                 !func1.call(schema91.properties.nodes.items.properties, key10)
               ) {
                 const err82 = {
-                  instancePath: instancePath + "/nodes/" + i1,
+                  instancePath: `${instancePath}/nodes/${i1}`,
                   schemaPath: "#/properties/nodes/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key10 },
@@ -10913,7 +10819,7 @@ function validate30(
               if (typeof data37 === "string") {
                 if (!pattern4.test(data37)) {
                   const err83 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/id",
+                    instancePath: `${instancePath}/nodes/${i1}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -10928,7 +10834,7 @@ function validate30(
                 }
               } else {
                 const err84 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/id",
+                  instancePath: `${instancePath}/nodes/${i1}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -10956,7 +10862,7 @@ function validate30(
                 )
               ) {
                 const err85 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/type",
+                  instancePath: `${instancePath}/nodes/${i1}/type`,
                   schemaPath: "common.schema.json#/$defs/componentType/enum",
                   keyword: "enum",
                   params: { allowedValues: schema57.enum },
@@ -10975,7 +10881,7 @@ function validate30(
               if (typeof data39 === "string") {
                 if (func3(data39) < 1) {
                   const err86 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/label",
+                    instancePath: `${instancePath}/nodes/${i1}/label`,
                     schemaPath:
                       "#/properties/nodes/items/properties/label/minLength",
                     keyword: "minLength",
@@ -10991,7 +10897,7 @@ function validate30(
                 }
               } else {
                 const err87 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/label",
+                  instancePath: `${instancePath}/nodes/${i1}/label`,
                   schemaPath: "#/properties/nodes/items/properties/label/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -11010,7 +10916,7 @@ function validate30(
               typeof data36.sublabel !== "string"
             ) {
               const err88 = {
-                instancePath: instancePath + "/nodes/" + i1 + "/sublabel",
+                instancePath: `${instancePath}/nodes/${i1}/sublabel`,
                 schemaPath: "#/properties/nodes/items/properties/sublabel/type",
                 keyword: "type",
                 params: { type: "string" },
@@ -11025,7 +10931,7 @@ function validate30(
             }
             if (data36.tag !== undefined && typeof data36.tag !== "string") {
               const err89 = {
-                instancePath: instancePath + "/nodes/" + i1 + "/tag",
+                instancePath: `${instancePath}/nodes/${i1}/tag`,
                 schemaPath: "#/properties/nodes/items/properties/tag/type",
                 keyword: "type",
                 params: { type: "string" },
@@ -11050,7 +10956,7 @@ function validate30(
               if (typeof data42 === "string") {
                 if (func3(data42) > 80) {
                   const err90 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/maxLength",
                     keyword: "maxLength",
@@ -11066,7 +10972,7 @@ function validate30(
                 }
                 if (!pattern17.test(data42)) {
                   const err91 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/pattern",
                     keyword: "pattern",
@@ -11081,12 +10987,12 @@ function validate30(
                   errors++
                 }
               }
-              var _valid1 = _errs105 === errors
+              const _valid1 = _errs105 === errors
               valid30 = valid30 || _valid1
               const _errs106 = errors
               if (typeof data42 === "string" && !pattern18.test(data42)) {
                 const err92 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i1}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/1/pattern",
                   keyword: "pattern",
@@ -11100,7 +11006,7 @@ function validate30(
                 }
                 errors++
               }
-              var _valid1 = _errs106 === errors
+              const _valid1 = _errs106 === errors
               valid30 = valid30 || _valid1
               if (valid30) {
                 errors = _errs104
@@ -11113,7 +11019,7 @@ function validate30(
                 }
               } else {
                 const err93 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i1}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf",
                   keyword: "anyOf",
@@ -11130,7 +11036,7 @@ function validate30(
               if (typeof data42 === "string") {
                 if (func3(data42) > 2048) {
                   const err94 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/maxLength",
                     keyword: "maxLength",
@@ -11146,7 +11052,7 @@ function validate30(
                 }
                 if (func3(data42) < 1) {
                   const err95 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/minLength",
                     keyword: "minLength",
@@ -11162,7 +11068,7 @@ function validate30(
                 }
               } else {
                 const err96 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i1}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/type",
                   keyword: "type",
@@ -11176,7 +11082,7 @@ function validate30(
                 }
                 errors++
               }
-              var _valid0 = _errs102 === errors
+              const _valid0 = _errs102 === errors
               if (_valid0) {
                 valid29 = true
                 passing0 = 0
@@ -11184,12 +11090,12 @@ function validate30(
               const _errs107 = errors
               if (
                 data42 &&
-                typeof data42 == "object" &&
+                typeof data42 === "object" &&
                 !Array.isArray(data42)
               ) {
                 if (data42.url === undefined) {
                   const err97 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -11205,7 +11111,7 @@ function validate30(
                 }
                 if (data42.sha256 === undefined) {
                   const err98 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                    instancePath: `${instancePath}/nodes/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -11222,7 +11128,7 @@ function validate30(
                 for (const key11 in data42) {
                   if (!(key11 === "url" || key11 === "sha256")) {
                     const err99 = {
-                      instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                      instancePath: `${instancePath}/nodes/${i1}/brand`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/additionalProperties",
                       keyword: "additionalProperties",
@@ -11242,8 +11148,7 @@ function validate30(
                   if (typeof data43 === "string") {
                     if (func3(data43) > 2048) {
                       const err100 = {
-                        instancePath:
-                          instancePath + "/nodes/" + i1 + "/brand/url",
+                        instancePath: `${instancePath}/nodes/${i1}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/maxLength",
                         keyword: "maxLength",
@@ -11259,8 +11164,7 @@ function validate30(
                     }
                     if (func3(data43) < 8) {
                       const err101 = {
-                        instancePath:
-                          instancePath + "/nodes/" + i1 + "/brand/url",
+                        instancePath: `${instancePath}/nodes/${i1}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/minLength",
                         keyword: "minLength",
@@ -11276,8 +11180,7 @@ function validate30(
                     }
                     if (!pattern18.test(data43)) {
                       const err102 = {
-                        instancePath:
-                          instancePath + "/nodes/" + i1 + "/brand/url",
+                        instancePath: `${instancePath}/nodes/${i1}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/pattern",
                         keyword: "pattern",
@@ -11293,8 +11196,7 @@ function validate30(
                     }
                   } else {
                     const err103 = {
-                      instancePath:
-                        instancePath + "/nodes/" + i1 + "/brand/url",
+                      instancePath: `${instancePath}/nodes/${i1}/brand/url`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/type",
                       keyword: "type",
@@ -11314,8 +11216,7 @@ function validate30(
                   if (typeof data44 === "string") {
                     if (!pattern20.test(data44)) {
                       const err104 = {
-                        instancePath:
-                          instancePath + "/nodes/" + i1 + "/brand/sha256",
+                        instancePath: `${instancePath}/nodes/${i1}/brand/sha256`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/sha256/pattern",
                         keyword: "pattern",
@@ -11331,8 +11232,7 @@ function validate30(
                     }
                   } else {
                     const err105 = {
-                      instancePath:
-                        instancePath + "/nodes/" + i1 + "/brand/sha256",
+                      instancePath: `${instancePath}/nodes/${i1}/brand/sha256`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/sha256/type",
                       keyword: "type",
@@ -11349,7 +11249,7 @@ function validate30(
                 }
               } else {
                 const err106 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i1}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/1/type",
                   keyword: "type",
@@ -11363,7 +11263,7 @@ function validate30(
                 }
                 errors++
               }
-              var _valid0 = _errs107 === errors
+              const _valid0 = _errs107 === errors
               if (_valid0 && valid29) {
                 valid29 = false
                 passing0 = [passing0, 1]
@@ -11382,7 +11282,7 @@ function validate30(
                 }
               } else {
                 const err107 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/brand",
+                  instancePath: `${instancePath}/nodes/${i1}/brand`,
                   schemaPath: "common.schema.json#/$defs/brandMark/oneOf",
                   keyword: "oneOf",
                   params: { passingSchemas: passing0 },
@@ -11400,13 +11300,13 @@ function validate30(
               const data45 = data36.stage
               if (
                 !(
-                  typeof data45 == "number" &&
-                  !(data45 % 1 || isNaN(data45)) &&
-                  isFinite(data45)
+                  typeof data45 === "number" &&
+                  !(data45 % 1 || Number.isNaN(data45)) &&
+                  Number.isFinite(data45)
                 )
               ) {
                 const err108 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/stage",
+                  instancePath: `${instancePath}/nodes/${i1}/stage`,
                   schemaPath: "#/properties/nodes/items/properties/stage/type",
                   keyword: "type",
                   params: { type: "integer" },
@@ -11420,12 +11320,12 @@ function validate30(
                 errors++
               }
               if (
-                typeof data45 == "number" &&
-                isFinite(data45) &&
-                (data45 < 0 || isNaN(data45))
+                typeof data45 === "number" &&
+                Number.isFinite(data45) &&
+                (data45 < 0 || Number.isNaN(data45))
               ) {
                 const err109 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/stage",
+                  instancePath: `${instancePath}/nodes/${i1}/stage`,
                   schemaPath:
                     "#/properties/nodes/items/properties/stage/minimum",
                   keyword: "minimum",
@@ -11444,13 +11344,13 @@ function validate30(
               const data46 = data36.row
               if (
                 !(
-                  typeof data46 == "number" &&
-                  !(data46 % 1 || isNaN(data46)) &&
-                  isFinite(data46)
+                  typeof data46 === "number" &&
+                  !(data46 % 1 || Number.isNaN(data46)) &&
+                  Number.isFinite(data46)
                 )
               ) {
                 const err110 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/row",
+                  instancePath: `${instancePath}/nodes/${i1}/row`,
                   schemaPath: "#/properties/nodes/items/properties/row/type",
                   keyword: "type",
                   params: { type: "integer" },
@@ -11464,12 +11364,12 @@ function validate30(
                 errors++
               }
               if (
-                typeof data46 == "number" &&
-                isFinite(data46) &&
-                (data46 < 0 || isNaN(data46))
+                typeof data46 === "number" &&
+                Number.isFinite(data46) &&
+                (data46 < 0 || Number.isNaN(data46))
               ) {
                 const err111 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/row",
+                  instancePath: `${instancePath}/nodes/${i1}/row`,
                   schemaPath: "#/properties/nodes/items/properties/row/minimum",
                   keyword: "minimum",
                   params: { comparison: ">=", limit: 0 },
@@ -11485,10 +11385,10 @@ function validate30(
             }
             if (data36.width !== undefined) {
               const data47 = data36.width
-              if (typeof data47 == "number" && isFinite(data47)) {
-                if (data47 < 48 || isNaN(data47)) {
+              if (typeof data47 === "number" && Number.isFinite(data47)) {
+                if (data47 < 48 || Number.isNaN(data47)) {
                   const err112 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/width",
+                    instancePath: `${instancePath}/nodes/${i1}/width`,
                     schemaPath:
                       "#/properties/nodes/items/properties/width/minimum",
                     keyword: "minimum",
@@ -11504,7 +11404,7 @@ function validate30(
                 }
               } else {
                 const err113 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/width",
+                  instancePath: `${instancePath}/nodes/${i1}/width`,
                   schemaPath: "#/properties/nodes/items/properties/width/type",
                   keyword: "type",
                   params: { type: "number" },
@@ -11520,10 +11420,10 @@ function validate30(
             }
             if (data36.height !== undefined) {
               const data48 = data36.height
-              if (typeof data48 == "number" && isFinite(data48)) {
-                if (data48 < 36 || isNaN(data48)) {
+              if (typeof data48 === "number" && Number.isFinite(data48)) {
+                if (data48 < 36 || Number.isNaN(data48)) {
                   const err114 = {
-                    instancePath: instancePath + "/nodes/" + i1 + "/height",
+                    instancePath: `${instancePath}/nodes/${i1}/height`,
                     schemaPath:
                       "#/properties/nodes/items/properties/height/minimum",
                     keyword: "minimum",
@@ -11539,7 +11439,7 @@ function validate30(
                 }
               } else {
                 const err115 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/height",
+                  instancePath: `${instancePath}/nodes/${i1}/height`,
                   schemaPath: "#/properties/nodes/items/properties/height/type",
                   keyword: "type",
                   params: { type: "number" },
@@ -11555,9 +11455,9 @@ function validate30(
             }
             if (data36.yOffset !== undefined) {
               const data49 = data36.yOffset
-              if (!(typeof data49 == "number" && isFinite(data49))) {
+              if (!(typeof data49 === "number" && Number.isFinite(data49))) {
                 const err116 = {
-                  instancePath: instancePath + "/nodes/" + i1 + "/yOffset",
+                  instancePath: `${instancePath}/nodes/${i1}/yOffset`,
                   schemaPath:
                     "#/properties/nodes/items/properties/yOffset/type",
                   keyword: "type",
@@ -11574,7 +11474,7 @@ function validate30(
             }
           } else {
             const err117 = {
-              instancePath: instancePath + "/nodes/" + i1,
+              instancePath: `${instancePath}/nodes/${i1}`,
               schemaPath: "#/properties/nodes/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -11590,7 +11490,7 @@ function validate30(
         }
       } else {
         const err118 = {
-          instancePath: instancePath + "/nodes",
+          instancePath: `${instancePath}/nodes`,
           schemaPath: "#/properties/nodes/type",
           keyword: "type",
           params: { type: "array" },
@@ -11610,10 +11510,10 @@ function validate30(
         const len4 = data50.length
         for (let i2 = 0; i2 < len4; i2++) {
           const data51 = data50[i2]
-          if (data51 && typeof data51 == "object" && !Array.isArray(data51)) {
+          if (data51 && typeof data51 === "object" && !Array.isArray(data51)) {
             if (data51.from === undefined) {
               const err119 = {
-                instancePath: instancePath + "/flows/" + i2,
+                instancePath: `${instancePath}/flows/${i2}`,
                 schemaPath: "#/properties/flows/items/required",
                 keyword: "required",
                 params: { missingProperty: "from" },
@@ -11628,7 +11528,7 @@ function validate30(
             }
             if (data51.to === undefined) {
               const err120 = {
-                instancePath: instancePath + "/flows/" + i2,
+                instancePath: `${instancePath}/flows/${i2}`,
                 schemaPath: "#/properties/flows/items/required",
                 keyword: "required",
                 params: { missingProperty: "to" },
@@ -11643,7 +11543,7 @@ function validate30(
             }
             if (data51.label === undefined) {
               const err121 = {
-                instancePath: instancePath + "/flows/" + i2,
+                instancePath: `${instancePath}/flows/${i2}`,
                 schemaPath: "#/properties/flows/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -11661,7 +11561,7 @@ function validate30(
                 !func1.call(schema91.properties.flows.items.properties, key12)
               ) {
                 const err122 = {
-                  instancePath: instancePath + "/flows/" + i2,
+                  instancePath: `${instancePath}/flows/${i2}`,
                   schemaPath: "#/properties/flows/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key12 },
@@ -11680,7 +11580,7 @@ function validate30(
               if (typeof data52 === "string") {
                 if (!pattern4.test(data52)) {
                   const err123 = {
-                    instancePath: instancePath + "/flows/" + i2 + "/id",
+                    instancePath: `${instancePath}/flows/${i2}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -11695,7 +11595,7 @@ function validate30(
                 }
               } else {
                 const err124 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/id",
+                  instancePath: `${instancePath}/flows/${i2}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -11714,7 +11614,7 @@ function validate30(
               if (typeof data53 === "string") {
                 if (!pattern4.test(data53)) {
                   const err125 = {
-                    instancePath: instancePath + "/flows/" + i2 + "/from",
+                    instancePath: `${instancePath}/flows/${i2}/from`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -11729,7 +11629,7 @@ function validate30(
                 }
               } else {
                 const err126 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/from",
+                  instancePath: `${instancePath}/flows/${i2}/from`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -11748,7 +11648,7 @@ function validate30(
               if (typeof data54 === "string") {
                 if (!pattern4.test(data54)) {
                   const err127 = {
-                    instancePath: instancePath + "/flows/" + i2 + "/to",
+                    instancePath: `${instancePath}/flows/${i2}/to`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -11763,7 +11663,7 @@ function validate30(
                 }
               } else {
                 const err128 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/to",
+                  instancePath: `${instancePath}/flows/${i2}/to`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -11782,7 +11682,7 @@ function validate30(
               if (typeof data55 === "string") {
                 if (func3(data55) < 1) {
                   const err129 = {
-                    instancePath: instancePath + "/flows/" + i2 + "/label",
+                    instancePath: `${instancePath}/flows/${i2}/label`,
                     schemaPath:
                       "#/properties/flows/items/properties/label/minLength",
                     keyword: "minLength",
@@ -11798,7 +11698,7 @@ function validate30(
                 }
               } else {
                 const err130 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/label",
+                  instancePath: `${instancePath}/flows/${i2}/label`,
                   schemaPath: "#/properties/flows/items/properties/label/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -11817,7 +11717,7 @@ function validate30(
               typeof data51.classification !== "string"
             ) {
               const err131 = {
-                instancePath: instancePath + "/flows/" + i2 + "/classification",
+                instancePath: `${instancePath}/flows/${i2}/classification`,
                 schemaPath:
                   "#/properties/flows/items/properties/classification/type",
                 keyword: "type",
@@ -11842,7 +11742,7 @@ function validate30(
                 )
               ) {
                 const err132 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/variant",
+                  instancePath: `${instancePath}/flows/${i2}/variant`,
                   schemaPath: "common.schema.json#/$defs/variant/enum",
                   keyword: "enum",
                   params: { allowedValues: schema62.enum },
@@ -11868,7 +11768,7 @@ function validate30(
                 )
               ) {
                 const err133 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/route",
+                  instancePath: `${instancePath}/flows/${i2}/route`,
                   schemaPath: "#/properties/flows/items/properties/route/enum",
                   keyword: "enum",
                   params: {
@@ -11896,7 +11796,7 @@ function validate30(
                 )
               ) {
                 const err134 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/fromSide",
+                  instancePath: `${instancePath}/flows/${i2}/fromSide`,
                   schemaPath: "common.schema.json#/$defs/side/enum",
                   keyword: "enum",
                   params: { allowedValues: schema112.enum },
@@ -11921,7 +11821,7 @@ function validate30(
                 )
               ) {
                 const err135 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/toSide",
+                  instancePath: `${instancePath}/flows/${i2}/toSide`,
                   schemaPath: "common.schema.json#/$defs/side/enum",
                   keyword: "enum",
                   params: { allowedValues: schema112.enum },
@@ -11937,9 +11837,9 @@ function validate30(
             }
             if (data51.channelX !== undefined) {
               const data61 = data51.channelX
-              if (!(typeof data61 == "number" && isFinite(data61))) {
+              if (!(typeof data61 === "number" && Number.isFinite(data61))) {
                 const err136 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/channelX",
+                  instancePath: `${instancePath}/flows/${i2}/channelX`,
                   schemaPath:
                     "#/properties/flows/items/properties/channelX/type",
                   keyword: "type",
@@ -11956,9 +11856,9 @@ function validate30(
             }
             if (data51.channelY !== undefined) {
               const data62 = data51.channelY
-              if (!(typeof data62 == "number" && isFinite(data62))) {
+              if (!(typeof data62 === "number" && Number.isFinite(data62))) {
                 const err137 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/channelY",
+                  instancePath: `${instancePath}/flows/${i2}/channelY`,
                   schemaPath:
                     "#/properties/flows/items/properties/channelY/type",
                   keyword: "type",
@@ -11978,7 +11878,7 @@ function validate30(
               if (Array.isArray(data63)) {
                 if (data63.length > 2) {
                   const err138 = {
-                    instancePath: instancePath + "/flows/" + i2 + "/labelAt",
+                    instancePath: `${instancePath}/flows/${i2}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/maxItems",
                     keyword: "maxItems",
                     params: { limit: 2 },
@@ -11993,7 +11893,7 @@ function validate30(
                 }
                 if (data63.length < 2) {
                   const err139 = {
-                    instancePath: instancePath + "/flows/" + i2 + "/labelAt",
+                    instancePath: `${instancePath}/flows/${i2}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/minItems",
                     keyword: "minItems",
                     params: { limit: 2 },
@@ -12009,10 +11909,11 @@ function validate30(
                 const len5 = data63.length
                 if (len5 > 0) {
                   const data64 = data63[0]
-                  if (!(typeof data64 == "number" && isFinite(data64))) {
+                  if (
+                    !(typeof data64 === "number" && Number.isFinite(data64))
+                  ) {
                     const err140 = {
-                      instancePath:
-                        instancePath + "/flows/" + i2 + "/labelAt/0",
+                      instancePath: `${instancePath}/flows/${i2}/labelAt/0`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/0/type",
                       keyword: "type",
@@ -12029,10 +11930,11 @@ function validate30(
                 }
                 if (len5 > 1) {
                   const data65 = data63[1]
-                  if (!(typeof data65 == "number" && isFinite(data65))) {
+                  if (
+                    !(typeof data65 === "number" && Number.isFinite(data65))
+                  ) {
                     const err141 = {
-                      instancePath:
-                        instancePath + "/flows/" + i2 + "/labelAt/1",
+                      instancePath: `${instancePath}/flows/${i2}/labelAt/1`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/1/type",
                       keyword: "type",
@@ -12050,7 +11952,7 @@ function validate30(
                 const len6 = data63.length
                 if (!(len6 <= 2)) {
                   const err142 = {
-                    instancePath: instancePath + "/flows/" + i2 + "/labelAt",
+                    instancePath: `${instancePath}/flows/${i2}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/items",
                     keyword: "items",
                     params: { limit: 2 },
@@ -12065,7 +11967,7 @@ function validate30(
                 }
               } else {
                 const err143 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/labelAt",
+                  instancePath: `${instancePath}/flows/${i2}/labelAt`,
                   schemaPath: "common.schema.json#/$defs/point/type",
                   keyword: "type",
                   params: { type: "array" },
@@ -12081,9 +11983,9 @@ function validate30(
             }
             if (data51.labelDx !== undefined) {
               const data66 = data51.labelDx
-              if (!(typeof data66 == "number" && isFinite(data66))) {
+              if (!(typeof data66 === "number" && Number.isFinite(data66))) {
                 const err144 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/labelDx",
+                  instancePath: `${instancePath}/flows/${i2}/labelDx`,
                   schemaPath:
                     "#/properties/flows/items/properties/labelDx/type",
                   keyword: "type",
@@ -12100,9 +12002,9 @@ function validate30(
             }
             if (data51.labelDy !== undefined) {
               const data67 = data51.labelDy
-              if (!(typeof data67 == "number" && isFinite(data67))) {
+              if (!(typeof data67 === "number" && Number.isFinite(data67))) {
                 const err145 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/labelDy",
+                  instancePath: `${instancePath}/flows/${i2}/labelDy`,
                   schemaPath:
                     "#/properties/flows/items/properties/labelDy/type",
                   keyword: "type",
@@ -12121,13 +12023,13 @@ function validate30(
               const data68 = data51.labelSegment
               if (
                 !(
-                  typeof data68 == "number" &&
-                  !(data68 % 1 || isNaN(data68)) &&
-                  isFinite(data68)
+                  typeof data68 === "number" &&
+                  !(data68 % 1 || Number.isNaN(data68)) &&
+                  Number.isFinite(data68)
                 )
               ) {
                 const err146 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/labelSegment",
+                  instancePath: `${instancePath}/flows/${i2}/labelSegment`,
                   schemaPath:
                     "#/properties/flows/items/properties/labelSegment/type",
                   keyword: "type",
@@ -12142,12 +12044,12 @@ function validate30(
                 errors++
               }
               if (
-                typeof data68 == "number" &&
-                isFinite(data68) &&
-                (data68 < 0 || isNaN(data68))
+                typeof data68 === "number" &&
+                Number.isFinite(data68) &&
+                (data68 < 0 || Number.isNaN(data68))
               ) {
                 const err147 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/labelSegment",
+                  instancePath: `${instancePath}/flows/${i2}/labelSegment`,
                   schemaPath:
                     "#/properties/flows/items/properties/labelSegment/minimum",
                   keyword: "minimum",
@@ -12171,8 +12073,7 @@ function validate30(
                   if (Array.isArray(data70)) {
                     if (data70.length > 2) {
                       const err148 = {
-                        instancePath:
-                          instancePath + "/flows/" + i2 + "/via/" + i3,
+                        instancePath: `${instancePath}/flows/${i2}/via/${i3}`,
                         schemaPath: "common.schema.json#/$defs/point/maxItems",
                         keyword: "maxItems",
                         params: { limit: 2 },
@@ -12187,8 +12088,7 @@ function validate30(
                     }
                     if (data70.length < 2) {
                       const err149 = {
-                        instancePath:
-                          instancePath + "/flows/" + i2 + "/via/" + i3,
+                        instancePath: `${instancePath}/flows/${i2}/via/${i3}`,
                         schemaPath: "common.schema.json#/$defs/point/minItems",
                         keyword: "minItems",
                         params: { limit: 2 },
@@ -12204,10 +12104,11 @@ function validate30(
                     const len8 = data70.length
                     if (len8 > 0) {
                       const data71 = data70[0]
-                      if (!(typeof data71 == "number" && isFinite(data71))) {
+                      if (
+                        !(typeof data71 === "number" && Number.isFinite(data71))
+                      ) {
                         const err150 = {
-                          instancePath:
-                            instancePath + "/flows/" + i2 + "/via/" + i3 + "/0",
+                          instancePath: `${instancePath}/flows/${i2}/via/${i3}/0`,
                           schemaPath:
                             "common.schema.json#/$defs/point/prefixItems/0/type",
                           keyword: "type",
@@ -12224,10 +12125,11 @@ function validate30(
                     }
                     if (len8 > 1) {
                       const data72 = data70[1]
-                      if (!(typeof data72 == "number" && isFinite(data72))) {
+                      if (
+                        !(typeof data72 === "number" && Number.isFinite(data72))
+                      ) {
                         const err151 = {
-                          instancePath:
-                            instancePath + "/flows/" + i2 + "/via/" + i3 + "/1",
+                          instancePath: `${instancePath}/flows/${i2}/via/${i3}/1`,
                           schemaPath:
                             "common.schema.json#/$defs/point/prefixItems/1/type",
                           keyword: "type",
@@ -12245,8 +12147,7 @@ function validate30(
                     const len9 = data70.length
                     if (!(len9 <= 2)) {
                       const err152 = {
-                        instancePath:
-                          instancePath + "/flows/" + i2 + "/via/" + i3,
+                        instancePath: `${instancePath}/flows/${i2}/via/${i3}`,
                         schemaPath: "common.schema.json#/$defs/point/items",
                         keyword: "items",
                         params: { limit: 2 },
@@ -12261,8 +12162,7 @@ function validate30(
                     }
                   } else {
                     const err153 = {
-                      instancePath:
-                        instancePath + "/flows/" + i2 + "/via/" + i3,
+                      instancePath: `${instancePath}/flows/${i2}/via/${i3}`,
                       schemaPath: "common.schema.json#/$defs/point/type",
                       keyword: "type",
                       params: { type: "array" },
@@ -12278,7 +12178,7 @@ function validate30(
                 }
               } else {
                 const err154 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/via",
+                  instancePath: `${instancePath}/flows/${i2}/via`,
                   schemaPath: "#/properties/flows/items/properties/via/type",
                   keyword: "type",
                   params: { type: "array" },
@@ -12294,10 +12194,10 @@ function validate30(
             }
             if (data51.width !== undefined) {
               const data73 = data51.width
-              if (typeof data73 == "number" && isFinite(data73)) {
-                if (data73 < 0.5 || isNaN(data73)) {
+              if (typeof data73 === "number" && Number.isFinite(data73)) {
+                if (data73 < 0.5 || Number.isNaN(data73)) {
                   const err155 = {
-                    instancePath: instancePath + "/flows/" + i2 + "/width",
+                    instancePath: `${instancePath}/flows/${i2}/width`,
                     schemaPath:
                       "common.schema.json#/$defs/relationshipWidth/minimum",
                     keyword: "minimum",
@@ -12313,7 +12213,7 @@ function validate30(
                 }
               } else {
                 const err156 = {
-                  instancePath: instancePath + "/flows/" + i2 + "/width",
+                  instancePath: `${instancePath}/flows/${i2}/width`,
                   schemaPath:
                     "common.schema.json#/$defs/relationshipWidth/type",
                   keyword: "type",
@@ -12330,7 +12230,7 @@ function validate30(
             }
           } else {
             const err157 = {
-              instancePath: instancePath + "/flows/" + i2,
+              instancePath: `${instancePath}/flows/${i2}`,
               schemaPath: "#/properties/flows/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -12346,7 +12246,7 @@ function validate30(
         }
       } else {
         const err158 = {
-          instancePath: instancePath + "/flows",
+          instancePath: `${instancePath}/flows`,
           schemaPath: "#/properties/flows/type",
           keyword: "type",
           params: { type: "array" },
@@ -12366,10 +12266,10 @@ function validate30(
         const len10 = data74.length
         for (let i4 = 0; i4 < len10; i4++) {
           const data75 = data74[i4]
-          if (data75 && typeof data75 == "object" && !Array.isArray(data75)) {
+          if (data75 && typeof data75 === "object" && !Array.isArray(data75)) {
             if (data75.dot === undefined) {
               const err159 = {
-                instancePath: instancePath + "/cards/" + i4,
+                instancePath: `${instancePath}/cards/${i4}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "dot" },
@@ -12384,7 +12284,7 @@ function validate30(
             }
             if (data75.title === undefined) {
               const err160 = {
-                instancePath: instancePath + "/cards/" + i4,
+                instancePath: `${instancePath}/cards/${i4}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "title" },
@@ -12399,7 +12299,7 @@ function validate30(
             }
             if (data75.items === undefined) {
               const err161 = {
-                instancePath: instancePath + "/cards/" + i4,
+                instancePath: `${instancePath}/cards/${i4}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "items" },
@@ -12417,7 +12317,7 @@ function validate30(
                 !(key13 === "dot" || key13 === "title" || key13 === "items")
               ) {
                 const err162 = {
-                  instancePath: instancePath + "/cards/" + i4,
+                  instancePath: `${instancePath}/cards/${i4}`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -12446,7 +12346,7 @@ function validate30(
                 )
               ) {
                 const err163 = {
-                  instancePath: instancePath + "/cards/" + i4 + "/dot",
+                  instancePath: `${instancePath}/cards/${i4}/dot`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/dot/enum",
                   keyword: "enum",
@@ -12466,7 +12366,7 @@ function validate30(
               if (typeof data77 === "string") {
                 if (func3(data77) < 1) {
                   const err164 = {
-                    instancePath: instancePath + "/cards/" + i4 + "/title",
+                    instancePath: `${instancePath}/cards/${i4}/title`,
                     schemaPath:
                       "common.schema.json#/$defs/cards/items/properties/title/minLength",
                     keyword: "minLength",
@@ -12482,7 +12382,7 @@ function validate30(
                 }
               } else {
                 const err165 = {
-                  instancePath: instancePath + "/cards/" + i4 + "/title",
+                  instancePath: `${instancePath}/cards/${i4}/title`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/title/type",
                   keyword: "type",
@@ -12504,8 +12404,7 @@ function validate30(
                 for (let i5 = 0; i5 < len11; i5++) {
                   if (typeof data78[i5] !== "string") {
                     const err166 = {
-                      instancePath:
-                        instancePath + "/cards/" + i4 + "/items/" + i5,
+                      instancePath: `${instancePath}/cards/${i4}/items/${i5}`,
                       schemaPath:
                         "common.schema.json#/$defs/cards/items/properties/items/items/type",
                       keyword: "type",
@@ -12522,7 +12421,7 @@ function validate30(
                 }
               } else {
                 const err167 = {
-                  instancePath: instancePath + "/cards/" + i4 + "/items",
+                  instancePath: `${instancePath}/cards/${i4}/items`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/items/type",
                   keyword: "type",
@@ -12539,7 +12438,7 @@ function validate30(
             }
           } else {
             const err168 = {
-              instancePath: instancePath + "/cards/" + i4,
+              instancePath: `${instancePath}/cards/${i4}`,
               schemaPath: "common.schema.json#/$defs/cards/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -12555,7 +12454,7 @@ function validate30(
         }
       } else {
         const err169 = {
-          instancePath: instancePath + "/cards",
+          instancePath: `${instancePath}/cards`,
           schemaPath: "common.schema.json#/$defs/cards/type",
           keyword: "type",
           params: { type: "array" },
@@ -12782,10 +12681,10 @@ function validate34(
     const len0 = data.length
     for (let i0 = 0; i0 < len0; i0++) {
       const data0 = data[i0]
-      if (data0 && typeof data0 == "object" && !Array.isArray(data0)) {
+      if (data0 && typeof data0 === "object" && !Array.isArray(data0)) {
         if (data0.id === undefined) {
           const err1 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "id" },
@@ -12800,7 +12699,7 @@ function validate34(
         }
         if (data0.label === undefined) {
           const err2 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "label" },
@@ -12815,7 +12714,7 @@ function validate34(
         }
         if (data0.focus === undefined) {
           const err3 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "focus" },
@@ -12838,7 +12737,7 @@ function validate34(
             )
           ) {
             const err4 = {
-              instancePath: instancePath + "/" + i0,
+              instancePath: `${instancePath}/${i0}`,
               schemaPath: "#/items/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key0 },
@@ -12857,7 +12756,7 @@ function validate34(
           if (typeof data1 === "string") {
             if (!pattern4.test(data1)) {
               const err5 = {
-                instancePath: instancePath + "/" + i0 + "/id",
+                instancePath: `${instancePath}/${i0}/id`,
                 schemaPath: "#/$defs/id/pattern",
                 keyword: "pattern",
                 params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -12872,7 +12771,7 @@ function validate34(
             }
           } else {
             const err6 = {
-              instancePath: instancePath + "/" + i0 + "/id",
+              instancePath: `${instancePath}/${i0}/id`,
               schemaPath: "#/$defs/id/type",
               keyword: "type",
               params: { type: "string" },
@@ -12891,7 +12790,7 @@ function validate34(
           if (typeof data2 === "string") {
             if (func3(data2) > 48) {
               const err7 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/maxLength",
                 keyword: "maxLength",
                 params: { limit: 48 },
@@ -12906,7 +12805,7 @@ function validate34(
             }
             if (func3(data2) < 1) {
               const err8 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -12921,7 +12820,7 @@ function validate34(
             }
           } else {
             const err9 = {
-              instancePath: instancePath + "/" + i0 + "/label",
+              instancePath: `${instancePath}/${i0}/label`,
               schemaPath: "#/items/properties/label/type",
               keyword: "type",
               params: { type: "string" },
@@ -12940,7 +12839,7 @@ function validate34(
           if (Array.isArray(data3)) {
             if (data3.length < 1) {
               const err10 = {
-                instancePath: instancePath + "/" + i0 + "/focus",
+                instancePath: `${instancePath}/${i0}/focus`,
                 schemaPath: "#/items/properties/focus/minItems",
                 keyword: "minItems",
                 params: { limit: 1 },
@@ -12959,7 +12858,7 @@ function validate34(
               if (typeof data4 === "string") {
                 if (!pattern4.test(data4)) {
                   const err11 = {
-                    instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                    instancePath: `${instancePath}/${i0}/focus/${i1}`,
                     schemaPath: "#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -12974,7 +12873,7 @@ function validate34(
                 }
               } else {
                 const err12 = {
-                  instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                  instancePath: `${instancePath}/${i0}/focus/${i1}`,
                   schemaPath: "#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -12990,7 +12889,7 @@ function validate34(
             }
           } else {
             const err13 = {
-              instancePath: instancePath + "/" + i0 + "/focus",
+              instancePath: `${instancePath}/${i0}/focus`,
               schemaPath: "#/items/properties/focus/type",
               keyword: "type",
               params: { type: "array" },
@@ -13009,7 +12908,7 @@ function validate34(
           if (typeof data5 === "string") {
             if (func3(data5) > 140) {
               const err14 = {
-                instancePath: instancePath + "/" + i0 + "/note",
+                instancePath: `${instancePath}/${i0}/note`,
                 schemaPath: "#/items/properties/note/maxLength",
                 keyword: "maxLength",
                 params: { limit: 140 },
@@ -13024,7 +12923,7 @@ function validate34(
             }
           } else {
             const err15 = {
-              instancePath: instancePath + "/" + i0 + "/note",
+              instancePath: `${instancePath}/${i0}/note`,
               schemaPath: "#/items/properties/note/type",
               keyword: "type",
               params: { type: "string" },
@@ -13040,7 +12939,7 @@ function validate34(
         }
       } else {
         const err16 = {
-          instancePath: instancePath + "/" + i0,
+          instancePath: `${instancePath}/${i0}`,
           schemaPath: "#/items/type",
           keyword: "type",
           params: { type: "object" },
@@ -13093,7 +12992,7 @@ function validate33(
   if (evaluated0.dynamicItems) {
     evaluated0.items = undefined
   }
-  if (data && typeof data == "object" && !Array.isArray(data)) {
+  if (data && typeof data === "object" && !Array.isArray(data)) {
     if (data.schema_version === undefined) {
       const err0 = {
         instancePath,
@@ -13213,7 +13112,7 @@ function validate33(
     }
     if (data.schema_version !== undefined && data.schema_version !== 1) {
       const err7 = {
-        instancePath: instancePath + "/schema_version",
+        instancePath: `${instancePath}/schema_version`,
         schemaPath: "#/properties/schema_version/const",
         keyword: "const",
         params: { allowedValue: 1 },
@@ -13228,7 +13127,7 @@ function validate33(
     }
     if (data.diagram_type !== undefined && data.diagram_type !== "lifecycle") {
       const err8 = {
-        instancePath: instancePath + "/diagram_type",
+        instancePath: `${instancePath}/diagram_type`,
         schemaPath: "#/properties/diagram_type/const",
         keyword: "const",
         params: { allowedValue: "lifecycle" },
@@ -13243,10 +13142,10 @@ function validate33(
     }
     if (data.meta !== undefined) {
       const data2 = data.meta
-      if (data2 && typeof data2 == "object" && !Array.isArray(data2)) {
+      if (data2 && typeof data2 === "object" && !Array.isArray(data2)) {
         if (data2.title === undefined) {
           const err9 = {
-            instancePath: instancePath + "/meta",
+            instancePath: `${instancePath}/meta`,
             schemaPath: "#/properties/meta/required",
             keyword: "required",
             params: { missingProperty: "title" },
@@ -13262,7 +13161,7 @@ function validate33(
         for (const key1 in data2) {
           if (!func1.call(schema118.properties.meta.properties, key1)) {
             const err10 = {
-              instancePath: instancePath + "/meta",
+              instancePath: `${instancePath}/meta`,
               schemaPath: "#/properties/meta/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key1 },
@@ -13281,7 +13180,7 @@ function validate33(
           if (typeof data3 === "string") {
             if (func3(data3) < 1) {
               const err11 = {
-                instancePath: instancePath + "/meta/title",
+                instancePath: `${instancePath}/meta/title`,
                 schemaPath: "#/properties/meta/properties/title/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -13296,7 +13195,7 @@ function validate33(
             }
           } else {
             const err12 = {
-              instancePath: instancePath + "/meta/title",
+              instancePath: `${instancePath}/meta/title`,
               schemaPath: "#/properties/meta/properties/title/type",
               keyword: "type",
               params: { type: "string" },
@@ -13314,7 +13213,7 @@ function validate33(
           const data4 = data2.locale
           if (!(data4 === "en" || data4 === "zh-CN")) {
             const err13 = {
-              instancePath: instancePath + "/meta/locale",
+              instancePath: `${instancePath}/meta/locale`,
               schemaPath: "common.schema.json#/$defs/locale/enum",
               keyword: "enum",
               params: { allowedValues: schema33.enum },
@@ -13333,7 +13232,7 @@ function validate33(
           typeof data2.subtitle !== "string"
         ) {
           const err14 = {
-            instancePath: instancePath + "/meta/subtitle",
+            instancePath: `${instancePath}/meta/subtitle`,
             schemaPath: "#/properties/meta/properties/subtitle/type",
             keyword: "type",
             params: { type: "string" },
@@ -13348,7 +13247,7 @@ function validate33(
         }
         if (data2.output !== undefined && typeof data2.output !== "string") {
           const err15 = {
-            instancePath: instancePath + "/meta/output",
+            instancePath: `${instancePath}/meta/output`,
             schemaPath: "#/properties/meta/properties/output/type",
             keyword: "type",
             params: { type: "string" },
@@ -13365,7 +13264,7 @@ function validate33(
           const data7 = data2.animation
           if (!(data7 === "trace" || data7 === "none")) {
             const err16 = {
-              instancePath: instancePath + "/meta/animation",
+              instancePath: `${instancePath}/meta/animation`,
               schemaPath: "common.schema.json#/$defs/animation/enum",
               keyword: "enum",
               params: { allowedValues: schema70.enum },
@@ -13390,7 +13289,7 @@ function validate33(
             )
           ) {
             const err17 = {
-              instancePath: instancePath + "/meta/visual_preset",
+              instancePath: `${instancePath}/meta/visual_preset`,
               schemaPath: "common.schema.json#/$defs/visualPreset/enum",
               keyword: "enum",
               params: { allowedValues: schema71.enum },
@@ -13408,7 +13307,7 @@ function validate33(
           const data9 = data2.quality_profile
           if (!(data9 === "standard" || data9 === "showcase")) {
             const err18 = {
-              instancePath: instancePath + "/meta/quality_profile",
+              instancePath: `${instancePath}/meta/quality_profile`,
               schemaPath: "common.schema.json#/$defs/qualityProfile/enum",
               keyword: "enum",
               params: { allowedValues: schema72.enum },
@@ -13425,7 +13324,7 @@ function validate33(
         if (
           data2.views !== undefined &&
           !validate34(data2.views, {
-            instancePath: instancePath + "/meta/views",
+            instancePath: `${instancePath}/meta/views`,
             parentData: data2,
             parentDataProperty: "views",
             rootData,
@@ -13440,11 +13339,11 @@ function validate33(
         }
         if (data2.legend !== undefined) {
           const data11 = data2.legend
-          if (data11 && typeof data11 == "object" && !Array.isArray(data11)) {
+          if (data11 && typeof data11 === "object" && !Array.isArray(data11)) {
             for (const key2 in data11) {
               if (!(key2 === "mode" || key2 === "entries")) {
                 const err19 = {
-                  instancePath: instancePath + "/meta/legend",
+                  instancePath: `${instancePath}/meta/legend`,
                   schemaPath:
                     "#/properties/meta/properties/legend/additionalProperties",
                   keyword: "additionalProperties",
@@ -13465,7 +13364,7 @@ function validate33(
                 !(data12 === "auto" || data12 === "all" || data12 === "hidden")
               ) {
                 const err20 = {
-                  instancePath: instancePath + "/meta/legend/mode",
+                  instancePath: `${instancePath}/meta/legend/mode`,
                   schemaPath: "common.schema.json#/$defs/legendMode/enum",
                   keyword: "enum",
                   params: { allowedValues: schema37.enum },
@@ -13483,7 +13382,7 @@ function validate33(
               const data13 = data11.entries
               if (
                 data13 &&
-                typeof data13 == "object" &&
+                typeof data13 === "object" &&
                 !Array.isArray(data13)
               ) {
                 for (const key3 in data13) {
@@ -13500,7 +13399,7 @@ function validate33(
                     )
                   ) {
                     const err21 = {
-                      instancePath: instancePath + "/meta/legend/entries",
+                      instancePath: `${instancePath}/meta/legend/entries`,
                       schemaPath:
                         "#/properties/meta/properties/legend/properties/entries/additionalProperties",
                       keyword: "additionalProperties",
@@ -13519,13 +13418,12 @@ function validate33(
                   const data14 = data13.start
                   if (
                     data14 &&
-                    typeof data14 == "object" &&
+                    typeof data14 === "object" &&
                     !Array.isArray(data14)
                   ) {
                     if (Object.keys(data14).length < 1) {
                       const err22 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/start",
+                        instancePath: `${instancePath}/meta/legend/entries/start`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -13542,8 +13440,7 @@ function validate33(
                     for (const key4 in data14) {
                       if (!(key4 === "label" || key4 === "visible")) {
                         const err23 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/start",
+                          instancePath: `${instancePath}/meta/legend/entries/start`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -13563,8 +13460,7 @@ function validate33(
                       if (typeof data15 === "string") {
                         if (func3(data15) > 80) {
                           const err24 = {
-                            instancePath:
-                              instancePath + "/meta/legend/entries/start/label",
+                            instancePath: `${instancePath}/meta/legend/entries/start/label`,
                             schemaPath:
                               "common.schema.json#/$defs/legendEntry/properties/label/maxLength",
                             keyword: "maxLength",
@@ -13580,8 +13476,7 @@ function validate33(
                         }
                         if (func3(data15) < 1) {
                           const err25 = {
-                            instancePath:
-                              instancePath + "/meta/legend/entries/start/label",
+                            instancePath: `${instancePath}/meta/legend/entries/start/label`,
                             schemaPath:
                               "common.schema.json#/$defs/legendEntry/properties/label/minLength",
                             keyword: "minLength",
@@ -13597,8 +13492,7 @@ function validate33(
                         }
                       } else {
                         const err26 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/start/label",
+                          instancePath: `${instancePath}/meta/legend/entries/start/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -13618,8 +13512,7 @@ function validate33(
                       typeof data14.visible !== "boolean"
                     ) {
                       const err27 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/start/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/start/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -13635,7 +13528,7 @@ function validate33(
                     }
                   } else {
                     const err28 = {
-                      instancePath: instancePath + "/meta/legend/entries/start",
+                      instancePath: `${instancePath}/meta/legend/entries/start`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -13653,13 +13546,12 @@ function validate33(
                   const data17 = data13.active
                   if (
                     data17 &&
-                    typeof data17 == "object" &&
+                    typeof data17 === "object" &&
                     !Array.isArray(data17)
                   ) {
                     if (Object.keys(data17).length < 1) {
                       const err29 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/active",
+                        instancePath: `${instancePath}/meta/legend/entries/active`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -13676,8 +13568,7 @@ function validate33(
                     for (const key5 in data17) {
                       if (!(key5 === "label" || key5 === "visible")) {
                         const err30 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/active",
+                          instancePath: `${instancePath}/meta/legend/entries/active`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -13733,8 +13624,7 @@ function validate33(
                         }
                       } else {
                         const err33 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/active/label",
+                          instancePath: `${instancePath}/meta/legend/entries/active/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -13754,8 +13644,7 @@ function validate33(
                       typeof data17.visible !== "boolean"
                     ) {
                       const err34 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/active/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/active/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -13771,8 +13660,7 @@ function validate33(
                     }
                   } else {
                     const err35 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/active",
+                      instancePath: `${instancePath}/meta/legend/entries/active`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -13790,13 +13678,12 @@ function validate33(
                   const data20 = data13.waiting
                   if (
                     data20 &&
-                    typeof data20 == "object" &&
+                    typeof data20 === "object" &&
                     !Array.isArray(data20)
                   ) {
                     if (Object.keys(data20).length < 1) {
                       const err36 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/waiting",
+                        instancePath: `${instancePath}/meta/legend/entries/waiting`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -13813,8 +13700,7 @@ function validate33(
                     for (const key6 in data20) {
                       if (!(key6 === "label" || key6 === "visible")) {
                         const err37 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/waiting",
+                          instancePath: `${instancePath}/meta/legend/entries/waiting`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -13870,8 +13756,7 @@ function validate33(
                         }
                       } else {
                         const err40 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/waiting/label",
+                          instancePath: `${instancePath}/meta/legend/entries/waiting/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -13891,8 +13776,7 @@ function validate33(
                       typeof data20.visible !== "boolean"
                     ) {
                       const err41 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/waiting/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/waiting/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -13908,8 +13792,7 @@ function validate33(
                     }
                   } else {
                     const err42 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/waiting",
+                      instancePath: `${instancePath}/meta/legend/entries/waiting`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -13927,13 +13810,12 @@ function validate33(
                   const data23 = data13.decision
                   if (
                     data23 &&
-                    typeof data23 == "object" &&
+                    typeof data23 === "object" &&
                     !Array.isArray(data23)
                   ) {
                     if (Object.keys(data23).length < 1) {
                       const err43 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/decision",
+                        instancePath: `${instancePath}/meta/legend/entries/decision`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -13950,8 +13832,7 @@ function validate33(
                     for (const key7 in data23) {
                       if (!(key7 === "label" || key7 === "visible")) {
                         const err44 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/decision",
+                          instancePath: `${instancePath}/meta/legend/entries/decision`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -14047,8 +13928,7 @@ function validate33(
                     }
                   } else {
                     const err49 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/decision",
+                      instancePath: `${instancePath}/meta/legend/entries/decision`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -14066,13 +13946,12 @@ function validate33(
                   const data26 = data13.success
                   if (
                     data26 &&
-                    typeof data26 == "object" &&
+                    typeof data26 === "object" &&
                     !Array.isArray(data26)
                   ) {
                     if (Object.keys(data26).length < 1) {
                       const err50 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/success",
+                        instancePath: `${instancePath}/meta/legend/entries/success`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -14089,8 +13968,7 @@ function validate33(
                     for (const key8 in data26) {
                       if (!(key8 === "label" || key8 === "visible")) {
                         const err51 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/success",
+                          instancePath: `${instancePath}/meta/legend/entries/success`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -14146,8 +14024,7 @@ function validate33(
                         }
                       } else {
                         const err54 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/success/label",
+                          instancePath: `${instancePath}/meta/legend/entries/success/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -14167,8 +14044,7 @@ function validate33(
                       typeof data26.visible !== "boolean"
                     ) {
                       const err55 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/success/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/success/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -14184,8 +14060,7 @@ function validate33(
                     }
                   } else {
                     const err56 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/success",
+                      instancePath: `${instancePath}/meta/legend/entries/success`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -14203,13 +14078,12 @@ function validate33(
                   const data29 = data13.failure
                   if (
                     data29 &&
-                    typeof data29 == "object" &&
+                    typeof data29 === "object" &&
                     !Array.isArray(data29)
                   ) {
                     if (Object.keys(data29).length < 1) {
                       const err57 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/failure",
+                        instancePath: `${instancePath}/meta/legend/entries/failure`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -14226,8 +14100,7 @@ function validate33(
                     for (const key9 in data29) {
                       if (!(key9 === "label" || key9 === "visible")) {
                         const err58 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/failure",
+                          instancePath: `${instancePath}/meta/legend/entries/failure`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -14283,8 +14156,7 @@ function validate33(
                         }
                       } else {
                         const err61 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/failure/label",
+                          instancePath: `${instancePath}/meta/legend/entries/failure/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -14304,8 +14176,7 @@ function validate33(
                       typeof data29.visible !== "boolean"
                     ) {
                       const err62 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/failure/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/failure/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -14321,8 +14192,7 @@ function validate33(
                     }
                   } else {
                     const err63 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/failure",
+                      instancePath: `${instancePath}/meta/legend/entries/failure`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -14340,13 +14210,12 @@ function validate33(
                   const data32 = data13.neutral
                   if (
                     data32 &&
-                    typeof data32 == "object" &&
+                    typeof data32 === "object" &&
                     !Array.isArray(data32)
                   ) {
                     if (Object.keys(data32).length < 1) {
                       const err64 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/neutral",
+                        instancePath: `${instancePath}/meta/legend/entries/neutral`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -14363,8 +14232,7 @@ function validate33(
                     for (const key10 in data32) {
                       if (!(key10 === "label" || key10 === "visible")) {
                         const err65 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/neutral",
+                          instancePath: `${instancePath}/meta/legend/entries/neutral`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -14420,8 +14288,7 @@ function validate33(
                         }
                       } else {
                         const err68 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/neutral/label",
+                          instancePath: `${instancePath}/meta/legend/entries/neutral/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -14441,8 +14308,7 @@ function validate33(
                       typeof data32.visible !== "boolean"
                     ) {
                       const err69 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/neutral/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/neutral/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -14458,8 +14324,7 @@ function validate33(
                     }
                   } else {
                     const err70 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/neutral",
+                      instancePath: `${instancePath}/meta/legend/entries/neutral`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -14477,13 +14342,12 @@ function validate33(
                   const data35 = data13.external
                   if (
                     data35 &&
-                    typeof data35 == "object" &&
+                    typeof data35 === "object" &&
                     !Array.isArray(data35)
                   ) {
                     if (Object.keys(data35).length < 1) {
                       const err71 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/external",
+                        instancePath: `${instancePath}/meta/legend/entries/external`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -14500,8 +14364,7 @@ function validate33(
                     for (const key11 in data35) {
                       if (!(key11 === "label" || key11 === "visible")) {
                         const err72 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/external",
+                          instancePath: `${instancePath}/meta/legend/entries/external`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -14597,8 +14460,7 @@ function validate33(
                     }
                   } else {
                     const err77 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/external",
+                      instancePath: `${instancePath}/meta/legend/entries/external`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -14614,7 +14476,7 @@ function validate33(
                 }
               } else {
                 const err78 = {
-                  instancePath: instancePath + "/meta/legend/entries",
+                  instancePath: `${instancePath}/meta/legend/entries`,
                   schemaPath:
                     "#/properties/meta/properties/legend/properties/entries/type",
                   keyword: "type",
@@ -14631,7 +14493,7 @@ function validate33(
             }
           } else {
             const err79 = {
-              instancePath: instancePath + "/meta/legend",
+              instancePath: `${instancePath}/meta/legend`,
               schemaPath: "#/properties/meta/properties/legend/type",
               keyword: "type",
               params: { type: "object" },
@@ -14650,7 +14512,7 @@ function validate33(
           if (Array.isArray(data38)) {
             if (data38.length > 2) {
               const err80 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/maxItems",
                 keyword: "maxItems",
                 params: { limit: 2 },
@@ -14665,7 +14527,7 @@ function validate33(
             }
             if (data38.length < 2) {
               const err81 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/minItems",
                 keyword: "minItems",
                 params: { limit: 2 },
@@ -14681,10 +14543,10 @@ function validate33(
             const len0 = data38.length
             if (len0 > 0) {
               const data39 = data38[0]
-              if (typeof data39 == "number" && isFinite(data39)) {
-                if (data39 < 420 || isNaN(data39)) {
+              if (typeof data39 === "number" && Number.isFinite(data39)) {
+                if (data39 < 420 || Number.isNaN(data39)) {
                   const err82 = {
-                    instancePath: instancePath + "/meta/viewBox/0",
+                    instancePath: `${instancePath}/meta/viewBox/0`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/0/minimum",
                     keyword: "minimum",
@@ -14700,7 +14562,7 @@ function validate33(
                 }
               } else {
                 const err83 = {
-                  instancePath: instancePath + "/meta/viewBox/0",
+                  instancePath: `${instancePath}/meta/viewBox/0`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/0/type",
                   keyword: "type",
@@ -14717,10 +14579,10 @@ function validate33(
             }
             if (len0 > 1) {
               const data40 = data38[1]
-              if (typeof data40 == "number" && isFinite(data40)) {
-                if (data40 < 566 || isNaN(data40)) {
+              if (typeof data40 === "number" && Number.isFinite(data40)) {
+                if (data40 < 566 || Number.isNaN(data40)) {
                   const err84 = {
-                    instancePath: instancePath + "/meta/viewBox/1",
+                    instancePath: `${instancePath}/meta/viewBox/1`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/1/minimum",
                     keyword: "minimum",
@@ -14736,7 +14598,7 @@ function validate33(
                 }
               } else {
                 const err85 = {
-                  instancePath: instancePath + "/meta/viewBox/1",
+                  instancePath: `${instancePath}/meta/viewBox/1`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/1/type",
                   keyword: "type",
@@ -14754,7 +14616,7 @@ function validate33(
             const len1 = data38.length
             if (!(len1 <= 2)) {
               const err86 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/items",
                 keyword: "items",
                 params: { limit: 2 },
@@ -14769,7 +14631,7 @@ function validate33(
             }
           } else {
             const err87 = {
-              instancePath: instancePath + "/meta/viewBox",
+              instancePath: `${instancePath}/meta/viewBox`,
               schemaPath: "#/properties/meta/properties/viewBox/type",
               keyword: "type",
               params: { type: "array" },
@@ -14785,7 +14647,7 @@ function validate33(
         }
       } else {
         const err88 = {
-          instancePath: instancePath + "/meta",
+          instancePath: `${instancePath}/meta`,
           schemaPath: "#/properties/meta/type",
           keyword: "type",
           params: { type: "object" },
@@ -14804,7 +14666,7 @@ function validate33(
       if (Array.isArray(data41)) {
         if (data41.length > 4) {
           const err89 = {
-            instancePath: instancePath + "/lanes",
+            instancePath: `${instancePath}/lanes`,
             schemaPath: "#/properties/lanes/maxItems",
             keyword: "maxItems",
             params: { limit: 4 },
@@ -14819,7 +14681,7 @@ function validate33(
         }
         if (data41.length < 1) {
           const err90 = {
-            instancePath: instancePath + "/lanes",
+            instancePath: `${instancePath}/lanes`,
             schemaPath: "#/properties/lanes/minItems",
             keyword: "minItems",
             params: { limit: 1 },
@@ -14835,10 +14697,10 @@ function validate33(
         const len2 = data41.length
         for (let i0 = 0; i0 < len2; i0++) {
           const data42 = data41[i0]
-          if (data42 && typeof data42 == "object" && !Array.isArray(data42)) {
+          if (data42 && typeof data42 === "object" && !Array.isArray(data42)) {
             if (data42.id === undefined) {
               const err91 = {
-                instancePath: instancePath + "/lanes/" + i0,
+                instancePath: `${instancePath}/lanes/${i0}`,
                 schemaPath: "#/properties/lanes/items/required",
                 keyword: "required",
                 params: { missingProperty: "id" },
@@ -14853,7 +14715,7 @@ function validate33(
             }
             if (data42.label === undefined) {
               const err92 = {
-                instancePath: instancePath + "/lanes/" + i0,
+                instancePath: `${instancePath}/lanes/${i0}`,
                 schemaPath: "#/properties/lanes/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -14869,7 +14731,7 @@ function validate33(
             for (const key12 in data42) {
               if (!(key12 === "id" || key12 === "label")) {
                 const err93 = {
-                  instancePath: instancePath + "/lanes/" + i0,
+                  instancePath: `${instancePath}/lanes/${i0}`,
                   schemaPath: "#/properties/lanes/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key12 },
@@ -14888,7 +14750,7 @@ function validate33(
               if (typeof data43 === "string") {
                 if (!pattern4.test(data43)) {
                   const err94 = {
-                    instancePath: instancePath + "/lanes/" + i0 + "/id",
+                    instancePath: `${instancePath}/lanes/${i0}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -14903,7 +14765,7 @@ function validate33(
                 }
               } else {
                 const err95 = {
-                  instancePath: instancePath + "/lanes/" + i0 + "/id",
+                  instancePath: `${instancePath}/lanes/${i0}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -14922,7 +14784,7 @@ function validate33(
               if (typeof data44 === "string") {
                 if (func3(data44) < 1) {
                   const err96 = {
-                    instancePath: instancePath + "/lanes/" + i0 + "/label",
+                    instancePath: `${instancePath}/lanes/${i0}/label`,
                     schemaPath:
                       "#/properties/lanes/items/properties/label/minLength",
                     keyword: "minLength",
@@ -14938,7 +14800,7 @@ function validate33(
                 }
               } else {
                 const err97 = {
-                  instancePath: instancePath + "/lanes/" + i0 + "/label",
+                  instancePath: `${instancePath}/lanes/${i0}/label`,
                   schemaPath: "#/properties/lanes/items/properties/label/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -14954,7 +14816,7 @@ function validate33(
             }
           } else {
             const err98 = {
-              instancePath: instancePath + "/lanes/" + i0,
+              instancePath: `${instancePath}/lanes/${i0}`,
               schemaPath: "#/properties/lanes/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -14970,7 +14832,7 @@ function validate33(
         }
       } else {
         const err99 = {
-          instancePath: instancePath + "/lanes",
+          instancePath: `${instancePath}/lanes`,
           schemaPath: "#/properties/lanes/type",
           keyword: "type",
           params: { type: "array" },
@@ -14989,7 +14851,7 @@ function validate33(
       if (Array.isArray(data45)) {
         if (data45.length < 2) {
           const err100 = {
-            instancePath: instancePath + "/states",
+            instancePath: `${instancePath}/states`,
             schemaPath: "#/properties/states/minItems",
             keyword: "minItems",
             params: { limit: 2 },
@@ -15005,10 +14867,10 @@ function validate33(
         const len3 = data45.length
         for (let i1 = 0; i1 < len3; i1++) {
           const data46 = data45[i1]
-          if (data46 && typeof data46 == "object" && !Array.isArray(data46)) {
+          if (data46 && typeof data46 === "object" && !Array.isArray(data46)) {
             if (data46.id === undefined) {
               const err101 = {
-                instancePath: instancePath + "/states/" + i1,
+                instancePath: `${instancePath}/states/${i1}`,
                 schemaPath: "#/properties/states/items/required",
                 keyword: "required",
                 params: { missingProperty: "id" },
@@ -15023,7 +14885,7 @@ function validate33(
             }
             if (data46.type === undefined) {
               const err102 = {
-                instancePath: instancePath + "/states/" + i1,
+                instancePath: `${instancePath}/states/${i1}`,
                 schemaPath: "#/properties/states/items/required",
                 keyword: "required",
                 params: { missingProperty: "type" },
@@ -15038,7 +14900,7 @@ function validate33(
             }
             if (data46.label === undefined) {
               const err103 = {
-                instancePath: instancePath + "/states/" + i1,
+                instancePath: `${instancePath}/states/${i1}`,
                 schemaPath: "#/properties/states/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -15053,7 +14915,7 @@ function validate33(
             }
             if (data46.lane === undefined) {
               const err104 = {
-                instancePath: instancePath + "/states/" + i1,
+                instancePath: `${instancePath}/states/${i1}`,
                 schemaPath: "#/properties/states/items/required",
                 keyword: "required",
                 params: { missingProperty: "lane" },
@@ -15068,7 +14930,7 @@ function validate33(
             }
             if (data46.col === undefined) {
               const err105 = {
-                instancePath: instancePath + "/states/" + i1,
+                instancePath: `${instancePath}/states/${i1}`,
                 schemaPath: "#/properties/states/items/required",
                 keyword: "required",
                 params: { missingProperty: "col" },
@@ -15086,7 +14948,7 @@ function validate33(
                 !func1.call(schema118.properties.states.items.properties, key13)
               ) {
                 const err106 = {
-                  instancePath: instancePath + "/states/" + i1,
+                  instancePath: `${instancePath}/states/${i1}`,
                   schemaPath: "#/properties/states/items/additionalProperties",
                   keyword: "additionalProperties",
                   params: { additionalProperty: key13 },
@@ -15105,7 +14967,7 @@ function validate33(
               if (typeof data47 === "string") {
                 if (!pattern4.test(data47)) {
                   const err107 = {
-                    instancePath: instancePath + "/states/" + i1 + "/id",
+                    instancePath: `${instancePath}/states/${i1}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -15120,7 +14982,7 @@ function validate33(
                 }
               } else {
                 const err108 = {
-                  instancePath: instancePath + "/states/" + i1 + "/id",
+                  instancePath: `${instancePath}/states/${i1}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -15149,7 +15011,7 @@ function validate33(
                 )
               ) {
                 const err109 = {
-                  instancePath: instancePath + "/states/" + i1 + "/type",
+                  instancePath: `${instancePath}/states/${i1}/type`,
                   schemaPath: "#/properties/states/items/properties/type/enum",
                   keyword: "enum",
                   params: {
@@ -15171,7 +15033,7 @@ function validate33(
               if (typeof data49 === "string") {
                 if (func3(data49) < 1) {
                   const err110 = {
-                    instancePath: instancePath + "/states/" + i1 + "/label",
+                    instancePath: `${instancePath}/states/${i1}/label`,
                     schemaPath:
                       "#/properties/states/items/properties/label/minLength",
                     keyword: "minLength",
@@ -15187,7 +15049,7 @@ function validate33(
                 }
               } else {
                 const err111 = {
-                  instancePath: instancePath + "/states/" + i1 + "/label",
+                  instancePath: `${instancePath}/states/${i1}/label`,
                   schemaPath: "#/properties/states/items/properties/label/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -15206,7 +15068,7 @@ function validate33(
               typeof data46.sublabel !== "string"
             ) {
               const err112 = {
-                instancePath: instancePath + "/states/" + i1 + "/sublabel",
+                instancePath: `${instancePath}/states/${i1}/sublabel`,
                 schemaPath:
                   "#/properties/states/items/properties/sublabel/type",
                 keyword: "type",
@@ -15222,7 +15084,7 @@ function validate33(
             }
             if (data46.tag !== undefined && typeof data46.tag !== "string") {
               const err113 = {
-                instancePath: instancePath + "/states/" + i1 + "/tag",
+                instancePath: `${instancePath}/states/${i1}/tag`,
                 schemaPath: "#/properties/states/items/properties/tag/type",
                 keyword: "type",
                 params: { type: "string" },
@@ -15247,7 +15109,7 @@ function validate33(
               if (typeof data52 === "string") {
                 if (func3(data52) > 80) {
                   const err114 = {
-                    instancePath: instancePath + "/states/" + i1 + "/brand",
+                    instancePath: `${instancePath}/states/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/maxLength",
                     keyword: "maxLength",
@@ -15263,7 +15125,7 @@ function validate33(
                 }
                 if (!pattern17.test(data52)) {
                   const err115 = {
-                    instancePath: instancePath + "/states/" + i1 + "/brand",
+                    instancePath: `${instancePath}/states/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/pattern",
                     keyword: "pattern",
@@ -15278,12 +15140,12 @@ function validate33(
                   errors++
                 }
               }
-              var _valid1 = _errs131 === errors
+              const _valid1 = _errs131 === errors
               valid36 = valid36 || _valid1
               const _errs132 = errors
               if (typeof data52 === "string" && !pattern18.test(data52)) {
                 const err116 = {
-                  instancePath: instancePath + "/states/" + i1 + "/brand",
+                  instancePath: `${instancePath}/states/${i1}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/1/pattern",
                   keyword: "pattern",
@@ -15297,7 +15159,7 @@ function validate33(
                 }
                 errors++
               }
-              var _valid1 = _errs132 === errors
+              const _valid1 = _errs132 === errors
               valid36 = valid36 || _valid1
               if (valid36) {
                 errors = _errs130
@@ -15310,7 +15172,7 @@ function validate33(
                 }
               } else {
                 const err117 = {
-                  instancePath: instancePath + "/states/" + i1 + "/brand",
+                  instancePath: `${instancePath}/states/${i1}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf",
                   keyword: "anyOf",
@@ -15327,7 +15189,7 @@ function validate33(
               if (typeof data52 === "string") {
                 if (func3(data52) > 2048) {
                   const err118 = {
-                    instancePath: instancePath + "/states/" + i1 + "/brand",
+                    instancePath: `${instancePath}/states/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/maxLength",
                     keyword: "maxLength",
@@ -15343,7 +15205,7 @@ function validate33(
                 }
                 if (func3(data52) < 1) {
                   const err119 = {
-                    instancePath: instancePath + "/states/" + i1 + "/brand",
+                    instancePath: `${instancePath}/states/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/minLength",
                     keyword: "minLength",
@@ -15359,7 +15221,7 @@ function validate33(
                 }
               } else {
                 const err120 = {
-                  instancePath: instancePath + "/states/" + i1 + "/brand",
+                  instancePath: `${instancePath}/states/${i1}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/type",
                   keyword: "type",
@@ -15373,7 +15235,7 @@ function validate33(
                 }
                 errors++
               }
-              var _valid0 = _errs128 === errors
+              const _valid0 = _errs128 === errors
               if (_valid0) {
                 valid35 = true
                 passing0 = 0
@@ -15381,12 +15243,12 @@ function validate33(
               const _errs133 = errors
               if (
                 data52 &&
-                typeof data52 == "object" &&
+                typeof data52 === "object" &&
                 !Array.isArray(data52)
               ) {
                 if (data52.url === undefined) {
                   const err121 = {
-                    instancePath: instancePath + "/states/" + i1 + "/brand",
+                    instancePath: `${instancePath}/states/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -15402,7 +15264,7 @@ function validate33(
                 }
                 if (data52.sha256 === undefined) {
                   const err122 = {
-                    instancePath: instancePath + "/states/" + i1 + "/brand",
+                    instancePath: `${instancePath}/states/${i1}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -15419,7 +15281,7 @@ function validate33(
                 for (const key14 in data52) {
                   if (!(key14 === "url" || key14 === "sha256")) {
                     const err123 = {
-                      instancePath: instancePath + "/states/" + i1 + "/brand",
+                      instancePath: `${instancePath}/states/${i1}/brand`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/additionalProperties",
                       keyword: "additionalProperties",
@@ -15439,8 +15301,7 @@ function validate33(
                   if (typeof data53 === "string") {
                     if (func3(data53) > 2048) {
                       const err124 = {
-                        instancePath:
-                          instancePath + "/states/" + i1 + "/brand/url",
+                        instancePath: `${instancePath}/states/${i1}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/maxLength",
                         keyword: "maxLength",
@@ -15456,8 +15317,7 @@ function validate33(
                     }
                     if (func3(data53) < 8) {
                       const err125 = {
-                        instancePath:
-                          instancePath + "/states/" + i1 + "/brand/url",
+                        instancePath: `${instancePath}/states/${i1}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/minLength",
                         keyword: "minLength",
@@ -15473,8 +15333,7 @@ function validate33(
                     }
                     if (!pattern18.test(data53)) {
                       const err126 = {
-                        instancePath:
-                          instancePath + "/states/" + i1 + "/brand/url",
+                        instancePath: `${instancePath}/states/${i1}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/pattern",
                         keyword: "pattern",
@@ -15490,8 +15349,7 @@ function validate33(
                     }
                   } else {
                     const err127 = {
-                      instancePath:
-                        instancePath + "/states/" + i1 + "/brand/url",
+                      instancePath: `${instancePath}/states/${i1}/brand/url`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/type",
                       keyword: "type",
@@ -15511,8 +15369,7 @@ function validate33(
                   if (typeof data54 === "string") {
                     if (!pattern20.test(data54)) {
                       const err128 = {
-                        instancePath:
-                          instancePath + "/states/" + i1 + "/brand/sha256",
+                        instancePath: `${instancePath}/states/${i1}/brand/sha256`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/sha256/pattern",
                         keyword: "pattern",
@@ -15528,8 +15385,7 @@ function validate33(
                     }
                   } else {
                     const err129 = {
-                      instancePath:
-                        instancePath + "/states/" + i1 + "/brand/sha256",
+                      instancePath: `${instancePath}/states/${i1}/brand/sha256`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/sha256/type",
                       keyword: "type",
@@ -15546,7 +15402,7 @@ function validate33(
                 }
               } else {
                 const err130 = {
-                  instancePath: instancePath + "/states/" + i1 + "/brand",
+                  instancePath: `${instancePath}/states/${i1}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/1/type",
                   keyword: "type",
@@ -15560,7 +15416,7 @@ function validate33(
                 }
                 errors++
               }
-              var _valid0 = _errs133 === errors
+              const _valid0 = _errs133 === errors
               if (_valid0 && valid35) {
                 valid35 = false
                 passing0 = [passing0, 1]
@@ -15579,7 +15435,7 @@ function validate33(
                 }
               } else {
                 const err131 = {
-                  instancePath: instancePath + "/states/" + i1 + "/brand",
+                  instancePath: `${instancePath}/states/${i1}/brand`,
                   schemaPath: "common.schema.json#/$defs/brandMark/oneOf",
                   keyword: "oneOf",
                   params: { passingSchemas: passing0 },
@@ -15595,7 +15451,7 @@ function validate33(
             }
             if (data46.step !== undefined && typeof data46.step !== "string") {
               const err132 = {
-                instancePath: instancePath + "/states/" + i1 + "/step",
+                instancePath: `${instancePath}/states/${i1}/step`,
                 schemaPath: "#/properties/states/items/properties/step/type",
                 keyword: "type",
                 params: { type: "string" },
@@ -15613,7 +15469,7 @@ function validate33(
               if (typeof data56 === "string") {
                 if (!pattern4.test(data56)) {
                   const err133 = {
-                    instancePath: instancePath + "/states/" + i1 + "/lane",
+                    instancePath: `${instancePath}/states/${i1}/lane`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -15628,7 +15484,7 @@ function validate33(
                 }
               } else {
                 const err134 = {
-                  instancePath: instancePath + "/states/" + i1 + "/lane",
+                  instancePath: `${instancePath}/states/${i1}/lane`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -15646,13 +15502,13 @@ function validate33(
               const data57 = data46.col
               if (
                 !(
-                  typeof data57 == "number" &&
-                  !(data57 % 1 || isNaN(data57)) &&
-                  isFinite(data57)
+                  typeof data57 === "number" &&
+                  !(data57 % 1 || Number.isNaN(data57)) &&
+                  Number.isFinite(data57)
                 )
               ) {
                 const err135 = {
-                  instancePath: instancePath + "/states/" + i1 + "/col",
+                  instancePath: `${instancePath}/states/${i1}/col`,
                   schemaPath: "#/properties/states/items/properties/col/type",
                   keyword: "type",
                   params: { type: "integer" },
@@ -15665,10 +15521,10 @@ function validate33(
                 }
                 errors++
               }
-              if (typeof data57 == "number" && isFinite(data57)) {
-                if (data57 > 4 || isNaN(data57)) {
+              if (typeof data57 === "number" && Number.isFinite(data57)) {
+                if (data57 > 4 || Number.isNaN(data57)) {
                   const err136 = {
-                    instancePath: instancePath + "/states/" + i1 + "/col",
+                    instancePath: `${instancePath}/states/${i1}/col`,
                     schemaPath:
                       "#/properties/states/items/properties/col/maximum",
                     keyword: "maximum",
@@ -15682,9 +15538,9 @@ function validate33(
                   }
                   errors++
                 }
-                if (data57 < 0 || isNaN(data57)) {
+                if (data57 < 0 || Number.isNaN(data57)) {
                   const err137 = {
-                    instancePath: instancePath + "/states/" + i1 + "/col",
+                    instancePath: `${instancePath}/states/${i1}/col`,
                     schemaPath:
                       "#/properties/states/items/properties/col/minimum",
                     keyword: "minimum",
@@ -15702,10 +15558,10 @@ function validate33(
             }
             if (data46.width !== undefined) {
               const data58 = data46.width
-              if (typeof data58 == "number" && isFinite(data58)) {
-                if (data58 < 48 || isNaN(data58)) {
+              if (typeof data58 === "number" && Number.isFinite(data58)) {
+                if (data58 < 48 || Number.isNaN(data58)) {
                   const err138 = {
-                    instancePath: instancePath + "/states/" + i1 + "/width",
+                    instancePath: `${instancePath}/states/${i1}/width`,
                     schemaPath:
                       "#/properties/states/items/properties/width/minimum",
                     keyword: "minimum",
@@ -15721,7 +15577,7 @@ function validate33(
                 }
               } else {
                 const err139 = {
-                  instancePath: instancePath + "/states/" + i1 + "/width",
+                  instancePath: `${instancePath}/states/${i1}/width`,
                   schemaPath: "#/properties/states/items/properties/width/type",
                   keyword: "type",
                   params: { type: "number" },
@@ -15737,10 +15593,10 @@ function validate33(
             }
             if (data46.height !== undefined) {
               const data59 = data46.height
-              if (typeof data59 == "number" && isFinite(data59)) {
-                if (data59 < 36 || isNaN(data59)) {
+              if (typeof data59 === "number" && Number.isFinite(data59)) {
+                if (data59 < 36 || Number.isNaN(data59)) {
                   const err140 = {
-                    instancePath: instancePath + "/states/" + i1 + "/height",
+                    instancePath: `${instancePath}/states/${i1}/height`,
                     schemaPath:
                       "#/properties/states/items/properties/height/minimum",
                     keyword: "minimum",
@@ -15756,7 +15612,7 @@ function validate33(
                 }
               } else {
                 const err141 = {
-                  instancePath: instancePath + "/states/" + i1 + "/height",
+                  instancePath: `${instancePath}/states/${i1}/height`,
                   schemaPath:
                     "#/properties/states/items/properties/height/type",
                   keyword: "type",
@@ -15773,9 +15629,9 @@ function validate33(
             }
             if (data46.yOffset !== undefined) {
               const data60 = data46.yOffset
-              if (!(typeof data60 == "number" && isFinite(data60))) {
+              if (!(typeof data60 === "number" && Number.isFinite(data60))) {
                 const err142 = {
-                  instancePath: instancePath + "/states/" + i1 + "/yOffset",
+                  instancePath: `${instancePath}/states/${i1}/yOffset`,
                   schemaPath:
                     "#/properties/states/items/properties/yOffset/type",
                   keyword: "type",
@@ -15792,7 +15648,7 @@ function validate33(
             }
           } else {
             const err143 = {
-              instancePath: instancePath + "/states/" + i1,
+              instancePath: `${instancePath}/states/${i1}`,
               schemaPath: "#/properties/states/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -15808,7 +15664,7 @@ function validate33(
         }
       } else {
         const err144 = {
-          instancePath: instancePath + "/states",
+          instancePath: `${instancePath}/states`,
           schemaPath: "#/properties/states/type",
           keyword: "type",
           params: { type: "array" },
@@ -15828,10 +15684,10 @@ function validate33(
         const len4 = data61.length
         for (let i2 = 0; i2 < len4; i2++) {
           const data62 = data61[i2]
-          if (data62 && typeof data62 == "object" && !Array.isArray(data62)) {
+          if (data62 && typeof data62 === "object" && !Array.isArray(data62)) {
             if (data62.from === undefined) {
               const err145 = {
-                instancePath: instancePath + "/transitions/" + i2,
+                instancePath: `${instancePath}/transitions/${i2}`,
                 schemaPath: "#/properties/transitions/items/required",
                 keyword: "required",
                 params: { missingProperty: "from" },
@@ -15846,7 +15702,7 @@ function validate33(
             }
             if (data62.to === undefined) {
               const err146 = {
-                instancePath: instancePath + "/transitions/" + i2,
+                instancePath: `${instancePath}/transitions/${i2}`,
                 schemaPath: "#/properties/transitions/items/required",
                 keyword: "required",
                 params: { missingProperty: "to" },
@@ -15867,7 +15723,7 @@ function validate33(
                 )
               ) {
                 const err147 = {
-                  instancePath: instancePath + "/transitions/" + i2,
+                  instancePath: `${instancePath}/transitions/${i2}`,
                   schemaPath:
                     "#/properties/transitions/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -15887,7 +15743,7 @@ function validate33(
               if (typeof data63 === "string") {
                 if (!pattern4.test(data63)) {
                   const err148 = {
-                    instancePath: instancePath + "/transitions/" + i2 + "/id",
+                    instancePath: `${instancePath}/transitions/${i2}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -15902,7 +15758,7 @@ function validate33(
                 }
               } else {
                 const err149 = {
-                  instancePath: instancePath + "/transitions/" + i2 + "/id",
+                  instancePath: `${instancePath}/transitions/${i2}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -15921,7 +15777,7 @@ function validate33(
               if (typeof data64 === "string") {
                 if (!pattern4.test(data64)) {
                   const err150 = {
-                    instancePath: instancePath + "/transitions/" + i2 + "/from",
+                    instancePath: `${instancePath}/transitions/${i2}/from`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -15936,7 +15792,7 @@ function validate33(
                 }
               } else {
                 const err151 = {
-                  instancePath: instancePath + "/transitions/" + i2 + "/from",
+                  instancePath: `${instancePath}/transitions/${i2}/from`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -15955,7 +15811,7 @@ function validate33(
               if (typeof data65 === "string") {
                 if (!pattern4.test(data65)) {
                   const err152 = {
-                    instancePath: instancePath + "/transitions/" + i2 + "/to",
+                    instancePath: `${instancePath}/transitions/${i2}/to`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -15970,7 +15826,7 @@ function validate33(
                 }
               } else {
                 const err153 = {
-                  instancePath: instancePath + "/transitions/" + i2 + "/to",
+                  instancePath: `${instancePath}/transitions/${i2}/to`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -15989,7 +15845,7 @@ function validate33(
               typeof data62.label !== "string"
             ) {
               const err154 = {
-                instancePath: instancePath + "/transitions/" + i2 + "/label",
+                instancePath: `${instancePath}/transitions/${i2}/label`,
                 schemaPath:
                   "#/properties/transitions/items/properties/label/type",
                 keyword: "type",
@@ -16005,7 +15861,7 @@ function validate33(
             }
             if (data62.note !== undefined && typeof data62.note !== "string") {
               const err155 = {
-                instancePath: instancePath + "/transitions/" + i2 + "/note",
+                instancePath: `${instancePath}/transitions/${i2}/note`,
                 schemaPath:
                   "#/properties/transitions/items/properties/note/type",
                 keyword: "type",
@@ -16030,8 +15886,7 @@ function validate33(
                 )
               ) {
                 const err156 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/variant",
+                  instancePath: `${instancePath}/transitions/${i2}/variant`,
                   schemaPath: "common.schema.json#/$defs/variant/enum",
                   keyword: "enum",
                   params: { allowedValues: schema62.enum },
@@ -16059,7 +15914,7 @@ function validate33(
                 )
               ) {
                 const err157 = {
-                  instancePath: instancePath + "/transitions/" + i2 + "/route",
+                  instancePath: `${instancePath}/transitions/${i2}/route`,
                   schemaPath:
                     "#/properties/transitions/items/properties/route/enum",
                   keyword: "enum",
@@ -16089,8 +15944,7 @@ function validate33(
                 )
               ) {
                 const err158 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/fromSide",
+                  instancePath: `${instancePath}/transitions/${i2}/fromSide`,
                   schemaPath: "common.schema.json#/$defs/side/enum",
                   keyword: "enum",
                   params: { allowedValues: schema112.enum },
@@ -16115,7 +15969,7 @@ function validate33(
                 )
               ) {
                 const err159 = {
-                  instancePath: instancePath + "/transitions/" + i2 + "/toSide",
+                  instancePath: `${instancePath}/transitions/${i2}/toSide`,
                   schemaPath: "common.schema.json#/$defs/side/enum",
                   keyword: "enum",
                   params: { allowedValues: schema112.enum },
@@ -16131,10 +15985,9 @@ function validate33(
             }
             if (data62.channelX !== undefined) {
               const data72 = data62.channelX
-              if (!(typeof data72 == "number" && isFinite(data72))) {
+              if (!(typeof data72 === "number" && Number.isFinite(data72))) {
                 const err160 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/channelX",
+                  instancePath: `${instancePath}/transitions/${i2}/channelX`,
                   schemaPath:
                     "#/properties/transitions/items/properties/channelX/type",
                   keyword: "type",
@@ -16151,10 +16004,9 @@ function validate33(
             }
             if (data62.channelY !== undefined) {
               const data73 = data62.channelY
-              if (!(typeof data73 == "number" && isFinite(data73))) {
+              if (!(typeof data73 === "number" && Number.isFinite(data73))) {
                 const err161 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/channelY",
+                  instancePath: `${instancePath}/transitions/${i2}/channelY`,
                   schemaPath:
                     "#/properties/transitions/items/properties/channelY/type",
                   keyword: "type",
@@ -16171,11 +16023,10 @@ function validate33(
             }
             if (data62.cornerRadius !== undefined) {
               const data74 = data62.cornerRadius
-              if (typeof data74 == "number" && isFinite(data74)) {
-                if (data74 < 0 || isNaN(data74)) {
+              if (typeof data74 === "number" && Number.isFinite(data74)) {
+                if (data74 < 0 || Number.isNaN(data74)) {
                   const err162 = {
-                    instancePath:
-                      instancePath + "/transitions/" + i2 + "/cornerRadius",
+                    instancePath: `${instancePath}/transitions/${i2}/cornerRadius`,
                     schemaPath:
                       "#/properties/transitions/items/properties/cornerRadius/minimum",
                     keyword: "minimum",
@@ -16191,8 +16042,7 @@ function validate33(
                 }
               } else {
                 const err163 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/cornerRadius",
+                  instancePath: `${instancePath}/transitions/${i2}/cornerRadius`,
                   schemaPath:
                     "#/properties/transitions/items/properties/cornerRadius/type",
                   keyword: "type",
@@ -16212,8 +16062,7 @@ function validate33(
               if (Array.isArray(data75)) {
                 if (data75.length > 2) {
                   const err164 = {
-                    instancePath:
-                      instancePath + "/transitions/" + i2 + "/labelAt",
+                    instancePath: `${instancePath}/transitions/${i2}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/maxItems",
                     keyword: "maxItems",
                     params: { limit: 2 },
@@ -16228,8 +16077,7 @@ function validate33(
                 }
                 if (data75.length < 2) {
                   const err165 = {
-                    instancePath:
-                      instancePath + "/transitions/" + i2 + "/labelAt",
+                    instancePath: `${instancePath}/transitions/${i2}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/minItems",
                     keyword: "minItems",
                     params: { limit: 2 },
@@ -16245,10 +16093,11 @@ function validate33(
                 const len5 = data75.length
                 if (len5 > 0) {
                   const data76 = data75[0]
-                  if (!(typeof data76 == "number" && isFinite(data76))) {
+                  if (
+                    !(typeof data76 === "number" && Number.isFinite(data76))
+                  ) {
                     const err166 = {
-                      instancePath:
-                        instancePath + "/transitions/" + i2 + "/labelAt/0",
+                      instancePath: `${instancePath}/transitions/${i2}/labelAt/0`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/0/type",
                       keyword: "type",
@@ -16265,10 +16114,11 @@ function validate33(
                 }
                 if (len5 > 1) {
                   const data77 = data75[1]
-                  if (!(typeof data77 == "number" && isFinite(data77))) {
+                  if (
+                    !(typeof data77 === "number" && Number.isFinite(data77))
+                  ) {
                     const err167 = {
-                      instancePath:
-                        instancePath + "/transitions/" + i2 + "/labelAt/1",
+                      instancePath: `${instancePath}/transitions/${i2}/labelAt/1`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/1/type",
                       keyword: "type",
@@ -16286,8 +16136,7 @@ function validate33(
                 const len6 = data75.length
                 if (!(len6 <= 2)) {
                   const err168 = {
-                    instancePath:
-                      instancePath + "/transitions/" + i2 + "/labelAt",
+                    instancePath: `${instancePath}/transitions/${i2}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/items",
                     keyword: "items",
                     params: { limit: 2 },
@@ -16302,8 +16151,7 @@ function validate33(
                 }
               } else {
                 const err169 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/labelAt",
+                  instancePath: `${instancePath}/transitions/${i2}/labelAt`,
                   schemaPath: "common.schema.json#/$defs/point/type",
                   keyword: "type",
                   params: { type: "array" },
@@ -16319,10 +16167,9 @@ function validate33(
             }
             if (data62.labelDx !== undefined) {
               const data78 = data62.labelDx
-              if (!(typeof data78 == "number" && isFinite(data78))) {
+              if (!(typeof data78 === "number" && Number.isFinite(data78))) {
                 const err170 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/labelDx",
+                  instancePath: `${instancePath}/transitions/${i2}/labelDx`,
                   schemaPath:
                     "#/properties/transitions/items/properties/labelDx/type",
                   keyword: "type",
@@ -16339,10 +16186,9 @@ function validate33(
             }
             if (data62.labelDy !== undefined) {
               const data79 = data62.labelDy
-              if (!(typeof data79 == "number" && isFinite(data79))) {
+              if (!(typeof data79 === "number" && Number.isFinite(data79))) {
                 const err171 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/labelDy",
+                  instancePath: `${instancePath}/transitions/${i2}/labelDy`,
                   schemaPath:
                     "#/properties/transitions/items/properties/labelDy/type",
                   keyword: "type",
@@ -16361,14 +16207,13 @@ function validate33(
               const data80 = data62.labelSegment
               if (
                 !(
-                  typeof data80 == "number" &&
-                  !(data80 % 1 || isNaN(data80)) &&
-                  isFinite(data80)
+                  typeof data80 === "number" &&
+                  !(data80 % 1 || Number.isNaN(data80)) &&
+                  Number.isFinite(data80)
                 )
               ) {
                 const err172 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/labelSegment",
+                  instancePath: `${instancePath}/transitions/${i2}/labelSegment`,
                   schemaPath:
                     "#/properties/transitions/items/properties/labelSegment/type",
                   keyword: "type",
@@ -16383,13 +16228,12 @@ function validate33(
                 errors++
               }
               if (
-                typeof data80 == "number" &&
-                isFinite(data80) &&
-                (data80 < 0 || isNaN(data80))
+                typeof data80 === "number" &&
+                Number.isFinite(data80) &&
+                (data80 < 0 || Number.isNaN(data80))
               ) {
                 const err173 = {
-                  instancePath:
-                    instancePath + "/transitions/" + i2 + "/labelSegment",
+                  instancePath: `${instancePath}/transitions/${i2}/labelSegment`,
                   schemaPath:
                     "#/properties/transitions/items/properties/labelSegment/minimum",
                   keyword: "minimum",
@@ -16413,8 +16257,7 @@ function validate33(
                   if (Array.isArray(data82)) {
                     if (data82.length > 2) {
                       const err174 = {
-                        instancePath:
-                          instancePath + "/transitions/" + i2 + "/via/" + i3,
+                        instancePath: `${instancePath}/transitions/${i2}/via/${i3}`,
                         schemaPath: "common.schema.json#/$defs/point/maxItems",
                         keyword: "maxItems",
                         params: { limit: 2 },
@@ -16429,8 +16272,7 @@ function validate33(
                     }
                     if (data82.length < 2) {
                       const err175 = {
-                        instancePath:
-                          instancePath + "/transitions/" + i2 + "/via/" + i3,
+                        instancePath: `${instancePath}/transitions/${i2}/via/${i3}`,
                         schemaPath: "common.schema.json#/$defs/point/minItems",
                         keyword: "minItems",
                         params: { limit: 2 },
@@ -16446,7 +16288,9 @@ function validate33(
                     const len8 = data82.length
                     if (len8 > 0) {
                       const data83 = data82[0]
-                      if (!(typeof data83 == "number" && isFinite(data83))) {
+                      if (
+                        !(typeof data83 === "number" && Number.isFinite(data83))
+                      ) {
                         const err176 = {
                           instancePath:
                             instancePath +
@@ -16471,7 +16315,9 @@ function validate33(
                     }
                     if (len8 > 1) {
                       const data84 = data82[1]
-                      if (!(typeof data84 == "number" && isFinite(data84))) {
+                      if (
+                        !(typeof data84 === "number" && Number.isFinite(data84))
+                      ) {
                         const err177 = {
                           instancePath:
                             instancePath +
@@ -16497,8 +16343,7 @@ function validate33(
                     const len9 = data82.length
                     if (!(len9 <= 2)) {
                       const err178 = {
-                        instancePath:
-                          instancePath + "/transitions/" + i2 + "/via/" + i3,
+                        instancePath: `${instancePath}/transitions/${i2}/via/${i3}`,
                         schemaPath: "common.schema.json#/$defs/point/items",
                         keyword: "items",
                         params: { limit: 2 },
@@ -16513,8 +16358,7 @@ function validate33(
                     }
                   } else {
                     const err179 = {
-                      instancePath:
-                        instancePath + "/transitions/" + i2 + "/via/" + i3,
+                      instancePath: `${instancePath}/transitions/${i2}/via/${i3}`,
                       schemaPath: "common.schema.json#/$defs/point/type",
                       keyword: "type",
                       params: { type: "array" },
@@ -16530,7 +16374,7 @@ function validate33(
                 }
               } else {
                 const err180 = {
-                  instancePath: instancePath + "/transitions/" + i2 + "/via",
+                  instancePath: `${instancePath}/transitions/${i2}/via`,
                   schemaPath:
                     "#/properties/transitions/items/properties/via/type",
                   keyword: "type",
@@ -16547,11 +16391,10 @@ function validate33(
             }
             if (data62.width !== undefined) {
               const data85 = data62.width
-              if (typeof data85 == "number" && isFinite(data85)) {
-                if (data85 < 0.5 || isNaN(data85)) {
+              if (typeof data85 === "number" && Number.isFinite(data85)) {
+                if (data85 < 0.5 || Number.isNaN(data85)) {
                   const err181 = {
-                    instancePath:
-                      instancePath + "/transitions/" + i2 + "/width",
+                    instancePath: `${instancePath}/transitions/${i2}/width`,
                     schemaPath:
                       "common.schema.json#/$defs/relationshipWidth/minimum",
                     keyword: "minimum",
@@ -16567,7 +16410,7 @@ function validate33(
                 }
               } else {
                 const err182 = {
-                  instancePath: instancePath + "/transitions/" + i2 + "/width",
+                  instancePath: `${instancePath}/transitions/${i2}/width`,
                   schemaPath:
                     "common.schema.json#/$defs/relationshipWidth/type",
                   keyword: "type",
@@ -16584,7 +16427,7 @@ function validate33(
             }
           } else {
             const err183 = {
-              instancePath: instancePath + "/transitions/" + i2,
+              instancePath: `${instancePath}/transitions/${i2}`,
               schemaPath: "#/properties/transitions/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -16600,7 +16443,7 @@ function validate33(
         }
       } else {
         const err184 = {
-          instancePath: instancePath + "/transitions",
+          instancePath: `${instancePath}/transitions`,
           schemaPath: "#/properties/transitions/type",
           keyword: "type",
           params: { type: "array" },
@@ -16620,10 +16463,10 @@ function validate33(
         const len10 = data86.length
         for (let i4 = 0; i4 < len10; i4++) {
           const data87 = data86[i4]
-          if (data87 && typeof data87 == "object" && !Array.isArray(data87)) {
+          if (data87 && typeof data87 === "object" && !Array.isArray(data87)) {
             if (data87.dot === undefined) {
               const err185 = {
-                instancePath: instancePath + "/cards/" + i4,
+                instancePath: `${instancePath}/cards/${i4}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "dot" },
@@ -16638,7 +16481,7 @@ function validate33(
             }
             if (data87.title === undefined) {
               const err186 = {
-                instancePath: instancePath + "/cards/" + i4,
+                instancePath: `${instancePath}/cards/${i4}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "title" },
@@ -16653,7 +16496,7 @@ function validate33(
             }
             if (data87.items === undefined) {
               const err187 = {
-                instancePath: instancePath + "/cards/" + i4,
+                instancePath: `${instancePath}/cards/${i4}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "items" },
@@ -16671,7 +16514,7 @@ function validate33(
                 !(key16 === "dot" || key16 === "title" || key16 === "items")
               ) {
                 const err188 = {
-                  instancePath: instancePath + "/cards/" + i4,
+                  instancePath: `${instancePath}/cards/${i4}`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -16700,7 +16543,7 @@ function validate33(
                 )
               ) {
                 const err189 = {
-                  instancePath: instancePath + "/cards/" + i4 + "/dot",
+                  instancePath: `${instancePath}/cards/${i4}/dot`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/dot/enum",
                   keyword: "enum",
@@ -16720,7 +16563,7 @@ function validate33(
               if (typeof data89 === "string") {
                 if (func3(data89) < 1) {
                   const err190 = {
-                    instancePath: instancePath + "/cards/" + i4 + "/title",
+                    instancePath: `${instancePath}/cards/${i4}/title`,
                     schemaPath:
                       "common.schema.json#/$defs/cards/items/properties/title/minLength",
                     keyword: "minLength",
@@ -16736,7 +16579,7 @@ function validate33(
                 }
               } else {
                 const err191 = {
-                  instancePath: instancePath + "/cards/" + i4 + "/title",
+                  instancePath: `${instancePath}/cards/${i4}/title`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/title/type",
                   keyword: "type",
@@ -16758,8 +16601,7 @@ function validate33(
                 for (let i5 = 0; i5 < len11; i5++) {
                   if (typeof data90[i5] !== "string") {
                     const err192 = {
-                      instancePath:
-                        instancePath + "/cards/" + i4 + "/items/" + i5,
+                      instancePath: `${instancePath}/cards/${i4}/items/${i5}`,
                       schemaPath:
                         "common.schema.json#/$defs/cards/items/properties/items/items/type",
                       keyword: "type",
@@ -16776,7 +16618,7 @@ function validate33(
                 }
               } else {
                 const err193 = {
-                  instancePath: instancePath + "/cards/" + i4 + "/items",
+                  instancePath: `${instancePath}/cards/${i4}/items`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/items/type",
                   keyword: "type",
@@ -16793,7 +16635,7 @@ function validate33(
             }
           } else {
             const err194 = {
-              instancePath: instancePath + "/cards/" + i4,
+              instancePath: `${instancePath}/cards/${i4}`,
               schemaPath: "common.schema.json#/$defs/cards/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -16809,7 +16651,7 @@ function validate33(
         }
       } else {
         const err195 = {
-          instancePath: instancePath + "/cards",
+          instancePath: `${instancePath}/cards`,
           schemaPath: "common.schema.json#/$defs/cards/type",
           keyword: "type",
           params: { type: "array" },
@@ -17061,10 +16903,10 @@ function validate37(
     const len0 = data.length
     for (let i0 = 0; i0 < len0; i0++) {
       const data0 = data[i0]
-      if (data0 && typeof data0 == "object" && !Array.isArray(data0)) {
+      if (data0 && typeof data0 === "object" && !Array.isArray(data0)) {
         if (data0.id === undefined) {
           const err1 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "id" },
@@ -17079,7 +16921,7 @@ function validate37(
         }
         if (data0.label === undefined) {
           const err2 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "label" },
@@ -17094,7 +16936,7 @@ function validate37(
         }
         if (data0.focus === undefined) {
           const err3 = {
-            instancePath: instancePath + "/" + i0,
+            instancePath: `${instancePath}/${i0}`,
             schemaPath: "#/items/required",
             keyword: "required",
             params: { missingProperty: "focus" },
@@ -17117,7 +16959,7 @@ function validate37(
             )
           ) {
             const err4 = {
-              instancePath: instancePath + "/" + i0,
+              instancePath: `${instancePath}/${i0}`,
               schemaPath: "#/items/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key0 },
@@ -17136,7 +16978,7 @@ function validate37(
           if (typeof data1 === "string") {
             if (!pattern4.test(data1)) {
               const err5 = {
-                instancePath: instancePath + "/" + i0 + "/id",
+                instancePath: `${instancePath}/${i0}/id`,
                 schemaPath: "#/$defs/id/pattern",
                 keyword: "pattern",
                 params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -17151,7 +16993,7 @@ function validate37(
             }
           } else {
             const err6 = {
-              instancePath: instancePath + "/" + i0 + "/id",
+              instancePath: `${instancePath}/${i0}/id`,
               schemaPath: "#/$defs/id/type",
               keyword: "type",
               params: { type: "string" },
@@ -17170,7 +17012,7 @@ function validate37(
           if (typeof data2 === "string") {
             if (func3(data2) > 48) {
               const err7 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/maxLength",
                 keyword: "maxLength",
                 params: { limit: 48 },
@@ -17185,7 +17027,7 @@ function validate37(
             }
             if (func3(data2) < 1) {
               const err8 = {
-                instancePath: instancePath + "/" + i0 + "/label",
+                instancePath: `${instancePath}/${i0}/label`,
                 schemaPath: "#/items/properties/label/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -17200,7 +17042,7 @@ function validate37(
             }
           } else {
             const err9 = {
-              instancePath: instancePath + "/" + i0 + "/label",
+              instancePath: `${instancePath}/${i0}/label`,
               schemaPath: "#/items/properties/label/type",
               keyword: "type",
               params: { type: "string" },
@@ -17219,7 +17061,7 @@ function validate37(
           if (Array.isArray(data3)) {
             if (data3.length < 1) {
               const err10 = {
-                instancePath: instancePath + "/" + i0 + "/focus",
+                instancePath: `${instancePath}/${i0}/focus`,
                 schemaPath: "#/items/properties/focus/minItems",
                 keyword: "minItems",
                 params: { limit: 1 },
@@ -17238,7 +17080,7 @@ function validate37(
               if (typeof data4 === "string") {
                 if (!pattern4.test(data4)) {
                   const err11 = {
-                    instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                    instancePath: `${instancePath}/${i0}/focus/${i1}`,
                     schemaPath: "#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -17253,7 +17095,7 @@ function validate37(
                 }
               } else {
                 const err12 = {
-                  instancePath: instancePath + "/" + i0 + "/focus/" + i1,
+                  instancePath: `${instancePath}/${i0}/focus/${i1}`,
                   schemaPath: "#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -17269,7 +17111,7 @@ function validate37(
             }
           } else {
             const err13 = {
-              instancePath: instancePath + "/" + i0 + "/focus",
+              instancePath: `${instancePath}/${i0}/focus`,
               schemaPath: "#/items/properties/focus/type",
               keyword: "type",
               params: { type: "array" },
@@ -17288,7 +17130,7 @@ function validate37(
           if (typeof data5 === "string") {
             if (func3(data5) > 140) {
               const err14 = {
-                instancePath: instancePath + "/" + i0 + "/note",
+                instancePath: `${instancePath}/${i0}/note`,
                 schemaPath: "#/items/properties/note/maxLength",
                 keyword: "maxLength",
                 params: { limit: 140 },
@@ -17303,7 +17145,7 @@ function validate37(
             }
           } else {
             const err15 = {
-              instancePath: instancePath + "/" + i0 + "/note",
+              instancePath: `${instancePath}/${i0}/note`,
               schemaPath: "#/items/properties/note/type",
               keyword: "type",
               params: { type: "string" },
@@ -17319,7 +17161,7 @@ function validate37(
         }
       } else {
         const err16 = {
-          instancePath: instancePath + "/" + i0,
+          instancePath: `${instancePath}/${i0}`,
           schemaPath: "#/items/type",
           keyword: "type",
           params: { type: "object" },
@@ -17372,7 +17214,7 @@ function validate36(
   if (evaluated0.dynamicItems) {
     evaluated0.items = undefined
   }
-  if (data && typeof data == "object" && !Array.isArray(data)) {
+  if (data && typeof data === "object" && !Array.isArray(data)) {
     if (data.schema_version === undefined) {
       const err0 = {
         instancePath,
@@ -17463,7 +17305,7 @@ function validate36(
     }
     if (data.schema_version !== undefined && data.schema_version !== 1) {
       const err5 = {
-        instancePath: instancePath + "/schema_version",
+        instancePath: `${instancePath}/schema_version`,
         schemaPath: "#/properties/schema_version/const",
         keyword: "const",
         params: { allowedValue: 1 },
@@ -17481,7 +17323,7 @@ function validate36(
       data.diagram_type !== "architecture"
     ) {
       const err6 = {
-        instancePath: instancePath + "/diagram_type",
+        instancePath: `${instancePath}/diagram_type`,
         schemaPath: "#/properties/diagram_type/const",
         keyword: "const",
         params: { allowedValue: "architecture" },
@@ -17496,10 +17338,10 @@ function validate36(
     }
     if (data.meta !== undefined) {
       const data2 = data.meta
-      if (data2 && typeof data2 == "object" && !Array.isArray(data2)) {
+      if (data2 && typeof data2 === "object" && !Array.isArray(data2)) {
         if (data2.title === undefined) {
           const err7 = {
-            instancePath: instancePath + "/meta",
+            instancePath: `${instancePath}/meta`,
             schemaPath: "#/properties/meta/required",
             keyword: "required",
             params: { missingProperty: "title" },
@@ -17515,7 +17357,7 @@ function validate36(
         for (const key1 in data2) {
           if (!func1.call(schema149.properties.meta.properties, key1)) {
             const err8 = {
-              instancePath: instancePath + "/meta",
+              instancePath: `${instancePath}/meta`,
               schemaPath: "#/properties/meta/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key1 },
@@ -17534,7 +17376,7 @@ function validate36(
           if (typeof data3 === "string") {
             if (func3(data3) < 1) {
               const err9 = {
-                instancePath: instancePath + "/meta/title",
+                instancePath: `${instancePath}/meta/title`,
                 schemaPath: "#/properties/meta/properties/title/minLength",
                 keyword: "minLength",
                 params: { limit: 1 },
@@ -17549,7 +17391,7 @@ function validate36(
             }
           } else {
             const err10 = {
-              instancePath: instancePath + "/meta/title",
+              instancePath: `${instancePath}/meta/title`,
               schemaPath: "#/properties/meta/properties/title/type",
               keyword: "type",
               params: { type: "string" },
@@ -17567,7 +17409,7 @@ function validate36(
           const data4 = data2.locale
           if (!(data4 === "en" || data4 === "zh-CN")) {
             const err11 = {
-              instancePath: instancePath + "/meta/locale",
+              instancePath: `${instancePath}/meta/locale`,
               schemaPath: "common.schema.json#/$defs/locale/enum",
               keyword: "enum",
               params: { allowedValues: schema33.enum },
@@ -17586,7 +17428,7 @@ function validate36(
           typeof data2.subtitle !== "string"
         ) {
           const err12 = {
-            instancePath: instancePath + "/meta/subtitle",
+            instancePath: `${instancePath}/meta/subtitle`,
             schemaPath: "#/properties/meta/properties/subtitle/type",
             keyword: "type",
             params: { type: "string" },
@@ -17601,7 +17443,7 @@ function validate36(
         }
         if (data2.output !== undefined && typeof data2.output !== "string") {
           const err13 = {
-            instancePath: instancePath + "/meta/output",
+            instancePath: `${instancePath}/meta/output`,
             schemaPath: "#/properties/meta/properties/output/type",
             keyword: "type",
             params: { type: "string" },
@@ -17618,7 +17460,7 @@ function validate36(
           const data7 = data2.animation
           if (!(data7 === "trace" || data7 === "none")) {
             const err14 = {
-              instancePath: instancePath + "/meta/animation",
+              instancePath: `${instancePath}/meta/animation`,
               schemaPath: "common.schema.json#/$defs/animation/enum",
               keyword: "enum",
               params: { allowedValues: schema70.enum },
@@ -17643,7 +17485,7 @@ function validate36(
             )
           ) {
             const err15 = {
-              instancePath: instancePath + "/meta/visual_preset",
+              instancePath: `${instancePath}/meta/visual_preset`,
               schemaPath: "common.schema.json#/$defs/visualPreset/enum",
               keyword: "enum",
               params: { allowedValues: schema71.enum },
@@ -17661,7 +17503,7 @@ function validate36(
           const data9 = data2.quality_profile
           if (!(data9 === "standard" || data9 === "showcase")) {
             const err16 = {
-              instancePath: instancePath + "/meta/quality_profile",
+              instancePath: `${instancePath}/meta/quality_profile`,
               schemaPath: "common.schema.json#/$defs/qualityProfile/enum",
               keyword: "enum",
               params: { allowedValues: schema72.enum },
@@ -17680,7 +17522,7 @@ function validate36(
           !(data2.engineering_profile === "deployment-ownership")
         ) {
           const err17 = {
-            instancePath: instancePath + "/meta/engineering_profile",
+            instancePath: `${instancePath}/meta/engineering_profile`,
             schemaPath: "#/properties/meta/properties/engineering_profile/enum",
             keyword: "enum",
             params: {
@@ -17698,10 +17540,10 @@ function validate36(
         }
         if (data2.repository !== undefined) {
           const data11 = data2.repository
-          if (data11 && typeof data11 == "object" && !Array.isArray(data11)) {
+          if (data11 && typeof data11 === "object" && !Array.isArray(data11)) {
             if (data11.url === undefined) {
               const err18 = {
-                instancePath: instancePath + "/meta/repository",
+                instancePath: `${instancePath}/meta/repository`,
                 schemaPath: "#/properties/meta/properties/repository/required",
                 keyword: "required",
                 params: { missingProperty: "url" },
@@ -17716,7 +17558,7 @@ function validate36(
             }
             if (data11.revision === undefined) {
               const err19 = {
-                instancePath: instancePath + "/meta/repository",
+                instancePath: `${instancePath}/meta/repository`,
                 schemaPath: "#/properties/meta/properties/repository/required",
                 keyword: "required",
                 params: { missingProperty: "revision" },
@@ -17732,7 +17574,7 @@ function validate36(
             for (const key2 in data11) {
               if (!(key2 === "url" || key2 === "revision")) {
                 const err20 = {
-                  instancePath: instancePath + "/meta/repository",
+                  instancePath: `${instancePath}/meta/repository`,
                   schemaPath:
                     "#/properties/meta/properties/repository/additionalProperties",
                   keyword: "additionalProperties",
@@ -17752,7 +17594,7 @@ function validate36(
               if (typeof data12 === "string") {
                 if (!pattern57.test(data12)) {
                   const err21 = {
-                    instancePath: instancePath + "/meta/repository/url",
+                    instancePath: `${instancePath}/meta/repository/url`,
                     schemaPath:
                       "#/properties/meta/properties/repository/properties/url/pattern",
                     keyword: "pattern",
@@ -17772,7 +17614,7 @@ function validate36(
                 }
               } else {
                 const err22 = {
-                  instancePath: instancePath + "/meta/repository/url",
+                  instancePath: `${instancePath}/meta/repository/url`,
                   schemaPath:
                     "#/properties/meta/properties/repository/properties/url/type",
                   keyword: "type",
@@ -17792,7 +17634,7 @@ function validate36(
               if (typeof data13 === "string") {
                 if (!pattern58.test(data13)) {
                   const err23 = {
-                    instancePath: instancePath + "/meta/repository/revision",
+                    instancePath: `${instancePath}/meta/repository/revision`,
                     schemaPath:
                       "#/properties/meta/properties/repository/properties/revision/pattern",
                     keyword: "pattern",
@@ -17808,7 +17650,7 @@ function validate36(
                 }
               } else {
                 const err24 = {
-                  instancePath: instancePath + "/meta/repository/revision",
+                  instancePath: `${instancePath}/meta/repository/revision`,
                   schemaPath:
                     "#/properties/meta/properties/repository/properties/revision/type",
                   keyword: "type",
@@ -17825,7 +17667,7 @@ function validate36(
             }
           } else {
             const err25 = {
-              instancePath: instancePath + "/meta/repository",
+              instancePath: `${instancePath}/meta/repository`,
               schemaPath: "#/properties/meta/properties/repository/type",
               keyword: "type",
               params: { type: "object" },
@@ -17842,7 +17684,7 @@ function validate36(
         if (
           data2.views !== undefined &&
           !validate37(data2.views, {
-            instancePath: instancePath + "/meta/views",
+            instancePath: `${instancePath}/meta/views`,
             parentData: data2,
             parentDataProperty: "views",
             rootData,
@@ -17857,11 +17699,11 @@ function validate36(
         }
         if (data2.legend !== undefined) {
           const data15 = data2.legend
-          if (data15 && typeof data15 == "object" && !Array.isArray(data15)) {
+          if (data15 && typeof data15 === "object" && !Array.isArray(data15)) {
             for (const key3 in data15) {
               if (!(key3 === "mode" || key3 === "entries")) {
                 const err26 = {
-                  instancePath: instancePath + "/meta/legend",
+                  instancePath: `${instancePath}/meta/legend`,
                   schemaPath:
                     "#/properties/meta/properties/legend/additionalProperties",
                   keyword: "additionalProperties",
@@ -17882,7 +17724,7 @@ function validate36(
                 !(data16 === "auto" || data16 === "all" || data16 === "hidden")
               ) {
                 const err27 = {
-                  instancePath: instancePath + "/meta/legend/mode",
+                  instancePath: `${instancePath}/meta/legend/mode`,
                   schemaPath: "common.schema.json#/$defs/legendMode/enum",
                   keyword: "enum",
                   params: { allowedValues: schema37.enum },
@@ -17900,7 +17742,7 @@ function validate36(
               const data17 = data15.entries
               if (
                 data17 &&
-                typeof data17 == "object" &&
+                typeof data17 === "object" &&
                 !Array.isArray(data17)
               ) {
                 for (const key4 in data17) {
@@ -17916,7 +17758,7 @@ function validate36(
                     )
                   ) {
                     const err28 = {
-                      instancePath: instancePath + "/meta/legend/entries",
+                      instancePath: `${instancePath}/meta/legend/entries`,
                       schemaPath:
                         "#/properties/meta/properties/legend/properties/entries/additionalProperties",
                       keyword: "additionalProperties",
@@ -17935,13 +17777,12 @@ function validate36(
                   const data18 = data17.frontend
                   if (
                     data18 &&
-                    typeof data18 == "object" &&
+                    typeof data18 === "object" &&
                     !Array.isArray(data18)
                   ) {
                     if (Object.keys(data18).length < 1) {
                       const err29 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/frontend",
+                        instancePath: `${instancePath}/meta/legend/entries/frontend`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -17958,8 +17799,7 @@ function validate36(
                     for (const key5 in data18) {
                       if (!(key5 === "label" || key5 === "visible")) {
                         const err30 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/frontend",
+                          instancePath: `${instancePath}/meta/legend/entries/frontend`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -18055,8 +17895,7 @@ function validate36(
                     }
                   } else {
                     const err35 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/frontend",
+                      instancePath: `${instancePath}/meta/legend/entries/frontend`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -18074,13 +17913,12 @@ function validate36(
                   const data21 = data17.backend
                   if (
                     data21 &&
-                    typeof data21 == "object" &&
+                    typeof data21 === "object" &&
                     !Array.isArray(data21)
                   ) {
                     if (Object.keys(data21).length < 1) {
                       const err36 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/backend",
+                        instancePath: `${instancePath}/meta/legend/entries/backend`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -18097,8 +17935,7 @@ function validate36(
                     for (const key6 in data21) {
                       if (!(key6 === "label" || key6 === "visible")) {
                         const err37 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/backend",
+                          instancePath: `${instancePath}/meta/legend/entries/backend`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -18154,8 +17991,7 @@ function validate36(
                         }
                       } else {
                         const err40 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/backend/label",
+                          instancePath: `${instancePath}/meta/legend/entries/backend/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -18175,8 +18011,7 @@ function validate36(
                       typeof data21.visible !== "boolean"
                     ) {
                       const err41 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/backend/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/backend/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -18192,8 +18027,7 @@ function validate36(
                     }
                   } else {
                     const err42 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/backend",
+                      instancePath: `${instancePath}/meta/legend/entries/backend`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -18211,13 +18045,12 @@ function validate36(
                   const data24 = data17.database
                   if (
                     data24 &&
-                    typeof data24 == "object" &&
+                    typeof data24 === "object" &&
                     !Array.isArray(data24)
                   ) {
                     if (Object.keys(data24).length < 1) {
                       const err43 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/database",
+                        instancePath: `${instancePath}/meta/legend/entries/database`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -18234,8 +18067,7 @@ function validate36(
                     for (const key7 in data24) {
                       if (!(key7 === "label" || key7 === "visible")) {
                         const err44 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/database",
+                          instancePath: `${instancePath}/meta/legend/entries/database`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -18331,8 +18163,7 @@ function validate36(
                     }
                   } else {
                     const err49 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/database",
+                      instancePath: `${instancePath}/meta/legend/entries/database`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -18350,13 +18181,12 @@ function validate36(
                   const data27 = data17.cloud
                   if (
                     data27 &&
-                    typeof data27 == "object" &&
+                    typeof data27 === "object" &&
                     !Array.isArray(data27)
                   ) {
                     if (Object.keys(data27).length < 1) {
                       const err50 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/cloud",
+                        instancePath: `${instancePath}/meta/legend/entries/cloud`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -18373,8 +18203,7 @@ function validate36(
                     for (const key8 in data27) {
                       if (!(key8 === "label" || key8 === "visible")) {
                         const err51 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/cloud",
+                          instancePath: `${instancePath}/meta/legend/entries/cloud`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -18394,8 +18223,7 @@ function validate36(
                       if (typeof data28 === "string") {
                         if (func3(data28) > 80) {
                           const err52 = {
-                            instancePath:
-                              instancePath + "/meta/legend/entries/cloud/label",
+                            instancePath: `${instancePath}/meta/legend/entries/cloud/label`,
                             schemaPath:
                               "common.schema.json#/$defs/legendEntry/properties/label/maxLength",
                             keyword: "maxLength",
@@ -18411,8 +18239,7 @@ function validate36(
                         }
                         if (func3(data28) < 1) {
                           const err53 = {
-                            instancePath:
-                              instancePath + "/meta/legend/entries/cloud/label",
+                            instancePath: `${instancePath}/meta/legend/entries/cloud/label`,
                             schemaPath:
                               "common.schema.json#/$defs/legendEntry/properties/label/minLength",
                             keyword: "minLength",
@@ -18428,8 +18255,7 @@ function validate36(
                         }
                       } else {
                         const err54 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/cloud/label",
+                          instancePath: `${instancePath}/meta/legend/entries/cloud/label`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/properties/label/type",
                           keyword: "type",
@@ -18449,8 +18275,7 @@ function validate36(
                       typeof data27.visible !== "boolean"
                     ) {
                       const err55 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/cloud/visible",
+                        instancePath: `${instancePath}/meta/legend/entries/cloud/visible`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/properties/visible/type",
                         keyword: "type",
@@ -18466,7 +18291,7 @@ function validate36(
                     }
                   } else {
                     const err56 = {
-                      instancePath: instancePath + "/meta/legend/entries/cloud",
+                      instancePath: `${instancePath}/meta/legend/entries/cloud`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -18484,13 +18309,12 @@ function validate36(
                   const data30 = data17.security
                   if (
                     data30 &&
-                    typeof data30 == "object" &&
+                    typeof data30 === "object" &&
                     !Array.isArray(data30)
                   ) {
                     if (Object.keys(data30).length < 1) {
                       const err57 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/security",
+                        instancePath: `${instancePath}/meta/legend/entries/security`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -18507,8 +18331,7 @@ function validate36(
                     for (const key9 in data30) {
                       if (!(key9 === "label" || key9 === "visible")) {
                         const err58 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/security",
+                          instancePath: `${instancePath}/meta/legend/entries/security`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -18604,8 +18427,7 @@ function validate36(
                     }
                   } else {
                     const err63 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/security",
+                      instancePath: `${instancePath}/meta/legend/entries/security`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -18623,13 +18445,12 @@ function validate36(
                   const data33 = data17.messagebus
                   if (
                     data33 &&
-                    typeof data33 == "object" &&
+                    typeof data33 === "object" &&
                     !Array.isArray(data33)
                   ) {
                     if (Object.keys(data33).length < 1) {
                       const err64 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/messagebus",
+                        instancePath: `${instancePath}/meta/legend/entries/messagebus`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -18646,8 +18467,7 @@ function validate36(
                     for (const key10 in data33) {
                       if (!(key10 === "label" || key10 === "visible")) {
                         const err65 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/messagebus",
+                          instancePath: `${instancePath}/meta/legend/entries/messagebus`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -18743,8 +18563,7 @@ function validate36(
                     }
                   } else {
                     const err70 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/messagebus",
+                      instancePath: `${instancePath}/meta/legend/entries/messagebus`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -18762,13 +18581,12 @@ function validate36(
                   const data36 = data17.external
                   if (
                     data36 &&
-                    typeof data36 == "object" &&
+                    typeof data36 === "object" &&
                     !Array.isArray(data36)
                   ) {
                     if (Object.keys(data36).length < 1) {
                       const err71 = {
-                        instancePath:
-                          instancePath + "/meta/legend/entries/external",
+                        instancePath: `${instancePath}/meta/legend/entries/external`,
                         schemaPath:
                           "common.schema.json#/$defs/legendEntry/minProperties",
                         keyword: "minProperties",
@@ -18785,8 +18603,7 @@ function validate36(
                     for (const key11 in data36) {
                       if (!(key11 === "label" || key11 === "visible")) {
                         const err72 = {
-                          instancePath:
-                            instancePath + "/meta/legend/entries/external",
+                          instancePath: `${instancePath}/meta/legend/entries/external`,
                           schemaPath:
                             "common.schema.json#/$defs/legendEntry/additionalProperties",
                           keyword: "additionalProperties",
@@ -18882,8 +18699,7 @@ function validate36(
                     }
                   } else {
                     const err77 = {
-                      instancePath:
-                        instancePath + "/meta/legend/entries/external",
+                      instancePath: `${instancePath}/meta/legend/entries/external`,
                       schemaPath: "common.schema.json#/$defs/legendEntry/type",
                       keyword: "type",
                       params: { type: "object" },
@@ -18899,7 +18715,7 @@ function validate36(
                 }
               } else {
                 const err78 = {
-                  instancePath: instancePath + "/meta/legend/entries",
+                  instancePath: `${instancePath}/meta/legend/entries`,
                   schemaPath:
                     "#/properties/meta/properties/legend/properties/entries/type",
                   keyword: "type",
@@ -18916,7 +18732,7 @@ function validate36(
             }
           } else {
             const err79 = {
-              instancePath: instancePath + "/meta/legend",
+              instancePath: `${instancePath}/meta/legend`,
               schemaPath: "#/properties/meta/properties/legend/type",
               keyword: "type",
               params: { type: "object" },
@@ -18935,7 +18751,7 @@ function validate36(
           if (Array.isArray(data39)) {
             if (data39.length > 2) {
               const err80 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/maxItems",
                 keyword: "maxItems",
                 params: { limit: 2 },
@@ -18950,7 +18766,7 @@ function validate36(
             }
             if (data39.length < 2) {
               const err81 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/minItems",
                 keyword: "minItems",
                 params: { limit: 2 },
@@ -18966,10 +18782,10 @@ function validate36(
             const len0 = data39.length
             if (len0 > 0) {
               const data40 = data39[0]
-              if (typeof data40 == "number" && isFinite(data40)) {
-                if (data40 < 320 || isNaN(data40)) {
+              if (typeof data40 === "number" && Number.isFinite(data40)) {
+                if (data40 < 320 || Number.isNaN(data40)) {
                   const err82 = {
-                    instancePath: instancePath + "/meta/viewBox/0",
+                    instancePath: `${instancePath}/meta/viewBox/0`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/0/minimum",
                     keyword: "minimum",
@@ -18985,7 +18801,7 @@ function validate36(
                 }
               } else {
                 const err83 = {
-                  instancePath: instancePath + "/meta/viewBox/0",
+                  instancePath: `${instancePath}/meta/viewBox/0`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/0/type",
                   keyword: "type",
@@ -19002,10 +18818,10 @@ function validate36(
             }
             if (len0 > 1) {
               const data41 = data39[1]
-              if (typeof data41 == "number" && isFinite(data41)) {
-                if (data41 < 240 || isNaN(data41)) {
+              if (typeof data41 === "number" && Number.isFinite(data41)) {
+                if (data41 < 240 || Number.isNaN(data41)) {
                   const err84 = {
-                    instancePath: instancePath + "/meta/viewBox/1",
+                    instancePath: `${instancePath}/meta/viewBox/1`,
                     schemaPath:
                       "#/properties/meta/properties/viewBox/prefixItems/1/minimum",
                     keyword: "minimum",
@@ -19021,7 +18837,7 @@ function validate36(
                 }
               } else {
                 const err85 = {
-                  instancePath: instancePath + "/meta/viewBox/1",
+                  instancePath: `${instancePath}/meta/viewBox/1`,
                   schemaPath:
                     "#/properties/meta/properties/viewBox/prefixItems/1/type",
                   keyword: "type",
@@ -19039,7 +18855,7 @@ function validate36(
             const len1 = data39.length
             if (!(len1 <= 2)) {
               const err86 = {
-                instancePath: instancePath + "/meta/viewBox",
+                instancePath: `${instancePath}/meta/viewBox`,
                 schemaPath: "#/properties/meta/properties/viewBox/items",
                 keyword: "items",
                 params: { limit: 2 },
@@ -19054,7 +18870,7 @@ function validate36(
             }
           } else {
             const err87 = {
-              instancePath: instancePath + "/meta/viewBox",
+              instancePath: `${instancePath}/meta/viewBox`,
               schemaPath: "#/properties/meta/properties/viewBox/type",
               keyword: "type",
               params: { type: "array" },
@@ -19070,7 +18886,7 @@ function validate36(
         }
       } else {
         const err88 = {
-          instancePath: instancePath + "/meta",
+          instancePath: `${instancePath}/meta`,
           schemaPath: "#/properties/meta/type",
           keyword: "type",
           params: { type: "object" },
@@ -19086,10 +18902,10 @@ function validate36(
     }
     if (data.layout !== undefined) {
       const data42 = data.layout
-      if (data42 && typeof data42 == "object" && !Array.isArray(data42)) {
+      if (data42 && typeof data42 === "object" && !Array.isArray(data42)) {
         if (data42.mode === undefined) {
           const err89 = {
-            instancePath: instancePath + "/layout",
+            instancePath: `${instancePath}/layout`,
             schemaPath: "#/properties/layout/required",
             keyword: "required",
             params: { missingProperty: "mode" },
@@ -19115,7 +18931,7 @@ function validate36(
             )
           ) {
             const err90 = {
-              instancePath: instancePath + "/layout",
+              instancePath: `${instancePath}/layout`,
               schemaPath: "#/properties/layout/additionalProperties",
               keyword: "additionalProperties",
               params: { additionalProperty: key12 },
@@ -19131,7 +18947,7 @@ function validate36(
         }
         if (data42.mode !== undefined && !(data42.mode === "grid")) {
           const err91 = {
-            instancePath: instancePath + "/layout/mode",
+            instancePath: `${instancePath}/layout/mode`,
             schemaPath: "#/properties/layout/properties/mode/enum",
             keyword: "enum",
             params: {
@@ -19151,7 +18967,7 @@ function validate36(
           if (Array.isArray(data44)) {
             if (data44.length > 2) {
               const err92 = {
-                instancePath: instancePath + "/layout/origin",
+                instancePath: `${instancePath}/layout/origin`,
                 schemaPath: "common.schema.json#/$defs/point/maxItems",
                 keyword: "maxItems",
                 params: { limit: 2 },
@@ -19166,7 +18982,7 @@ function validate36(
             }
             if (data44.length < 2) {
               const err93 = {
-                instancePath: instancePath + "/layout/origin",
+                instancePath: `${instancePath}/layout/origin`,
                 schemaPath: "common.schema.json#/$defs/point/minItems",
                 keyword: "minItems",
                 params: { limit: 2 },
@@ -19182,9 +18998,9 @@ function validate36(
             const len2 = data44.length
             if (len2 > 0) {
               const data45 = data44[0]
-              if (!(typeof data45 == "number" && isFinite(data45))) {
+              if (!(typeof data45 === "number" && Number.isFinite(data45))) {
                 const err94 = {
-                  instancePath: instancePath + "/layout/origin/0",
+                  instancePath: `${instancePath}/layout/origin/0`,
                   schemaPath:
                     "common.schema.json#/$defs/point/prefixItems/0/type",
                   keyword: "type",
@@ -19201,9 +19017,9 @@ function validate36(
             }
             if (len2 > 1) {
               const data46 = data44[1]
-              if (!(typeof data46 == "number" && isFinite(data46))) {
+              if (!(typeof data46 === "number" && Number.isFinite(data46))) {
                 const err95 = {
-                  instancePath: instancePath + "/layout/origin/1",
+                  instancePath: `${instancePath}/layout/origin/1`,
                   schemaPath:
                     "common.schema.json#/$defs/point/prefixItems/1/type",
                   keyword: "type",
@@ -19221,7 +19037,7 @@ function validate36(
             const len3 = data44.length
             if (!(len3 <= 2)) {
               const err96 = {
-                instancePath: instancePath + "/layout/origin",
+                instancePath: `${instancePath}/layout/origin`,
                 schemaPath: "common.schema.json#/$defs/point/items",
                 keyword: "items",
                 params: { limit: 2 },
@@ -19236,7 +19052,7 @@ function validate36(
             }
           } else {
             const err97 = {
-              instancePath: instancePath + "/layout/origin",
+              instancePath: `${instancePath}/layout/origin`,
               schemaPath: "common.schema.json#/$defs/point/type",
               keyword: "type",
               params: { type: "array" },
@@ -19254,13 +19070,13 @@ function validate36(
           const data47 = data42.cols
           if (
             !(
-              typeof data47 == "number" &&
-              !(data47 % 1 || isNaN(data47)) &&
-              isFinite(data47)
+              typeof data47 === "number" &&
+              !(data47 % 1 || Number.isNaN(data47)) &&
+              Number.isFinite(data47)
             )
           ) {
             const err98 = {
-              instancePath: instancePath + "/layout/cols",
+              instancePath: `${instancePath}/layout/cols`,
               schemaPath: "#/properties/layout/properties/cols/type",
               keyword: "type",
               params: { type: "integer" },
@@ -19273,10 +19089,10 @@ function validate36(
             }
             errors++
           }
-          if (typeof data47 == "number" && isFinite(data47)) {
-            if (data47 > 12 || isNaN(data47)) {
+          if (typeof data47 === "number" && Number.isFinite(data47)) {
+            if (data47 > 12 || Number.isNaN(data47)) {
               const err99 = {
-                instancePath: instancePath + "/layout/cols",
+                instancePath: `${instancePath}/layout/cols`,
                 schemaPath: "#/properties/layout/properties/cols/maximum",
                 keyword: "maximum",
                 params: { comparison: "<=", limit: 12 },
@@ -19289,9 +19105,9 @@ function validate36(
               }
               errors++
             }
-            if (data47 < 1 || isNaN(data47)) {
+            if (data47 < 1 || Number.isNaN(data47)) {
               const err100 = {
-                instancePath: instancePath + "/layout/cols",
+                instancePath: `${instancePath}/layout/cols`,
                 schemaPath: "#/properties/layout/properties/cols/minimum",
                 keyword: "minimum",
                 params: { comparison: ">=", limit: 1 },
@@ -19308,10 +19124,10 @@ function validate36(
         }
         if (data42.gapX !== undefined) {
           const data48 = data42.gapX
-          if (typeof data48 == "number" && isFinite(data48)) {
-            if (data48 < 0 || isNaN(data48)) {
+          if (typeof data48 === "number" && Number.isFinite(data48)) {
+            if (data48 < 0 || Number.isNaN(data48)) {
               const err101 = {
-                instancePath: instancePath + "/layout/gapX",
+                instancePath: `${instancePath}/layout/gapX`,
                 schemaPath: "#/properties/layout/properties/gapX/minimum",
                 keyword: "minimum",
                 params: { comparison: ">=", limit: 0 },
@@ -19326,7 +19142,7 @@ function validate36(
             }
           } else {
             const err102 = {
-              instancePath: instancePath + "/layout/gapX",
+              instancePath: `${instancePath}/layout/gapX`,
               schemaPath: "#/properties/layout/properties/gapX/type",
               keyword: "type",
               params: { type: "number" },
@@ -19342,10 +19158,10 @@ function validate36(
         }
         if (data42.gapY !== undefined) {
           const data49 = data42.gapY
-          if (typeof data49 == "number" && isFinite(data49)) {
-            if (data49 < 0 || isNaN(data49)) {
+          if (typeof data49 === "number" && Number.isFinite(data49)) {
+            if (data49 < 0 || Number.isNaN(data49)) {
               const err103 = {
-                instancePath: instancePath + "/layout/gapY",
+                instancePath: `${instancePath}/layout/gapY`,
                 schemaPath: "#/properties/layout/properties/gapY/minimum",
                 keyword: "minimum",
                 params: { comparison: ">=", limit: 0 },
@@ -19360,7 +19176,7 @@ function validate36(
             }
           } else {
             const err104 = {
-              instancePath: instancePath + "/layout/gapY",
+              instancePath: `${instancePath}/layout/gapY`,
               schemaPath: "#/properties/layout/properties/gapY/type",
               keyword: "type",
               params: { type: "number" },
@@ -19376,10 +19192,10 @@ function validate36(
         }
         if (data42.cellW !== undefined) {
           const data50 = data42.cellW
-          if (typeof data50 == "number" && isFinite(data50)) {
-            if (data50 < 40 || isNaN(data50)) {
+          if (typeof data50 === "number" && Number.isFinite(data50)) {
+            if (data50 < 40 || Number.isNaN(data50)) {
               const err105 = {
-                instancePath: instancePath + "/layout/cellW",
+                instancePath: `${instancePath}/layout/cellW`,
                 schemaPath: "#/properties/layout/properties/cellW/minimum",
                 keyword: "minimum",
                 params: { comparison: ">=", limit: 40 },
@@ -19394,7 +19210,7 @@ function validate36(
             }
           } else {
             const err106 = {
-              instancePath: instancePath + "/layout/cellW",
+              instancePath: `${instancePath}/layout/cellW`,
               schemaPath: "#/properties/layout/properties/cellW/type",
               keyword: "type",
               params: { type: "number" },
@@ -19410,10 +19226,10 @@ function validate36(
         }
         if (data42.cellH !== undefined) {
           const data51 = data42.cellH
-          if (typeof data51 == "number" && isFinite(data51)) {
-            if (data51 < 24 || isNaN(data51)) {
+          if (typeof data51 === "number" && Number.isFinite(data51)) {
+            if (data51 < 24 || Number.isNaN(data51)) {
               const err107 = {
-                instancePath: instancePath + "/layout/cellH",
+                instancePath: `${instancePath}/layout/cellH`,
                 schemaPath: "#/properties/layout/properties/cellH/minimum",
                 keyword: "minimum",
                 params: { comparison: ">=", limit: 24 },
@@ -19428,7 +19244,7 @@ function validate36(
             }
           } else {
             const err108 = {
-              instancePath: instancePath + "/layout/cellH",
+              instancePath: `${instancePath}/layout/cellH`,
               schemaPath: "#/properties/layout/properties/cellH/type",
               keyword: "type",
               params: { type: "number" },
@@ -19444,7 +19260,7 @@ function validate36(
         }
       } else {
         const err109 = {
-          instancePath: instancePath + "/layout",
+          instancePath: `${instancePath}/layout`,
           schemaPath: "#/properties/layout/type",
           keyword: "type",
           params: { type: "object" },
@@ -19463,7 +19279,7 @@ function validate36(
       if (Array.isArray(data52)) {
         if (data52.length < 1) {
           const err110 = {
-            instancePath: instancePath + "/components",
+            instancePath: `${instancePath}/components`,
             schemaPath: "#/properties/components/minItems",
             keyword: "minItems",
             params: { limit: 1 },
@@ -19479,10 +19295,10 @@ function validate36(
         const len4 = data52.length
         for (let i0 = 0; i0 < len4; i0++) {
           const data53 = data52[i0]
-          if (data53 && typeof data53 == "object" && !Array.isArray(data53)) {
+          if (data53 && typeof data53 === "object" && !Array.isArray(data53)) {
             if (data53.id === undefined) {
               const err111 = {
-                instancePath: instancePath + "/components/" + i0,
+                instancePath: `${instancePath}/components/${i0}`,
                 schemaPath: "#/properties/components/items/required",
                 keyword: "required",
                 params: { missingProperty: "id" },
@@ -19497,7 +19313,7 @@ function validate36(
             }
             if (data53.type === undefined) {
               const err112 = {
-                instancePath: instancePath + "/components/" + i0,
+                instancePath: `${instancePath}/components/${i0}`,
                 schemaPath: "#/properties/components/items/required",
                 keyword: "required",
                 params: { missingProperty: "type" },
@@ -19512,7 +19328,7 @@ function validate36(
             }
             if (data53.label === undefined) {
               const err113 = {
-                instancePath: instancePath + "/components/" + i0,
+                instancePath: `${instancePath}/components/${i0}`,
                 schemaPath: "#/properties/components/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -19533,7 +19349,7 @@ function validate36(
                 )
               ) {
                 const err114 = {
-                  instancePath: instancePath + "/components/" + i0,
+                  instancePath: `${instancePath}/components/${i0}`,
                   schemaPath:
                     "#/properties/components/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -19553,7 +19369,7 @@ function validate36(
               if (typeof data54 === "string") {
                 if (!pattern4.test(data54)) {
                   const err115 = {
-                    instancePath: instancePath + "/components/" + i0 + "/id",
+                    instancePath: `${instancePath}/components/${i0}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -19568,7 +19384,7 @@ function validate36(
                 }
               } else {
                 const err116 = {
-                  instancePath: instancePath + "/components/" + i0 + "/id",
+                  instancePath: `${instancePath}/components/${i0}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -19596,7 +19412,7 @@ function validate36(
                 )
               ) {
                 const err117 = {
-                  instancePath: instancePath + "/components/" + i0 + "/type",
+                  instancePath: `${instancePath}/components/${i0}/type`,
                   schemaPath: "common.schema.json#/$defs/componentType/enum",
                   keyword: "enum",
                   params: { allowedValues: schema57.enum },
@@ -19615,7 +19431,7 @@ function validate36(
               if (typeof data56 === "string") {
                 if (func3(data56) < 1) {
                   const err118 = {
-                    instancePath: instancePath + "/components/" + i0 + "/label",
+                    instancePath: `${instancePath}/components/${i0}/label`,
                     schemaPath:
                       "#/properties/components/items/properties/label/minLength",
                     keyword: "minLength",
@@ -19631,7 +19447,7 @@ function validate36(
                 }
               } else {
                 const err119 = {
-                  instancePath: instancePath + "/components/" + i0 + "/label",
+                  instancePath: `${instancePath}/components/${i0}/label`,
                   schemaPath:
                     "#/properties/components/items/properties/label/type",
                   keyword: "type",
@@ -19651,7 +19467,7 @@ function validate36(
               typeof data53.sublabel !== "string"
             ) {
               const err120 = {
-                instancePath: instancePath + "/components/" + i0 + "/sublabel",
+                instancePath: `${instancePath}/components/${i0}/sublabel`,
                 schemaPath:
                   "#/properties/components/items/properties/sublabel/type",
                 keyword: "type",
@@ -19667,7 +19483,7 @@ function validate36(
             }
             if (data53.tag !== undefined && typeof data53.tag !== "string") {
               const err121 = {
-                instancePath: instancePath + "/components/" + i0 + "/tag",
+                instancePath: `${instancePath}/components/${i0}/tag`,
                 schemaPath: "#/properties/components/items/properties/tag/type",
                 keyword: "type",
                 params: { type: "string" },
@@ -19692,7 +19508,7 @@ function validate36(
               if (typeof data59 === "string") {
                 if (func3(data59) > 80) {
                   const err122 = {
-                    instancePath: instancePath + "/components/" + i0 + "/brand",
+                    instancePath: `${instancePath}/components/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/maxLength",
                     keyword: "maxLength",
@@ -19708,7 +19524,7 @@ function validate36(
                 }
                 if (!pattern17.test(data59)) {
                   const err123 = {
-                    instancePath: instancePath + "/components/" + i0 + "/brand",
+                    instancePath: `${instancePath}/components/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/0/pattern",
                     keyword: "pattern",
@@ -19723,12 +19539,12 @@ function validate36(
                   errors++
                 }
               }
-              var _valid1 = _errs143 === errors
+              const _valid1 = _errs143 === errors
               valid35 = valid35 || _valid1
               const _errs144 = errors
               if (typeof data59 === "string" && !pattern18.test(data59)) {
                 const err124 = {
-                  instancePath: instancePath + "/components/" + i0 + "/brand",
+                  instancePath: `${instancePath}/components/${i0}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf/1/pattern",
                   keyword: "pattern",
@@ -19742,7 +19558,7 @@ function validate36(
                 }
                 errors++
               }
-              var _valid1 = _errs144 === errors
+              const _valid1 = _errs144 === errors
               valid35 = valid35 || _valid1
               if (valid35) {
                 errors = _errs142
@@ -19755,7 +19571,7 @@ function validate36(
                 }
               } else {
                 const err125 = {
-                  instancePath: instancePath + "/components/" + i0 + "/brand",
+                  instancePath: `${instancePath}/components/${i0}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/anyOf",
                   keyword: "anyOf",
@@ -19772,7 +19588,7 @@ function validate36(
               if (typeof data59 === "string") {
                 if (func3(data59) > 2048) {
                   const err126 = {
-                    instancePath: instancePath + "/components/" + i0 + "/brand",
+                    instancePath: `${instancePath}/components/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/maxLength",
                     keyword: "maxLength",
@@ -19788,7 +19604,7 @@ function validate36(
                 }
                 if (func3(data59) < 1) {
                   const err127 = {
-                    instancePath: instancePath + "/components/" + i0 + "/brand",
+                    instancePath: `${instancePath}/components/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/0/minLength",
                     keyword: "minLength",
@@ -19804,7 +19620,7 @@ function validate36(
                 }
               } else {
                 const err128 = {
-                  instancePath: instancePath + "/components/" + i0 + "/brand",
+                  instancePath: `${instancePath}/components/${i0}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/0/type",
                   keyword: "type",
@@ -19818,7 +19634,7 @@ function validate36(
                 }
                 errors++
               }
-              var _valid0 = _errs140 === errors
+              const _valid0 = _errs140 === errors
               if (_valid0) {
                 valid34 = true
                 passing0 = 0
@@ -19826,12 +19642,12 @@ function validate36(
               const _errs145 = errors
               if (
                 data59 &&
-                typeof data59 == "object" &&
+                typeof data59 === "object" &&
                 !Array.isArray(data59)
               ) {
                 if (data59.url === undefined) {
                   const err129 = {
-                    instancePath: instancePath + "/components/" + i0 + "/brand",
+                    instancePath: `${instancePath}/components/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -19847,7 +19663,7 @@ function validate36(
                 }
                 if (data59.sha256 === undefined) {
                   const err130 = {
-                    instancePath: instancePath + "/components/" + i0 + "/brand",
+                    instancePath: `${instancePath}/components/${i0}/brand`,
                     schemaPath:
                       "common.schema.json#/$defs/brandMark/oneOf/1/required",
                     keyword: "required",
@@ -19864,8 +19680,7 @@ function validate36(
                 for (const key14 in data59) {
                   if (!(key14 === "url" || key14 === "sha256")) {
                     const err131 = {
-                      instancePath:
-                        instancePath + "/components/" + i0 + "/brand",
+                      instancePath: `${instancePath}/components/${i0}/brand`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/additionalProperties",
                       keyword: "additionalProperties",
@@ -19885,8 +19700,7 @@ function validate36(
                   if (typeof data60 === "string") {
                     if (func3(data60) > 2048) {
                       const err132 = {
-                        instancePath:
-                          instancePath + "/components/" + i0 + "/brand/url",
+                        instancePath: `${instancePath}/components/${i0}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/maxLength",
                         keyword: "maxLength",
@@ -19902,8 +19716,7 @@ function validate36(
                     }
                     if (func3(data60) < 8) {
                       const err133 = {
-                        instancePath:
-                          instancePath + "/components/" + i0 + "/brand/url",
+                        instancePath: `${instancePath}/components/${i0}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/minLength",
                         keyword: "minLength",
@@ -19919,8 +19732,7 @@ function validate36(
                     }
                     if (!pattern18.test(data60)) {
                       const err134 = {
-                        instancePath:
-                          instancePath + "/components/" + i0 + "/brand/url",
+                        instancePath: `${instancePath}/components/${i0}/brand/url`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/pattern",
                         keyword: "pattern",
@@ -19936,8 +19748,7 @@ function validate36(
                     }
                   } else {
                     const err135 = {
-                      instancePath:
-                        instancePath + "/components/" + i0 + "/brand/url",
+                      instancePath: `${instancePath}/components/${i0}/brand/url`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/url/type",
                       keyword: "type",
@@ -19957,8 +19768,7 @@ function validate36(
                   if (typeof data61 === "string") {
                     if (!pattern20.test(data61)) {
                       const err136 = {
-                        instancePath:
-                          instancePath + "/components/" + i0 + "/brand/sha256",
+                        instancePath: `${instancePath}/components/${i0}/brand/sha256`,
                         schemaPath:
                           "common.schema.json#/$defs/brandMark/oneOf/1/properties/sha256/pattern",
                         keyword: "pattern",
@@ -19974,8 +19784,7 @@ function validate36(
                     }
                   } else {
                     const err137 = {
-                      instancePath:
-                        instancePath + "/components/" + i0 + "/brand/sha256",
+                      instancePath: `${instancePath}/components/${i0}/brand/sha256`,
                       schemaPath:
                         "common.schema.json#/$defs/brandMark/oneOf/1/properties/sha256/type",
                       keyword: "type",
@@ -19992,7 +19801,7 @@ function validate36(
                 }
               } else {
                 const err138 = {
-                  instancePath: instancePath + "/components/" + i0 + "/brand",
+                  instancePath: `${instancePath}/components/${i0}/brand`,
                   schemaPath:
                     "common.schema.json#/$defs/brandMark/oneOf/1/type",
                   keyword: "type",
@@ -20006,7 +19815,7 @@ function validate36(
                 }
                 errors++
               }
-              var _valid0 = _errs145 === errors
+              const _valid0 = _errs145 === errors
               if (_valid0 && valid34) {
                 valid34 = false
                 passing0 = [passing0, 1]
@@ -20025,7 +19834,7 @@ function validate36(
                 }
               } else {
                 const err139 = {
-                  instancePath: instancePath + "/components/" + i0 + "/brand",
+                  instancePath: `${instancePath}/components/${i0}/brand`,
                   schemaPath: "common.schema.json#/$defs/brandMark/oneOf",
                   keyword: "oneOf",
                   params: { passingSchemas: passing0 },
@@ -20044,8 +19853,7 @@ function validate36(
               if (Array.isArray(data62)) {
                 if (data62.length > 3) {
                   const err140 = {
-                    instancePath:
-                      instancePath + "/components/" + i0 + "/sources",
+                    instancePath: `${instancePath}/components/${i0}/sources`,
                     schemaPath:
                       "#/properties/components/items/properties/sources/maxItems",
                     keyword: "maxItems",
@@ -20061,8 +19869,7 @@ function validate36(
                 }
                 if (data62.length < 1) {
                   const err141 = {
-                    instancePath:
-                      instancePath + "/components/" + i0 + "/sources",
+                    instancePath: `${instancePath}/components/${i0}/sources`,
                     schemaPath:
                       "#/properties/components/items/properties/sources/minItems",
                     keyword: "minItems",
@@ -20081,13 +19888,12 @@ function validate36(
                   const data63 = data62[i1]
                   if (
                     data63 &&
-                    typeof data63 == "object" &&
+                    typeof data63 === "object" &&
                     !Array.isArray(data63)
                   ) {
                     if (data63.path === undefined) {
                       const err142 = {
-                        instancePath:
-                          instancePath + "/components/" + i0 + "/sources/" + i1,
+                        instancePath: `${instancePath}/components/${i0}/sources/${i1}`,
                         schemaPath:
                           "#/properties/components/items/properties/sources/items/required",
                         keyword: "required",
@@ -20205,9 +20011,9 @@ function validate36(
                       const data65 = data63.line
                       if (
                         !(
-                          typeof data65 == "number" &&
-                          !(data65 % 1 || isNaN(data65)) &&
-                          isFinite(data65)
+                          typeof data65 === "number" &&
+                          !(data65 % 1 || Number.isNaN(data65)) &&
+                          Number.isFinite(data65)
                         )
                       ) {
                         const err147 = {
@@ -20232,9 +20038,9 @@ function validate36(
                         errors++
                       }
                       if (
-                        typeof data65 == "number" &&
-                        isFinite(data65) &&
-                        (data65 < 1 || isNaN(data65))
+                        typeof data65 === "number" &&
+                        Number.isFinite(data65) &&
+                        (data65 < 1 || Number.isNaN(data65))
                       ) {
                         const err148 = {
                           instancePath:
@@ -20262,9 +20068,9 @@ function validate36(
                       const data66 = data63.end_line
                       if (
                         !(
-                          typeof data66 == "number" &&
-                          !(data66 % 1 || isNaN(data66)) &&
-                          isFinite(data66)
+                          typeof data66 === "number" &&
+                          !(data66 % 1 || Number.isNaN(data66)) &&
+                          Number.isFinite(data66)
                         )
                       ) {
                         const err149 = {
@@ -20289,9 +20095,9 @@ function validate36(
                         errors++
                       }
                       if (
-                        typeof data66 == "number" &&
-                        isFinite(data66) &&
-                        (data66 < 1 || isNaN(data66))
+                        typeof data66 === "number" &&
+                        Number.isFinite(data66) &&
+                        (data66 < 1 || Number.isNaN(data66))
                       ) {
                         const err150 = {
                           instancePath:
@@ -20387,8 +20193,7 @@ function validate36(
                     }
                   } else {
                     const err154 = {
-                      instancePath:
-                        instancePath + "/components/" + i0 + "/sources/" + i1,
+                      instancePath: `${instancePath}/components/${i0}/sources/${i1}`,
                       schemaPath:
                         "#/properties/components/items/properties/sources/items/type",
                       keyword: "type",
@@ -20405,7 +20210,7 @@ function validate36(
                 }
               } else {
                 const err155 = {
-                  instancePath: instancePath + "/components/" + i0 + "/sources",
+                  instancePath: `${instancePath}/components/${i0}/sources`,
                   schemaPath:
                     "#/properties/components/items/properties/sources/type",
                   keyword: "type",
@@ -20424,13 +20229,13 @@ function validate36(
               const data68 = data53.row
               if (
                 !(
-                  typeof data68 == "number" &&
-                  !(data68 % 1 || isNaN(data68)) &&
-                  isFinite(data68)
+                  typeof data68 === "number" &&
+                  !(data68 % 1 || Number.isNaN(data68)) &&
+                  Number.isFinite(data68)
                 )
               ) {
                 const err156 = {
-                  instancePath: instancePath + "/components/" + i0 + "/row",
+                  instancePath: `${instancePath}/components/${i0}/row`,
                   schemaPath:
                     "#/properties/components/items/properties/row/type",
                   keyword: "type",
@@ -20445,12 +20250,12 @@ function validate36(
                 errors++
               }
               if (
-                typeof data68 == "number" &&
-                isFinite(data68) &&
-                (data68 < 0 || isNaN(data68))
+                typeof data68 === "number" &&
+                Number.isFinite(data68) &&
+                (data68 < 0 || Number.isNaN(data68))
               ) {
                 const err157 = {
-                  instancePath: instancePath + "/components/" + i0 + "/row",
+                  instancePath: `${instancePath}/components/${i0}/row`,
                   schemaPath:
                     "#/properties/components/items/properties/row/minimum",
                   keyword: "minimum",
@@ -20469,13 +20274,13 @@ function validate36(
               const data69 = data53.col
               if (
                 !(
-                  typeof data69 == "number" &&
-                  !(data69 % 1 || isNaN(data69)) &&
-                  isFinite(data69)
+                  typeof data69 === "number" &&
+                  !(data69 % 1 || Number.isNaN(data69)) &&
+                  Number.isFinite(data69)
                 )
               ) {
                 const err158 = {
-                  instancePath: instancePath + "/components/" + i0 + "/col",
+                  instancePath: `${instancePath}/components/${i0}/col`,
                   schemaPath:
                     "#/properties/components/items/properties/col/type",
                   keyword: "type",
@@ -20490,12 +20295,12 @@ function validate36(
                 errors++
               }
               if (
-                typeof data69 == "number" &&
-                isFinite(data69) &&
-                (data69 < 0 || isNaN(data69))
+                typeof data69 === "number" &&
+                Number.isFinite(data69) &&
+                (data69 < 0 || Number.isNaN(data69))
               ) {
                 const err159 = {
-                  instancePath: instancePath + "/components/" + i0 + "/col",
+                  instancePath: `${instancePath}/components/${i0}/col`,
                   schemaPath:
                     "#/properties/components/items/properties/col/minimum",
                   keyword: "minimum",
@@ -20515,7 +20320,7 @@ function validate36(
               if (Array.isArray(data70)) {
                 if (data70.length > 2) {
                   const err160 = {
-                    instancePath: instancePath + "/components/" + i0 + "/pos",
+                    instancePath: `${instancePath}/components/${i0}/pos`,
                     schemaPath: "common.schema.json#/$defs/point/maxItems",
                     keyword: "maxItems",
                     params: { limit: 2 },
@@ -20530,7 +20335,7 @@ function validate36(
                 }
                 if (data70.length < 2) {
                   const err161 = {
-                    instancePath: instancePath + "/components/" + i0 + "/pos",
+                    instancePath: `${instancePath}/components/${i0}/pos`,
                     schemaPath: "common.schema.json#/$defs/point/minItems",
                     keyword: "minItems",
                     params: { limit: 2 },
@@ -20546,10 +20351,11 @@ function validate36(
                 const len6 = data70.length
                 if (len6 > 0) {
                   const data71 = data70[0]
-                  if (!(typeof data71 == "number" && isFinite(data71))) {
+                  if (
+                    !(typeof data71 === "number" && Number.isFinite(data71))
+                  ) {
                     const err162 = {
-                      instancePath:
-                        instancePath + "/components/" + i0 + "/pos/0",
+                      instancePath: `${instancePath}/components/${i0}/pos/0`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/0/type",
                       keyword: "type",
@@ -20566,10 +20372,11 @@ function validate36(
                 }
                 if (len6 > 1) {
                   const data72 = data70[1]
-                  if (!(typeof data72 == "number" && isFinite(data72))) {
+                  if (
+                    !(typeof data72 === "number" && Number.isFinite(data72))
+                  ) {
                     const err163 = {
-                      instancePath:
-                        instancePath + "/components/" + i0 + "/pos/1",
+                      instancePath: `${instancePath}/components/${i0}/pos/1`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/1/type",
                       keyword: "type",
@@ -20587,7 +20394,7 @@ function validate36(
                 const len7 = data70.length
                 if (!(len7 <= 2)) {
                   const err164 = {
-                    instancePath: instancePath + "/components/" + i0 + "/pos",
+                    instancePath: `${instancePath}/components/${i0}/pos`,
                     schemaPath: "common.schema.json#/$defs/point/items",
                     keyword: "items",
                     params: { limit: 2 },
@@ -20602,7 +20409,7 @@ function validate36(
                 }
               } else {
                 const err165 = {
-                  instancePath: instancePath + "/components/" + i0 + "/pos",
+                  instancePath: `${instancePath}/components/${i0}/pos`,
                   schemaPath: "common.schema.json#/$defs/point/type",
                   keyword: "type",
                   params: { type: "array" },
@@ -20621,7 +20428,7 @@ function validate36(
               if (Array.isArray(data73)) {
                 if (data73.length > 2) {
                   const err166 = {
-                    instancePath: instancePath + "/components/" + i0 + "/size",
+                    instancePath: `${instancePath}/components/${i0}/size`,
                     schemaPath:
                       "#/properties/components/items/properties/size/maxItems",
                     keyword: "maxItems",
@@ -20637,7 +20444,7 @@ function validate36(
                 }
                 if (data73.length < 2) {
                   const err167 = {
-                    instancePath: instancePath + "/components/" + i0 + "/size",
+                    instancePath: `${instancePath}/components/${i0}/size`,
                     schemaPath:
                       "#/properties/components/items/properties/size/minItems",
                     keyword: "minItems",
@@ -20654,11 +20461,10 @@ function validate36(
                 const len8 = data73.length
                 if (len8 > 0) {
                   const data74 = data73[0]
-                  if (typeof data74 == "number" && isFinite(data74)) {
-                    if (data74 <= 0 || isNaN(data74)) {
+                  if (typeof data74 === "number" && Number.isFinite(data74)) {
+                    if (data74 <= 0 || Number.isNaN(data74)) {
                       const err168 = {
-                        instancePath:
-                          instancePath + "/components/" + i0 + "/size/0",
+                        instancePath: `${instancePath}/components/${i0}/size/0`,
                         schemaPath:
                           "#/properties/components/items/properties/size/prefixItems/0/exclusiveMinimum",
                         keyword: "exclusiveMinimum",
@@ -20674,8 +20480,7 @@ function validate36(
                     }
                   } else {
                     const err169 = {
-                      instancePath:
-                        instancePath + "/components/" + i0 + "/size/0",
+                      instancePath: `${instancePath}/components/${i0}/size/0`,
                       schemaPath:
                         "#/properties/components/items/properties/size/prefixItems/0/type",
                       keyword: "type",
@@ -20692,11 +20497,10 @@ function validate36(
                 }
                 if (len8 > 1) {
                   const data75 = data73[1]
-                  if (typeof data75 == "number" && isFinite(data75)) {
-                    if (data75 <= 0 || isNaN(data75)) {
+                  if (typeof data75 === "number" && Number.isFinite(data75)) {
+                    if (data75 <= 0 || Number.isNaN(data75)) {
                       const err170 = {
-                        instancePath:
-                          instancePath + "/components/" + i0 + "/size/1",
+                        instancePath: `${instancePath}/components/${i0}/size/1`,
                         schemaPath:
                           "#/properties/components/items/properties/size/prefixItems/1/exclusiveMinimum",
                         keyword: "exclusiveMinimum",
@@ -20712,8 +20516,7 @@ function validate36(
                     }
                   } else {
                     const err171 = {
-                      instancePath:
-                        instancePath + "/components/" + i0 + "/size/1",
+                      instancePath: `${instancePath}/components/${i0}/size/1`,
                       schemaPath:
                         "#/properties/components/items/properties/size/prefixItems/1/type",
                       keyword: "type",
@@ -20731,7 +20534,7 @@ function validate36(
                 const len9 = data73.length
                 if (!(len9 <= 2)) {
                   const err172 = {
-                    instancePath: instancePath + "/components/" + i0 + "/size",
+                    instancePath: `${instancePath}/components/${i0}/size`,
                     schemaPath:
                       "#/properties/components/items/properties/size/items",
                     keyword: "items",
@@ -20747,7 +20550,7 @@ function validate36(
                 }
               } else {
                 const err173 = {
-                  instancePath: instancePath + "/components/" + i0 + "/size",
+                  instancePath: `${instancePath}/components/${i0}/size`,
                   schemaPath:
                     "#/properties/components/items/properties/size/type",
                   keyword: "type",
@@ -20764,7 +20567,7 @@ function validate36(
             }
           } else {
             const err174 = {
-              instancePath: instancePath + "/components/" + i0,
+              instancePath: `${instancePath}/components/${i0}`,
               schemaPath: "#/properties/components/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -20780,7 +20583,7 @@ function validate36(
         }
       } else {
         const err175 = {
-          instancePath: instancePath + "/components",
+          instancePath: `${instancePath}/components`,
           schemaPath: "#/properties/components/type",
           keyword: "type",
           params: { type: "array" },
@@ -20800,10 +20603,10 @@ function validate36(
         const len10 = data76.length
         for (let i2 = 0; i2 < len10; i2++) {
           const data77 = data76[i2]
-          if (data77 && typeof data77 == "object" && !Array.isArray(data77)) {
+          if (data77 && typeof data77 === "object" && !Array.isArray(data77)) {
             if (data77.kind === undefined) {
               const err176 = {
-                instancePath: instancePath + "/boundaries/" + i2,
+                instancePath: `${instancePath}/boundaries/${i2}`,
                 schemaPath: "#/properties/boundaries/items/required",
                 keyword: "required",
                 params: { missingProperty: "kind" },
@@ -20818,7 +20621,7 @@ function validate36(
             }
             if (data77.label === undefined) {
               const err177 = {
-                instancePath: instancePath + "/boundaries/" + i2,
+                instancePath: `${instancePath}/boundaries/${i2}`,
                 schemaPath: "#/properties/boundaries/items/required",
                 keyword: "required",
                 params: { missingProperty: "label" },
@@ -20833,7 +20636,7 @@ function validate36(
             }
             if (data77.wraps === undefined) {
               const err178 = {
-                instancePath: instancePath + "/boundaries/" + i2,
+                instancePath: `${instancePath}/boundaries/${i2}`,
                 schemaPath: "#/properties/boundaries/items/required",
                 keyword: "required",
                 params: { missingProperty: "wraps" },
@@ -20856,7 +20659,7 @@ function validate36(
                 )
               ) {
                 const err179 = {
-                  instancePath: instancePath + "/boundaries/" + i2,
+                  instancePath: `${instancePath}/boundaries/${i2}`,
                   schemaPath:
                     "#/properties/boundaries/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -20875,7 +20678,7 @@ function validate36(
               const data78 = data77.kind
               if (!(data78 === "region" || data78 === "security-group")) {
                 const err180 = {
-                  instancePath: instancePath + "/boundaries/" + i2 + "/kind",
+                  instancePath: `${instancePath}/boundaries/${i2}/kind`,
                   schemaPath:
                     "#/properties/boundaries/items/properties/kind/enum",
                   keyword: "enum",
@@ -20899,7 +20702,7 @@ function validate36(
               if (typeof data79 === "string") {
                 if (func3(data79) < 1) {
                   const err181 = {
-                    instancePath: instancePath + "/boundaries/" + i2 + "/label",
+                    instancePath: `${instancePath}/boundaries/${i2}/label`,
                     schemaPath:
                       "#/properties/boundaries/items/properties/label/minLength",
                     keyword: "minLength",
@@ -20915,7 +20718,7 @@ function validate36(
                 }
               } else {
                 const err182 = {
-                  instancePath: instancePath + "/boundaries/" + i2 + "/label",
+                  instancePath: `${instancePath}/boundaries/${i2}/label`,
                   schemaPath:
                     "#/properties/boundaries/items/properties/label/type",
                   keyword: "type",
@@ -20935,7 +20738,7 @@ function validate36(
               if (Array.isArray(data80)) {
                 if (data80.length < 1) {
                   const err183 = {
-                    instancePath: instancePath + "/boundaries/" + i2 + "/wraps",
+                    instancePath: `${instancePath}/boundaries/${i2}/wraps`,
                     schemaPath:
                       "#/properties/boundaries/items/properties/wraps/minItems",
                     keyword: "minItems",
@@ -20955,8 +20758,7 @@ function validate36(
                   if (typeof data81 === "string") {
                     if (!pattern4.test(data81)) {
                       const err184 = {
-                        instancePath:
-                          instancePath + "/boundaries/" + i2 + "/wraps/" + i3,
+                        instancePath: `${instancePath}/boundaries/${i2}/wraps/${i3}`,
                         schemaPath: "common.schema.json#/$defs/id/pattern",
                         keyword: "pattern",
                         params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -20972,8 +20774,7 @@ function validate36(
                     }
                   } else {
                     const err185 = {
-                      instancePath:
-                        instancePath + "/boundaries/" + i2 + "/wraps/" + i3,
+                      instancePath: `${instancePath}/boundaries/${i2}/wraps/${i3}`,
                       schemaPath: "common.schema.json#/$defs/id/type",
                       keyword: "type",
                       params: { type: "string" },
@@ -20989,7 +20790,7 @@ function validate36(
                 }
               } else {
                 const err186 = {
-                  instancePath: instancePath + "/boundaries/" + i2 + "/wraps",
+                  instancePath: `${instancePath}/boundaries/${i2}/wraps`,
                   schemaPath:
                     "#/properties/boundaries/items/properties/wraps/type",
                   keyword: "type",
@@ -21006,10 +20807,10 @@ function validate36(
             }
             if (data77.pad !== undefined) {
               const data82 = data77.pad
-              if (typeof data82 == "number" && isFinite(data82)) {
-                if (data82 < 0 || isNaN(data82)) {
+              if (typeof data82 === "number" && Number.isFinite(data82)) {
+                if (data82 < 0 || Number.isNaN(data82)) {
                   const err187 = {
-                    instancePath: instancePath + "/boundaries/" + i2 + "/pad",
+                    instancePath: `${instancePath}/boundaries/${i2}/pad`,
                     schemaPath:
                       "#/properties/boundaries/items/properties/pad/minimum",
                     keyword: "minimum",
@@ -21025,7 +20826,7 @@ function validate36(
                 }
               } else {
                 const err188 = {
-                  instancePath: instancePath + "/boundaries/" + i2 + "/pad",
+                  instancePath: `${instancePath}/boundaries/${i2}/pad`,
                   schemaPath:
                     "#/properties/boundaries/items/properties/pad/type",
                   keyword: "type",
@@ -21042,7 +20843,7 @@ function validate36(
             }
           } else {
             const err189 = {
-              instancePath: instancePath + "/boundaries/" + i2,
+              instancePath: `${instancePath}/boundaries/${i2}`,
               schemaPath: "#/properties/boundaries/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -21058,7 +20859,7 @@ function validate36(
         }
       } else {
         const err190 = {
-          instancePath: instancePath + "/boundaries",
+          instancePath: `${instancePath}/boundaries`,
           schemaPath: "#/properties/boundaries/type",
           keyword: "type",
           params: { type: "array" },
@@ -21078,10 +20879,10 @@ function validate36(
         const len12 = data83.length
         for (let i4 = 0; i4 < len12; i4++) {
           const data84 = data83[i4]
-          if (data84 && typeof data84 == "object" && !Array.isArray(data84)) {
+          if (data84 && typeof data84 === "object" && !Array.isArray(data84)) {
             if (data84.from === undefined) {
               const err191 = {
-                instancePath: instancePath + "/connections/" + i4,
+                instancePath: `${instancePath}/connections/${i4}`,
                 schemaPath: "#/properties/connections/items/required",
                 keyword: "required",
                 params: { missingProperty: "from" },
@@ -21096,7 +20897,7 @@ function validate36(
             }
             if (data84.to === undefined) {
               const err192 = {
-                instancePath: instancePath + "/connections/" + i4,
+                instancePath: `${instancePath}/connections/${i4}`,
                 schemaPath: "#/properties/connections/items/required",
                 keyword: "required",
                 params: { missingProperty: "to" },
@@ -21117,7 +20918,7 @@ function validate36(
                 )
               ) {
                 const err193 = {
-                  instancePath: instancePath + "/connections/" + i4,
+                  instancePath: `${instancePath}/connections/${i4}`,
                   schemaPath:
                     "#/properties/connections/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -21137,7 +20938,7 @@ function validate36(
               if (typeof data85 === "string") {
                 if (!pattern4.test(data85)) {
                   const err194 = {
-                    instancePath: instancePath + "/connections/" + i4 + "/id",
+                    instancePath: `${instancePath}/connections/${i4}/id`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -21152,7 +20953,7 @@ function validate36(
                 }
               } else {
                 const err195 = {
-                  instancePath: instancePath + "/connections/" + i4 + "/id",
+                  instancePath: `${instancePath}/connections/${i4}/id`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -21171,7 +20972,7 @@ function validate36(
               if (typeof data86 === "string") {
                 if (!pattern4.test(data86)) {
                   const err196 = {
-                    instancePath: instancePath + "/connections/" + i4 + "/from",
+                    instancePath: `${instancePath}/connections/${i4}/from`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -21186,7 +20987,7 @@ function validate36(
                 }
               } else {
                 const err197 = {
-                  instancePath: instancePath + "/connections/" + i4 + "/from",
+                  instancePath: `${instancePath}/connections/${i4}/from`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -21205,7 +21006,7 @@ function validate36(
               if (typeof data87 === "string") {
                 if (!pattern4.test(data87)) {
                   const err198 = {
-                    instancePath: instancePath + "/connections/" + i4 + "/to",
+                    instancePath: `${instancePath}/connections/${i4}/to`,
                     schemaPath: "common.schema.json#/$defs/id/pattern",
                     keyword: "pattern",
                     params: { pattern: "^[a-zA-Z][a-zA-Z0-9_-]*$" },
@@ -21220,7 +21021,7 @@ function validate36(
                 }
               } else {
                 const err199 = {
-                  instancePath: instancePath + "/connections/" + i4 + "/to",
+                  instancePath: `${instancePath}/connections/${i4}/to`,
                   schemaPath: "common.schema.json#/$defs/id/type",
                   keyword: "type",
                   params: { type: "string" },
@@ -21239,7 +21040,7 @@ function validate36(
               typeof data84.label !== "string"
             ) {
               const err200 = {
-                instancePath: instancePath + "/connections/" + i4 + "/label",
+                instancePath: `${instancePath}/connections/${i4}/label`,
                 schemaPath:
                   "#/properties/connections/items/properties/label/type",
                 keyword: "type",
@@ -21264,8 +21065,7 @@ function validate36(
                 )
               ) {
                 const err201 = {
-                  instancePath:
-                    instancePath + "/connections/" + i4 + "/variant",
+                  instancePath: `${instancePath}/connections/${i4}/variant`,
                   schemaPath: "common.schema.json#/$defs/variant/enum",
                   keyword: "enum",
                   params: { allowedValues: schema62.enum },
@@ -21290,8 +21090,7 @@ function validate36(
                 )
               ) {
                 const err202 = {
-                  instancePath:
-                    instancePath + "/connections/" + i4 + "/fromSide",
+                  instancePath: `${instancePath}/connections/${i4}/fromSide`,
                   schemaPath: "common.schema.json#/$defs/side/enum",
                   keyword: "enum",
                   params: { allowedValues: schema112.enum },
@@ -21316,7 +21115,7 @@ function validate36(
                 )
               ) {
                 const err203 = {
-                  instancePath: instancePath + "/connections/" + i4 + "/toSide",
+                  instancePath: `${instancePath}/connections/${i4}/toSide`,
                   schemaPath: "common.schema.json#/$defs/side/enum",
                   keyword: "enum",
                   params: { allowedValues: schema112.enum },
@@ -21341,7 +21140,7 @@ function validate36(
                 )
               ) {
                 const err204 = {
-                  instancePath: instancePath + "/connections/" + i4 + "/route",
+                  instancePath: `${instancePath}/connections/${i4}/route`,
                   schemaPath:
                     "#/properties/connections/items/properties/route/enum",
                   keyword: "enum",
@@ -21369,8 +21168,7 @@ function validate36(
                   if (Array.isArray(data94)) {
                     if (data94.length > 2) {
                       const err205 = {
-                        instancePath:
-                          instancePath + "/connections/" + i4 + "/via/" + i5,
+                        instancePath: `${instancePath}/connections/${i4}/via/${i5}`,
                         schemaPath: "common.schema.json#/$defs/point/maxItems",
                         keyword: "maxItems",
                         params: { limit: 2 },
@@ -21385,8 +21183,7 @@ function validate36(
                     }
                     if (data94.length < 2) {
                       const err206 = {
-                        instancePath:
-                          instancePath + "/connections/" + i4 + "/via/" + i5,
+                        instancePath: `${instancePath}/connections/${i4}/via/${i5}`,
                         schemaPath: "common.schema.json#/$defs/point/minItems",
                         keyword: "minItems",
                         params: { limit: 2 },
@@ -21402,7 +21199,9 @@ function validate36(
                     const len14 = data94.length
                     if (len14 > 0) {
                       const data95 = data94[0]
-                      if (!(typeof data95 == "number" && isFinite(data95))) {
+                      if (
+                        !(typeof data95 === "number" && Number.isFinite(data95))
+                      ) {
                         const err207 = {
                           instancePath:
                             instancePath +
@@ -21427,7 +21226,9 @@ function validate36(
                     }
                     if (len14 > 1) {
                       const data96 = data94[1]
-                      if (!(typeof data96 == "number" && isFinite(data96))) {
+                      if (
+                        !(typeof data96 === "number" && Number.isFinite(data96))
+                      ) {
                         const err208 = {
                           instancePath:
                             instancePath +
@@ -21453,8 +21254,7 @@ function validate36(
                     const len15 = data94.length
                     if (!(len15 <= 2)) {
                       const err209 = {
-                        instancePath:
-                          instancePath + "/connections/" + i4 + "/via/" + i5,
+                        instancePath: `${instancePath}/connections/${i4}/via/${i5}`,
                         schemaPath: "common.schema.json#/$defs/point/items",
                         keyword: "items",
                         params: { limit: 2 },
@@ -21469,8 +21269,7 @@ function validate36(
                     }
                   } else {
                     const err210 = {
-                      instancePath:
-                        instancePath + "/connections/" + i4 + "/via/" + i5,
+                      instancePath: `${instancePath}/connections/${i4}/via/${i5}`,
                       schemaPath: "common.schema.json#/$defs/point/type",
                       keyword: "type",
                       params: { type: "array" },
@@ -21486,7 +21285,7 @@ function validate36(
                 }
               } else {
                 const err211 = {
-                  instancePath: instancePath + "/connections/" + i4 + "/via",
+                  instancePath: `${instancePath}/connections/${i4}/via`,
                   schemaPath:
                     "#/properties/connections/items/properties/via/type",
                   keyword: "type",
@@ -21506,8 +21305,7 @@ function validate36(
               if (Array.isArray(data97)) {
                 if (data97.length > 2) {
                   const err212 = {
-                    instancePath:
-                      instancePath + "/connections/" + i4 + "/labelAt",
+                    instancePath: `${instancePath}/connections/${i4}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/maxItems",
                     keyword: "maxItems",
                     params: { limit: 2 },
@@ -21522,8 +21320,7 @@ function validate36(
                 }
                 if (data97.length < 2) {
                   const err213 = {
-                    instancePath:
-                      instancePath + "/connections/" + i4 + "/labelAt",
+                    instancePath: `${instancePath}/connections/${i4}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/minItems",
                     keyword: "minItems",
                     params: { limit: 2 },
@@ -21539,10 +21336,11 @@ function validate36(
                 const len16 = data97.length
                 if (len16 > 0) {
                   const data98 = data97[0]
-                  if (!(typeof data98 == "number" && isFinite(data98))) {
+                  if (
+                    !(typeof data98 === "number" && Number.isFinite(data98))
+                  ) {
                     const err214 = {
-                      instancePath:
-                        instancePath + "/connections/" + i4 + "/labelAt/0",
+                      instancePath: `${instancePath}/connections/${i4}/labelAt/0`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/0/type",
                       keyword: "type",
@@ -21559,10 +21357,11 @@ function validate36(
                 }
                 if (len16 > 1) {
                   const data99 = data97[1]
-                  if (!(typeof data99 == "number" && isFinite(data99))) {
+                  if (
+                    !(typeof data99 === "number" && Number.isFinite(data99))
+                  ) {
                     const err215 = {
-                      instancePath:
-                        instancePath + "/connections/" + i4 + "/labelAt/1",
+                      instancePath: `${instancePath}/connections/${i4}/labelAt/1`,
                       schemaPath:
                         "common.schema.json#/$defs/point/prefixItems/1/type",
                       keyword: "type",
@@ -21580,8 +21379,7 @@ function validate36(
                 const len17 = data97.length
                 if (!(len17 <= 2)) {
                   const err216 = {
-                    instancePath:
-                      instancePath + "/connections/" + i4 + "/labelAt",
+                    instancePath: `${instancePath}/connections/${i4}/labelAt`,
                     schemaPath: "common.schema.json#/$defs/point/items",
                     keyword: "items",
                     params: { limit: 2 },
@@ -21596,8 +21394,7 @@ function validate36(
                 }
               } else {
                 const err217 = {
-                  instancePath:
-                    instancePath + "/connections/" + i4 + "/labelAt",
+                  instancePath: `${instancePath}/connections/${i4}/labelAt`,
                   schemaPath: "common.schema.json#/$defs/point/type",
                   keyword: "type",
                   params: { type: "array" },
@@ -21613,10 +21410,9 @@ function validate36(
             }
             if (data84.labelDx !== undefined) {
               const data100 = data84.labelDx
-              if (!(typeof data100 == "number" && isFinite(data100))) {
+              if (!(typeof data100 === "number" && Number.isFinite(data100))) {
                 const err218 = {
-                  instancePath:
-                    instancePath + "/connections/" + i4 + "/labelDx",
+                  instancePath: `${instancePath}/connections/${i4}/labelDx`,
                   schemaPath:
                     "#/properties/connections/items/properties/labelDx/type",
                   keyword: "type",
@@ -21633,10 +21429,9 @@ function validate36(
             }
             if (data84.labelDy !== undefined) {
               const data101 = data84.labelDy
-              if (!(typeof data101 == "number" && isFinite(data101))) {
+              if (!(typeof data101 === "number" && Number.isFinite(data101))) {
                 const err219 = {
-                  instancePath:
-                    instancePath + "/connections/" + i4 + "/labelDy",
+                  instancePath: `${instancePath}/connections/${i4}/labelDy`,
                   schemaPath:
                     "#/properties/connections/items/properties/labelDy/type",
                   keyword: "type",
@@ -21655,14 +21450,13 @@ function validate36(
               const data102 = data84.labelSegment
               if (
                 !(
-                  typeof data102 == "number" &&
-                  !(data102 % 1 || isNaN(data102)) &&
-                  isFinite(data102)
+                  typeof data102 === "number" &&
+                  !(data102 % 1 || Number.isNaN(data102)) &&
+                  Number.isFinite(data102)
                 )
               ) {
                 const err220 = {
-                  instancePath:
-                    instancePath + "/connections/" + i4 + "/labelSegment",
+                  instancePath: `${instancePath}/connections/${i4}/labelSegment`,
                   schemaPath:
                     "#/properties/connections/items/properties/labelSegment/type",
                   keyword: "type",
@@ -21677,13 +21471,12 @@ function validate36(
                 errors++
               }
               if (
-                typeof data102 == "number" &&
-                isFinite(data102) &&
-                (data102 < 0 || isNaN(data102))
+                typeof data102 === "number" &&
+                Number.isFinite(data102) &&
+                (data102 < 0 || Number.isNaN(data102))
               ) {
                 const err221 = {
-                  instancePath:
-                    instancePath + "/connections/" + i4 + "/labelSegment",
+                  instancePath: `${instancePath}/connections/${i4}/labelSegment`,
                   schemaPath:
                     "#/properties/connections/items/properties/labelSegment/minimum",
                   keyword: "minimum",
@@ -21700,11 +21493,10 @@ function validate36(
             }
             if (data84.width !== undefined) {
               const data103 = data84.width
-              if (typeof data103 == "number" && isFinite(data103)) {
-                if (data103 < 0.5 || isNaN(data103)) {
+              if (typeof data103 === "number" && Number.isFinite(data103)) {
+                if (data103 < 0.5 || Number.isNaN(data103)) {
                   const err222 = {
-                    instancePath:
-                      instancePath + "/connections/" + i4 + "/width",
+                    instancePath: `${instancePath}/connections/${i4}/width`,
                     schemaPath:
                       "common.schema.json#/$defs/relationshipWidth/minimum",
                     keyword: "minimum",
@@ -21720,7 +21512,7 @@ function validate36(
                 }
               } else {
                 const err223 = {
-                  instancePath: instancePath + "/connections/" + i4 + "/width",
+                  instancePath: `${instancePath}/connections/${i4}/width`,
                   schemaPath:
                     "common.schema.json#/$defs/relationshipWidth/type",
                   keyword: "type",
@@ -21737,7 +21529,7 @@ function validate36(
             }
           } else {
             const err224 = {
-              instancePath: instancePath + "/connections/" + i4,
+              instancePath: `${instancePath}/connections/${i4}`,
               schemaPath: "#/properties/connections/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -21753,7 +21545,7 @@ function validate36(
         }
       } else {
         const err225 = {
-          instancePath: instancePath + "/connections",
+          instancePath: `${instancePath}/connections`,
           schemaPath: "#/properties/connections/type",
           keyword: "type",
           params: { type: "array" },
@@ -21775,12 +21567,12 @@ function validate36(
           const data105 = data104[i6]
           if (
             data105 &&
-            typeof data105 == "object" &&
+            typeof data105 === "object" &&
             !Array.isArray(data105)
           ) {
             if (data105.dot === undefined) {
               const err226 = {
-                instancePath: instancePath + "/cards/" + i6,
+                instancePath: `${instancePath}/cards/${i6}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "dot" },
@@ -21795,7 +21587,7 @@ function validate36(
             }
             if (data105.title === undefined) {
               const err227 = {
-                instancePath: instancePath + "/cards/" + i6,
+                instancePath: `${instancePath}/cards/${i6}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "title" },
@@ -21810,7 +21602,7 @@ function validate36(
             }
             if (data105.items === undefined) {
               const err228 = {
-                instancePath: instancePath + "/cards/" + i6,
+                instancePath: `${instancePath}/cards/${i6}`,
                 schemaPath: "common.schema.json#/$defs/cards/items/required",
                 keyword: "required",
                 params: { missingProperty: "items" },
@@ -21828,7 +21620,7 @@ function validate36(
                 !(key18 === "dot" || key18 === "title" || key18 === "items")
               ) {
                 const err229 = {
-                  instancePath: instancePath + "/cards/" + i6,
+                  instancePath: `${instancePath}/cards/${i6}`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/additionalProperties",
                   keyword: "additionalProperties",
@@ -21857,7 +21649,7 @@ function validate36(
                 )
               ) {
                 const err230 = {
-                  instancePath: instancePath + "/cards/" + i6 + "/dot",
+                  instancePath: `${instancePath}/cards/${i6}/dot`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/dot/enum",
                   keyword: "enum",
@@ -21877,7 +21669,7 @@ function validate36(
               if (typeof data107 === "string") {
                 if (func3(data107) < 1) {
                   const err231 = {
-                    instancePath: instancePath + "/cards/" + i6 + "/title",
+                    instancePath: `${instancePath}/cards/${i6}/title`,
                     schemaPath:
                       "common.schema.json#/$defs/cards/items/properties/title/minLength",
                     keyword: "minLength",
@@ -21893,7 +21685,7 @@ function validate36(
                 }
               } else {
                 const err232 = {
-                  instancePath: instancePath + "/cards/" + i6 + "/title",
+                  instancePath: `${instancePath}/cards/${i6}/title`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/title/type",
                   keyword: "type",
@@ -21915,8 +21707,7 @@ function validate36(
                 for (let i7 = 0; i7 < len19; i7++) {
                   if (typeof data108[i7] !== "string") {
                     const err233 = {
-                      instancePath:
-                        instancePath + "/cards/" + i6 + "/items/" + i7,
+                      instancePath: `${instancePath}/cards/${i6}/items/${i7}`,
                       schemaPath:
                         "common.schema.json#/$defs/cards/items/properties/items/items/type",
                       keyword: "type",
@@ -21933,7 +21724,7 @@ function validate36(
                 }
               } else {
                 const err234 = {
-                  instancePath: instancePath + "/cards/" + i6 + "/items",
+                  instancePath: `${instancePath}/cards/${i6}/items`,
                   schemaPath:
                     "common.schema.json#/$defs/cards/items/properties/items/type",
                   keyword: "type",
@@ -21950,7 +21741,7 @@ function validate36(
             }
           } else {
             const err235 = {
-              instancePath: instancePath + "/cards/" + i6,
+              instancePath: `${instancePath}/cards/${i6}`,
               schemaPath: "common.schema.json#/$defs/cards/items/type",
               keyword: "type",
               params: { type: "object" },
@@ -21966,7 +21757,7 @@ function validate36(
         }
       } else {
         const err236 = {
-          instancePath: instancePath + "/cards",
+          instancePath: `${instancePath}/cards`,
           schemaPath: "common.schema.json#/$defs/cards/type",
           keyword: "type",
           params: { type: "array" },

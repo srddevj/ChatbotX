@@ -1124,7 +1124,7 @@ test("Radar, Passport, Legend, and Dock remain mutually clear on desktop and nar
       )
       await waitForLayout(browser, sessionId)
       const receipt = await finalGeometry(browser, sessionId)
-      const message = viewport.label + ": " + JSON.stringify(receipt)
+      const message = `${viewport.label}: ${JSON.stringify(receipt)}`
 
       assert.equal(receipt.legendDockIntersectionArea, 0, message)
       assert.equal(receipt.legendPassportIntersectionArea, 0, message)

@@ -139,7 +139,7 @@ test("workflow: node missing col never writes NaN", () => {
       "utf8",
     ),
   )
-  delete doc.nodes[0].col
+  doc.nodes[0].col = undefined
   assertFriendlyFailure("workflow", doc, "workflow node no col")
 })
 test("lifecycle: state missing col never writes NaN", () => {
@@ -149,7 +149,7 @@ test("lifecycle: state missing col never writes NaN", () => {
       "utf8",
     ),
   )
-  delete doc.states[0].col
+  doc.states[0].col = undefined
   assertFriendlyFailure("lifecycle", doc, "lifecycle state no col")
 })
 
@@ -160,7 +160,7 @@ function mulberry32(seed) {
     seed |= 0
     seed = (seed + 0x6d_2b_79_f5) | 0
     let t = Math.imul(seed ^ (seed >>> 15), 1 | seed)
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    t ^= t + Math.imul(t ^ (t >>> 7), 61 | t)
     return ((t ^ (t >>> 14)) >>> 0) / 4_294_967_296
   }
 }

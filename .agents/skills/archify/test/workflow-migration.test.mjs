@@ -350,7 +350,7 @@ test("document migration uses the authored profile and returns an independently 
 
 test("document migration defaults an omitted profile to standard", () => {
   const document = profileDivergenceWorkflow()
-  delete document.meta.quality_profile
+  document.meta.quality_profile = undefined
 
   const migration = migrateWorkflowDocument(document)
 
